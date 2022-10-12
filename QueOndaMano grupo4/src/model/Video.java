@@ -1,7 +1,9 @@
 package model;
 
 public class Video extends MediaPost{
-	
+	/**
+	 * Los videos incluyen una variable extra para guardar el fram rate del video
+	 */
 	private int FrameRate;
 	
 	/**
@@ -11,10 +13,12 @@ public class Video extends MediaPost{
 	 * @param Author
 	 * @param Date
 	 * @param Link
+	 * @param FrameRate, el frame rate del video que se desea subir
 	 */
-	public Video(String Author, String Date, String Link) {
+	public Video(String Author, String Date, String Link, int FrameRate) {
 		super(Author, Date, Link);
 		setMediaType(1);
+		setFrameRate(FrameRate);
 	}
 
 	public int getFrameRate() {

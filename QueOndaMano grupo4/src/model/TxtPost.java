@@ -9,7 +9,7 @@ public class TxtPost extends Post{
 	 * El tipo de post es 2
 	 * @param Author
 	 * @param Date
-	 * @param txtForPost, es el texto que el usuarios desea poner en su post de texto
+	 * @param txtForPost es el texto que el usuarios desea poner en su post de texto
 	 */
 	public TxtPost(String Author, String Date, String txtForPost){
 		super(Author, Date);
