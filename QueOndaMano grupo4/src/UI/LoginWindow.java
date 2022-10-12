@@ -40,7 +40,7 @@ public class LoginWindow extends JFrame {
 	 */
 	public LoginWindow() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 389);
+		setBounds(100, 100, 450, 429);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -87,7 +87,7 @@ public class LoginWindow extends JFrame {
 		contentPane.add(txtPass);
 		
 		/** 
-		 * Este botón dirigirá a la MainWindow
+		 * Este botón comprobará que exista el usuario en data.cv, de ser así, dirigirá a la MainWindow, sino, dará la posibilidad de volver a intentarlo
 		 */
 		
 		JButton btnNewButton = new JButton("Ingresar");
@@ -98,6 +98,24 @@ public class LoginWindow extends JFrame {
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnNewButton.setBounds(160, 269, 99, 34);
 		contentPane.add(btnNewButton);
+		
+		JLabel lblNewLabel_1_1 = new JLabel("Ohh, ¿olvidaste tu contraseña?");
+		lblNewLabel_1_1.setFont(new Font("Monospaced", Font.PLAIN, 14));
+		lblNewLabel_1_1.setBounds(53, 332, 300, 27);
+		contentPane.add(lblNewLabel_1_1);
+		
+		/** 
+		 * Este botón llevará a la ventana LostPassword
+		 */
+		
+		JButton btnRecuperar = new JButton("Sí :')");
+		btnRecuperar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnRecuperar.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btnRecuperar.setBounds(303, 335, 76, 23);
+		contentPane.add(btnRecuperar);
 	}
 
 }
