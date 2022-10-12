@@ -14,8 +14,7 @@ public class TxtPost extends Post{
 	public TxtPost(String Author, String Date, String txtForPost){
 		super(Author, Date);
 		setPostType(2);
-		setPostMSG(txtForPost);
-		
+		setPostMSG(txtForPost);		
 	}
 
 	public String getPostMSG() {
