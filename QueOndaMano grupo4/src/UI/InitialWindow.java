@@ -9,6 +9,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class InitialWindow extends JFrame {
 
@@ -56,12 +58,27 @@ public class InitialWindow extends JFrame {
 		lblNewLabel_1_1.setBounds(172, 178, 112, 24);
 		contentPane.add(lblNewLabel_1_1);
 		
-		JButton btnNewButton = new JButton("Log in");
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		btnNewButton.setBounds(172, 122, 89, 30);
-		contentPane.add(btnNewButton);
+		/** 
+		 * Este botón dirigirá a LoginWindow
+		 */
+		JButton btnLogin = new JButton("Log in");
+		btnLogin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnLogin.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		btnLogin.setBounds(172, 122, 89, 30);
+		contentPane.add(btnLogin);
+		
+		/** 
+		 * Este botón dirigirá a SignInWindow
+		 */
 		
 		JButton btnSignIn = new JButton("Sign in");
+		btnSignIn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnSignIn.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnSignIn.setBounds(172, 223, 89, 30);
 		contentPane.add(btnSignIn);
