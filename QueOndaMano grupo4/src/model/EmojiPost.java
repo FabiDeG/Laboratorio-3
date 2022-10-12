@@ -16,7 +16,7 @@ public class EmojiPost extends Post{
 	 * @param Date
 	 * @param emoji, son los caracteres que se publicaran como un emoticon
 	 */
-	EmojiPost(String Author, String Date, String emoji){
+	public EmojiPost(String Author, String Date, String emoji){
 		super(Author, Date);
 		setPostEmoji(emoji);
 		setPostType(1);
