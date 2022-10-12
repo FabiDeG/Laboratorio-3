@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * @author Ricardo Chuy
  *
  */
-public abstract class Post {
+public abstract class Post implements Imedia{
 	protected String Author; 
 	protected String Date;
 	protected int PostType;

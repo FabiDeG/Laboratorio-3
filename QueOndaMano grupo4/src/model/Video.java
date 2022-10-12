@@ -4,7 +4,6 @@ public class Video extends MediaPost{
 	
 	private int FrameRate;
 	
-	
 	/**
 	 * El constructor de la clase video es para los posts de tipo video. Los videos son clases hijas
 	 * de multimedia y multimedia es una clase hija de Posts.
@@ -24,6 +23,12 @@ public class Video extends MediaPost{
 
 	public void setFrameRate(int frameRate) {
 		FrameRate = frameRate;
+	}
+
+	@Override
+	public void PlayMedia() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

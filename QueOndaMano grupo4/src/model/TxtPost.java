@@ -24,6 +24,12 @@ public class TxtPost extends Post{
 	public void setPostMSG(String postMSG) {
 		PostMSG = postMSG;
 	}
+
+	@Override
+	public void PlayMedia() {
+		// TODO Auto-generated method stub
+		
+	}
 		
 	
 

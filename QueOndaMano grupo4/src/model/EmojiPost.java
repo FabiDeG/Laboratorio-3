@@ -29,6 +29,12 @@ public class EmojiPost extends Post{
 	public void setPostEmoji(String postEmoji) {
 		PostEmoji = postEmoji;
 	}
+
+	@Override
+	public void PlayMedia() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 }
