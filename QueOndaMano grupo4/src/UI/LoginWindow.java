@@ -1,11 +1,5 @@
 package UI;
 
-/**
- * Pantalla que recopita información de login
- * @author Fabi
- *
- */
-
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -19,6 +13,11 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+/**
+ * Pantalla que recopita información de login
+ * @author Fabi
+ *
+ */
 public class LoginWindow extends JFrame {
 
 	private JPanel contentPane;
@@ -43,6 +42,10 @@ public class LoginWindow extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * @param txtUser, este txt recibira la informacion del nombre de usuario
+	 * @param txtPass, este txt recibira la informacion de la contraseña
+	 * @param btnNewButton, este boton comprobara que exista el usuario en data.cv, de ser asi, dirigira a la MainWindow, sino, dara la posibilidad de volver a intentarlo
+	 * @param btnRecuperar, este boton llevara a la ventana LostPassword
 	 */
 	public LoginWindow() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -73,7 +76,7 @@ public class LoginWindow extends JFrame {
 		contentPane.add(lblNewLabel_2_1);
 		
 		/** 
-		 * Este txt recibirá la información del nombre de usuario
+		 * Este txt recibira la informacion del nombre de usuario
 		 * @param txtUser
 		 */
 		txtUser = new JTextField();
@@ -83,7 +86,7 @@ public class LoginWindow extends JFrame {
 		txtUser.setColumns(10);
 		
 		/** 
-		 * Este txt recibirá la información de la contraseña
+		 * Este txt recibira la informacion de la contraseña
 		 * @param txtPass
 		 */
 		txtPass = new JTextField();
@@ -93,7 +96,7 @@ public class LoginWindow extends JFrame {
 		contentPane.add(txtPass);
 		
 		/** 
-		 * Este botón comprobará que exista el usuario en data.cv, de ser así, dirigirá a la MainWindow, sino, dará la posibilidad de volver a intentarlo
+		 * Este botón comprobara que exista el usuario en data.cv, de ser asi, dirigira a la MainWindow, sino, dara la posibilidad de volver a intentarlo
 		 * @param btnNewButton
 		 */
 		JButton btnNewButton = new JButton("Ingresar");
@@ -111,7 +114,7 @@ public class LoginWindow extends JFrame {
 		contentPane.add(lblNewLabel_1_1);
 		
 		/** 
-		 * Este botón llevará a la ventana LostPassword
+		 * Este botón llevara a la ventana LostPassword
 		 * @param btnRecuperar
 		 */
 		JButton btnRecuperar = new JButton("Sí :')");

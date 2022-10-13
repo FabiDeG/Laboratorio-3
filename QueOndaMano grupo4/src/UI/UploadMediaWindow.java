@@ -1,11 +1,5 @@
 package UI;
 
-/**
- * Pantalla en la que el usuario puede subir sus archivos para luego publicarlos
- * @author Fabi
- *
- */
-
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -13,6 +7,11 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+/**
+ * Pantalla en la que el usuario puede subir sus archivos para luego publicarlos
+ * @author Fabi
+ *
+ */
 public class UploadMediaWindow extends JFrame {
 
 	private JPanel contentPane;

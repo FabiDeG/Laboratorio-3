@@ -1,11 +1,5 @@
 package UI;
 
-/**
- * Pantalla que recopita información de sign in
- * @author Fabi
- *
- */
-
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -19,6 +13,11 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+/**
+ * Pantalla que recopita informacion de sign in
+ * @author Fabi
+ *
+ */
 public class SignInWindow extends JFrame {
 
 	private JPanel contentPane;
@@ -44,6 +43,10 @@ public class SignInWindow extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * @param txtUser, este txt recibira la informacion del nombre de usuario
+	 * @param txtPassw, este txt recibira la informacion de la contraseña del usuario
+	 * @param txtCPassw, este txt recibira la informacion de la contraseña que se escriba y se compararan
+	 * @param btnCrearCuenta, este boton se encargara de ver que se cumpla que las contraseñas sean iguales y de guardar los datos del usuario en data.cv, de ser asi, dirigira a la MainWindow, de no ser asi, dara la oportunidad de volver a intentarlo
 	 */
 	public SignInWindow() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -79,7 +82,7 @@ public class SignInWindow extends JFrame {
 		contentPane.add(lblNewLabel_2);
 		
 		/** 
-		 * Este txt recibirá la información del nombre de usuario
+		 * Este txt recibira la informacion del nombre de usuario
 		 * @param txtUser
 		 */
 		txtUser = new JTextField();
@@ -94,7 +97,7 @@ public class SignInWindow extends JFrame {
 		contentPane.add(lblNewLabel_2_1);
 		
 		/** 
-		 * Este txt recibirá la información de la contraseña del usuario
+		 * Este txt recibira la informacion de la contraseña del usuario
 		 * @param txtPassw
 		 */
 		txtPassw = new JTextField();
@@ -109,7 +112,7 @@ public class SignInWindow extends JFrame {
 		contentPane.add(lblNewLabel_2_1_1);
 		
 		/** 
-		 * Este txt recibirá la información de la contraseña que se escriba y se compararan
+		 * Este txt recibira la informacion de la contraseña que se escriba y se compararan
 		 * @param txtCPassw
 		 */
 		txtCPassw = new JTextField();
@@ -119,7 +122,7 @@ public class SignInWindow extends JFrame {
 		contentPane.add(txtCPassw);
 		
 		/** 
-		 * Este botón se encargará de ver que se cumpla que las contraseñas sean iguales y de guardar los datos del usuario en data.cv, de ser así, dirigirá a la MainWindow, de no ser así, dará la oportunidad de volver a intentarlo
+		 * Este boton se encargara de ver que se cumpla que las contraseñas sean iguales y de guardar los datos del usuario en data.cv, de ser asi, dirigira a la MainWindow, de no ser asi, dara la oportunidad de volver a intentarlo
 		 * @param btnCrearCuenta
 		 */
 		JButton btnCrearCuenta = new JButton("Crear cuenta");

@@ -1,11 +1,5 @@
 package UI;
 
-/**
- * Main window que contiene casi todas las acciones que se puede realizar en la aplicación
- * @author Fabi
- *
- */
-
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -26,6 +20,11 @@ import javax.swing.JInternalFrame;
 import javax.swing.JDesktopPane;
 import javax.swing.JScrollBar;
 
+/**
+ * Main window que contiene casi todas las acciones que se puede realizar en la aplicación
+ * @author Fabi
+ *
+ */
 public class MainWindow extends JFrame {
 
 	private JPanel contentPane;

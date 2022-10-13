@@ -1,15 +1,14 @@
 package UI;
 
+import java.awt.EventQueue;
+
+import javax.swing.JInternalFrame;
+
 /**
  * Pantalla extra dentro de Jframe que se encargará de mostrar los post de las personas
  * @author Fabi
  *
  */
-
-import java.awt.EventQueue;
-
-import javax.swing.JInternalFrame;
-
 public class content extends JInternalFrame {
 
 	/**

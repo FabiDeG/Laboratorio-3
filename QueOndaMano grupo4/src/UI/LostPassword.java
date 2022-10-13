@@ -1,11 +1,5 @@
 package UI;
 
-/**
- * Pantalla que ayuda a usuario a recuperar su contraseña
- * @author Fabi
- *
- */
-
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -14,6 +8,11 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 
+/**
+ * Pantalla que ayuda a usuario a recuperar su contraseña
+ * @author Fabi
+ *
+ */
 public class LostPassword extends JFrame {
 
 	private JPanel contentPane;
