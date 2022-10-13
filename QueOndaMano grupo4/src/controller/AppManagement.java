@@ -4,6 +4,11 @@ import java.util.ArrayList;
 
 import model.Post;
 
+/**
+ * Controlador logico de distintos procesos de la aplicacion
+ * @author andre
+ *
+ */
 public class AppManagement {
 	AppManagement(){
 		
