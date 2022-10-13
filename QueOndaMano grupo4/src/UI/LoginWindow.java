@@ -1,5 +1,11 @@
 package UI;
 
+/**
+ * Pantalla que recopita información de login
+ * @author Fabi
+ *
+ */
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -68,8 +74,8 @@ public class LoginWindow extends JFrame {
 		
 		/** 
 		 * Este txt recibirá la información del nombre de usuario
+		 * @param txtUser
 		 */
-		
 		txtUser = new JTextField();
 		txtUser.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txtUser.setBounds(160, 144, 180, 25);
@@ -78,8 +84,8 @@ public class LoginWindow extends JFrame {
 		
 		/** 
 		 * Este txt recibirá la información de la contraseña
+		 * @param txtPass
 		 */
-		
 		txtPass = new JTextField();
 		txtPass.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txtPass.setColumns(10);
@@ -88,8 +94,8 @@ public class LoginWindow extends JFrame {
 		
 		/** 
 		 * Este botón comprobará que exista el usuario en data.cv, de ser así, dirigirá a la MainWindow, sino, dará la posibilidad de volver a intentarlo
+		 * @param btnNewButton
 		 */
-		
 		JButton btnNewButton = new JButton("Ingresar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -106,8 +112,8 @@ public class LoginWindow extends JFrame {
 		
 		/** 
 		 * Este botón llevará a la ventana LostPassword
+		 * @param btnRecuperar
 		 */
-		
 		JButton btnRecuperar = new JButton("Sí :')");
 		btnRecuperar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

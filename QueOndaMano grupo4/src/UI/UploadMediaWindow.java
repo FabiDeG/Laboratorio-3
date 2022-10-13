@@ -1,5 +1,11 @@
 package UI;
 
+/**
+ * Pantalla en la que el usuario puede subir sus archivos para luego publicarlos
+ * @author Fabi
+ *
+ */
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 

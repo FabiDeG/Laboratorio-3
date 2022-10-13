@@ -1,5 +1,11 @@
 package UI;
 
+/**
+ * Pantalla que muestra opciones de login y sign in
+ * @author Fabi
+ *
+ */
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -60,6 +66,7 @@ public class InitialWindow extends JFrame {
 		
 		/** 
 		 * Este botón dirigirá a LoginWindow
+		 * @param btnLogin
 		 */
 		JButton btnLogin = new JButton("Log in");
 		btnLogin.addActionListener(new ActionListener() {
@@ -72,8 +79,8 @@ public class InitialWindow extends JFrame {
 		
 		/** 
 		 * Este botón dirigirá a SignInWindow
+		 * @param btnSignIn
 		 */
-		
 		JButton btnSignIn = new JButton("Sign in");
 		btnSignIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

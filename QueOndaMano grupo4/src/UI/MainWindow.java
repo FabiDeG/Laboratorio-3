@@ -1,5 +1,11 @@
 package UI;
 
+/**
+ * Main window que contiene casi todas las acciones que se puede realizar en la aplicación
+ * @author Fabi
+ *
+ */
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 

@@ -1,5 +1,11 @@
 package UI;
 
+/**
+ * Pantalla en el que el usuario puede ver su perfil
+ * @author Fabi
+ *
+ */
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 

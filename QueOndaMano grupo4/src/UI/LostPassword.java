@@ -1,5 +1,11 @@
 package UI;
 
+/**
+ * Pantalla que ayuda a usuario a recuperar su contraseña
+ * @author Fabi
+ *
+ */
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 

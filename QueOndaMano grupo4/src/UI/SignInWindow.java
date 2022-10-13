@@ -1,5 +1,11 @@
 package UI;
 
+/**
+ * Pantalla que recopita información de sign in
+ * @author Fabi
+ *
+ */
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -74,8 +80,8 @@ public class SignInWindow extends JFrame {
 		
 		/** 
 		 * Este txt recibirá la información del nombre de usuario
+		 * @param txtUser
 		 */
-		
 		txtUser = new JTextField();
 		txtUser.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txtUser.setColumns(10);
@@ -89,8 +95,8 @@ public class SignInWindow extends JFrame {
 		
 		/** 
 		 * Este txt recibirá la información de la contraseña del usuario
+		 * @param txtPassw
 		 */
-		
 		txtPassw = new JTextField();
 		txtPassw.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txtPassw.setColumns(10);
@@ -103,9 +109,9 @@ public class SignInWindow extends JFrame {
 		contentPane.add(lblNewLabel_2_1_1);
 		
 		/** 
-		 * Este txt recibirá la información de la contraseña que se escriba y se compararán
+		 * Este txt recibirá la información de la contraseña que se escriba y se compararan
+		 * @param txtCPassw
 		 */
-		
 		txtCPassw = new JTextField();
 		txtCPassw.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txtCPassw.setColumns(10);
@@ -114,8 +120,8 @@ public class SignInWindow extends JFrame {
 		
 		/** 
 		 * Este botón se encargará de ver que se cumpla que las contraseñas sean iguales y de guardar los datos del usuario en data.cv, de ser así, dirigirá a la MainWindow, de no ser así, dará la oportunidad de volver a intentarlo
+		 * @param btnCrearCuenta
 		 */
-		
 		JButton btnCrearCuenta = new JButton("Crear cuenta");
 		btnCrearCuenta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
