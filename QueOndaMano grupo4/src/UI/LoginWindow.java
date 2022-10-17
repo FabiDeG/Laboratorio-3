@@ -2,7 +2,7 @@ package UI;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
+import UI.LostPassword;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -110,7 +110,7 @@ public class LoginWindow extends JFrame {
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Ohh, ¿olvidaste tu contraseña?");
 		lblNewLabel_1_1.setFont(new Font("Monospaced", Font.PLAIN, 14));
-		lblNewLabel_1_1.setBounds(53, 332, 300, 27);
+		lblNewLabel_1_1.setBounds(46, 332, 300, 27);
 		contentPane.add(lblNewLabel_1_1);
 		
 		/** 
@@ -120,10 +120,12 @@ public class LoginWindow extends JFrame {
 		JButton btnRecuperar = new JButton("Sí :')");
 		btnRecuperar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				LostPassword miLost = new LostPassword();
+				miLost.show();
 			}
 		});
 		btnRecuperar.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		btnRecuperar.setBounds(303, 335, 76, 23);
+		btnRecuperar.setBounds(315, 335, 76, 23);
 		contentPane.add(btnRecuperar);
 	}
 
