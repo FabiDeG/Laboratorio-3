@@ -7,7 +7,8 @@ public class test {
 		
 		FileManager Filemanager = new FileManager();
 		
-		Filemanager.ReadFileForPassword("ramon", "me");
+		Filemanager.ReadFileForPassword("mon", "mi");
+		Filemanager.UserExists("ramon");
 		
 		String cadena = "mi";
 		System.out.println(cadena);

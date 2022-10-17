@@ -18,24 +18,18 @@ public class FileManager {
 	private static final int USER_NAME = 0;
 	private static final int USER_PASSWORD = 1;
 	String Myfile = "QueOndaMano grupo4/src/documents/data.csv";
-	NUser user;
 	
 	/**
 	 * Controlador de archivos para poder leer, escribir y encriptar los mismos
 	 */
 	
 	/**
-	 * Verifica si una contrasenia esta en el archivo de usuarios
-	 * @param user
-	 * @param pasword
-	 * @return regresa si se encontro una conicidencia entre un usuario
-	 * y la contrasenia ingresada
+	 * MEthod that searchs if a user name exists
+	 * @param user name
+	 * @return true if the user name is found on the data.csv file
 	 */
-	public boolean ReadFileForPassword(String user, String pasword){
+	public boolean UserExists(String user) {
 		
-		System.out.println("User");
-		System.out.println(user);
-		System.out.println(pasword);
 		String line;
 		
 		try {
@@ -46,19 +40,54 @@ public class FileManager {
 				String[] fields = line.split(",");
 				
 				String UserName =  fields[USER_NAME];
-				String UserPasswrd = fields[USER_PASSWORD];
-				
-				System.out.println(UserName);
-				System.out.println(UserPasswrd);
-				
 				
 				if(user.equals(UserName)) {
+					return true;
+		
+				}
+			}
+	          br.close();
+	       
+			
+		// Catching the exception if the file is not found or if there is an IOException.
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		//User does not exist or password was incorrect
+		
+		return false;
+	}
+	
+	/**
+	 * Verifica si una contrasenia esta en el archivo de usuarios
+	 * @param user
+	 * @param pasword
+	 * @return regresa si se encontro una conicidencia entre un usuario
+	 * y la contrasenia ingresada
+	 */
+	public boolean ReadFileForPassword(String user, String pasword){
+		
+		String line;
+		
+		try {
+			// Reading the file and searching if there is a user 
+			BufferedReader br = new BufferedReader(new FileReader(Myfile));
+			while((line = br.readLine()) != null) {
+				
+				String[] fields = line.split(",");
+				
+				String UserPasswrd = fields[USER_PASSWORD];
+				
+				//Checking de current line for matching user name
+				if(UserExists(user)) {
 					
-					System.out.println("Si");
 					// If there is a matching password with its user name then the user exists
 					// All paswords in the file ar ciphered, so the decripter is necesarry to check the password
 					if(pasword.equals(DecriptInput(UserPasswrd))) {
-						System.out.println("Usuario encontrado");
+						System.out.println("Concidencia");
 						return true;
 					}
 				}
@@ -75,7 +104,6 @@ public class FileManager {
 		}
 		
 		//User does not exist or password was incorrect
-		System.out.println("Usuario no encontrado");
 		return false;
 
 	}
