@@ -39,8 +39,8 @@ public class InitialWindow extends JFrame {
 
 	/**
 	 * Create the frame.
-	 * @param btnLogin, este botón dirigirá a LoginWindow
-	 * @param btnSignIn, este botón dirigirá a SignInWindow
+	 * @param btnLogin, este boton dirigira a LoginWindow
+	 * @param btnSignIn, este boton dirigira a SignInWindow
 	 * 
 	 */
 	public InitialWindow() {
@@ -67,7 +67,7 @@ public class InitialWindow extends JFrame {
 		contentPane.add(lblNewLabel_1_1);
 		
 		/** 
-		 * Este botón dirigirá a LoginWindow
+		 * Este boton dirigira a LoginWindow
 		 * @param btnLogin
 		 */
 		JButton btnLogin = new JButton("Log in");
@@ -80,7 +80,7 @@ public class InitialWindow extends JFrame {
 		contentPane.add(btnLogin);
 		
 		/** 
-		 * Este botón dirigirá a SignInWindow
+		 * Este boton dirigira a SignInWindow
 		 * @param btnSignIn
 		 */
 		JButton btnSignIn = new JButton("Sign in");

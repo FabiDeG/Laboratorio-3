@@ -14,7 +14,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 /**
- * Pantalla que recopita información de login
+ * Pantalla que recopila informacion de login
  * @author Fabi
  *
  */
@@ -43,7 +43,7 @@ public class LoginWindow extends JFrame {
 	/**
 	 * Create the frame.
 	 * @param txtUser, este txt recibira la informacion del nombre de usuario
-	 * @param txtPass, este txt recibira la informacion de la contraseña
+	 * @param txtPass, este txt recibira la informacion de la contrasena
 	 * @param btnNewButton, este boton comprobara que exista el usuario en data.cv, de ser asi, dirigira a la MainWindow, sino, dara la posibilidad de volver a intentarlo
 	 * @param btnRecuperar, este boton llevara a la ventana LostPassword
 	 */
@@ -86,7 +86,7 @@ public class LoginWindow extends JFrame {
 		txtUser.setColumns(10);
 		
 		/** 
-		 * Este txt recibira la informacion de la contraseña
+		 * Este txt recibira la informacion de la contrasena
 		 * @param txtPass
 		 */
 		txtPass = new JTextField();
@@ -114,7 +114,7 @@ public class LoginWindow extends JFrame {
 		contentPane.add(lblNewLabel_1_1);
 		
 		/** 
-		 * Este botón llevara a la ventana LostPassword
+		 * Este boton llevara a la ventana LostPassword
 		 * @param btnRecuperar
 		 */
 		JButton btnRecuperar = new JButton("Sí :')");

@@ -5,7 +5,7 @@ import java.awt.EventQueue;
 import javax.swing.JInternalFrame;
 
 /**
- * Pantalla extra dentro de Jframe que se encargará de mostrar los post de las personas
+ * Pantalla extra dentro de Jframe que se encargara de mostrar los post de las personas
  * @author Fabi
  *
  */

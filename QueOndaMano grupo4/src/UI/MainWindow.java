@@ -21,7 +21,7 @@ import javax.swing.JDesktopPane;
 import javax.swing.JScrollBar;
 
 /**
- * Main window que contiene casi todas las acciones que se puede realizar en la aplicación
+ * Main window que contiene casi todas las acciones que se puede realizar en la aplicacion
  * @author Fabi
  *
  */

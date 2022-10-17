@@ -9,7 +9,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 
 /**
- * Pantalla que ayuda a usuario a recuperar su contraseña
+ * Pantalla que ayuda a usuario a recuperar su contrasena
  * @author Fabi
  *
  */
