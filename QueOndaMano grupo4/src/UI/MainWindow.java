@@ -49,8 +49,8 @@ public class MainWindow extends JFrame {
 	private JTextField textField;
 	private JTextField textField_1;
 	private JButton btnNewButton_4;
-	private JLabel lblNewLabel;
 	private JLabel lblNewLabel_1;
+	private JButton btnNewButton_3;
 
 	/**
 	 * Launch the application.
@@ -98,19 +98,19 @@ public class MainWindow extends JFrame {
 			}
 		});
 		
+		btnNewButton_3 = new JButton("");
+		btnNewButton_3.setIcon(new ImageIcon("C:\\Users\\fabio\\Downloads\\adefds.jpg"));
+		btnNewButton_3.setBounds(10, 7, 49, 51);
+		contentPane.add(btnNewButton_3);
+		
 		JDesktopPane Content = new JDesktopPane();
 		Content.setBounds(0, 62, 1037, 575);
 		contentPane.add(Content);
 		
 		lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\fabio\\Downloads\\Captura de pantalla 2022-10-16 235935.jpg"));
-		lblNewLabel_1.setBounds(357, 3, 282, 51);
+		lblNewLabel_1.setBounds(357, 5, 282, 51);
 		contentPane.add(lblNewLabel_1);
-		
-		lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\fabio\\Downloads\\kkd.jpg"));
-		lblNewLabel.setBounds(10, 3, 64, 74);
-		contentPane.add(lblNewLabel);
 		
 		btnNewButton_4 = new JButton("");
 		btnNewButton_4.addActionListener(new ActionListener() {
@@ -120,7 +120,7 @@ public class MainWindow extends JFrame {
 			}
 		});
 		btnNewButton_4.setIcon(new ImageIcon("C:\\Users\\fabio\\Downloads\\adss.jpg"));
-		btnNewButton_4.setBounds(972, 5, 49, 49);
+		btnNewButton_4.setBounds(972, 6, 49, 49);
 		contentPane.add(btnNewButton_4);
 		btnNewButton_2.setIcon(new ImageIcon("C:\\Users\\fabio\\Downloads\\jjj.jpg"));
 		btnNewButton_2.setBounds(979, 658, 58, 50);
