@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import javax.swing.JInternalFrame;
 import javax.swing.JScrollBar;
 import javax.swing.JTextField;
+import javax.swing.JList;
 
 /**
  * Pantalla extra dentro de Jframe que se encargara de mostrar los post de las personas
@@ -12,7 +13,6 @@ import javax.swing.JTextField;
  *
  */
 public class content extends JInternalFrame {
-	private JTextField textField;
 
 	/**
 	 * Launch the application.
@@ -34,17 +34,7 @@ public class content extends JInternalFrame {
 	 * Create the frame.
 	 */
 	public content() {
-		setBounds(100, 100, 450, 300);
-		getContentPane().setLayout(null);
-		
-		JScrollBar scrollBar = new JScrollBar();
-		scrollBar.setBounds(411, 10, 17, 48);
-		getContentPane().add(scrollBar);
-		
-		textField = new JTextField();
-		textField.setBounds(108, 97, 96, 19);
-		getContentPane().add(textField);
-		textField.setColumns(10);
+		setBounds(100, 100, 1037, 575);
 
 	}
 }

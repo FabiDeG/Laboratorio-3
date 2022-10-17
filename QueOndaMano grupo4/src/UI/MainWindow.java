@@ -12,6 +12,8 @@ import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.Rectangle;
+
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import java.awt.FlowLayout;
@@ -105,7 +107,11 @@ public class MainWindow extends JFrame {
 		
 		JDesktopPane Content = new JDesktopPane();
 		Content.setBounds(0, 62, 1037, 575);
+		content ventanita = new content();
+		Content.add(ventanita);
+		ventanita.setBounds(new Rectangle(0, 0, 1037, 575));
 		contentPane.add(Content);
+		ventanita.setVisible(true);
 		
 		lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\fabio\\Downloads\\Captura de pantalla 2022-10-16 235935.jpg"));
