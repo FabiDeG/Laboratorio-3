@@ -2,7 +2,8 @@ package UI;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
+import UI.Post;
+import UI.content;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -15,10 +16,23 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import java.awt.FlowLayout;
 import java.awt.CardLayout;
+import java.awt.Component;
+import UI.UserProfileWindow;
+import UI.UploadMediaWindow;
+import UI.Emojis;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JInternalFrame;
 import javax.swing.JDesktopPane;
 import javax.swing.JScrollBar;
+import javax.swing.JTextField;
+import java.awt.Font;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
+import javax.swing.SwingConstants;
+import java.awt.Color;
+import javax.swing.JLabel;
 
 /**
  * Main window que contiene casi todas las acciones que se puede realizar en la aplicacion
@@ -28,6 +42,15 @@ import javax.swing.JScrollBar;
 public class MainWindow extends JFrame {
 
 	private JPanel contentPane;
+	private JTextField txtComentar;
+	private JButton btnNewButton;
+	private JButton btnNewButton_1;
+	private JButton btnNewButton_2;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JButton btnNewButton_4;
+	private JLabel lblNewLabel;
+	private JLabel lblNewLabel_1;
 
 	/**
 	 * Launch the application.
@@ -50,18 +73,98 @@ public class MainWindow extends JFrame {
 	 */
 	public MainWindow() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1051, 763);
+		setBounds(100, 100, 1051, 757);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		Post miPost = new Post();
+		// content.add(Post);
+		miPost.setVisible(true);
+		
+		btnNewButton = new JButton("");
+		btnNewButton.setIcon(new ImageIcon("C:\\Users\\fabio\\Downloads\\ddd.jpg"));
+		btnNewButton.setSelectedIcon(null);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				UploadMediaWindow miUpload = new UploadMediaWindow();
+				miUpload.show();
+			}
+		});
+		
+		btnNewButton_2 = new JButton("");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		
 		JDesktopPane Content = new JDesktopPane();
-		Content.setBounds(0, 57, 1037, 608);
+		Content.setBounds(0, 62, 1037, 575);
 		contentPane.add(Content);
 		
-		JScrollBar scrollBar = new JScrollBar();
-		scrollBar.setBounds(1010, 0, 17, 598);
-		Content.add(scrollBar);
+		lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\fabio\\Downloads\\Captura de pantalla 2022-10-16 235935.jpg"));
+		lblNewLabel_1.setBounds(357, 3, 282, 51);
+		contentPane.add(lblNewLabel_1);
+		
+		lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\fabio\\Downloads\\kkd.jpg"));
+		lblNewLabel.setBounds(10, 3, 64, 74);
+		contentPane.add(lblNewLabel);
+		
+		btnNewButton_4 = new JButton("");
+		btnNewButton_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				UserProfileWindow miProfile = new UserProfileWindow();
+				miProfile.show();
+			}
+		});
+		btnNewButton_4.setIcon(new ImageIcon("C:\\Users\\fabio\\Downloads\\adss.jpg"));
+		btnNewButton_4.setBounds(972, 5, 49, 49);
+		contentPane.add(btnNewButton_4);
+		btnNewButton_2.setIcon(new ImageIcon("C:\\Users\\fabio\\Downloads\\jjj.jpg"));
+		btnNewButton_2.setBounds(979, 658, 58, 50);
+		contentPane.add(btnNewButton_2);
+		
+		btnNewButton_1 = new JButton("");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Emojis miEmoji = new Emojis();
+				miEmoji.show();
+			}
+		});
+		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\fabio\\Downloads\\kkk.jpg"));
+		btnNewButton_1.setBounds(920, 658, 49, 50);
+		contentPane.add(btnNewButton_1);
+		btnNewButton.setBounds(861, 658, 49, 50);
+		contentPane.add(btnNewButton);
+		
+		txtComentar = new JTextField();
+		txtComentar.setHorizontalAlignment(SwingConstants.RIGHT);
+		txtComentar.setForeground(Color.BLACK);
+		txtComentar.setText("dff");
+		txtComentar.setBounds(0, 647, 851, 69);
+		contentPane.add(txtComentar);
+		txtComentar.setFont(new Font("Times New Roman", Font.PLAIN, 18));
+		txtComentar.setColumns(10);
+		
+		textField = new JTextField();
+		textField.setText("m");
+		textField.setHorizontalAlignment(SwingConstants.TRAILING);
+		textField.setFont(new Font("Times New Roman", Font.PLAIN, 18));
+		textField.setColumns(10);
+		textField.setBounds(845, 647, 192, 69);
+		contentPane.add(textField);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(0, 3, 1037, 59);
+		contentPane.add(textField_1);
+		textField_1.setEditable(false);
+		textField_1.setEnabled(false);
+		textField_1.setBackground(Color.WHITE);
+		textField_1.setHorizontalAlignment(SwingConstants.RIGHT);
+		textField_1.setForeground(Color.WHITE);
+		textField_1.setFont(new Font("Times New Roman", Font.PLAIN, 18));
+		textField_1.setColumns(10);
 	}
 }
