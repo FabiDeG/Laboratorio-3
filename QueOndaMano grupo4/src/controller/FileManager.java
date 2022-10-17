@@ -28,7 +28,6 @@ public class FileManager {
 	 * Verifica si una contrasenia esta en el archivo de usuarios
 	 * @param user
 	 * @param pasword
-	 * @param usersFile
 	 * @return regresa si se encontro una conicidencia entre un usuario
 	 * y la contrasenia ingresada
 	 */
@@ -56,7 +55,8 @@ public class FileManager {
 				if(user.equals(UserName)) {
 					
 					System.out.println("Si");
-					
+					// If there is a matching password with its user name then the user exists
+					//Login is correct
 					if(pasword.equals(UserPasswrd)) {
 						System.out.println("Usuario encontrado");
 						return true;
@@ -74,6 +74,7 @@ public class FileManager {
 			e.printStackTrace();
 		}
 		
+		//User does not exist or password was incorrect
 		System.out.println("Usuario no encontrado");
 		return false;
 
@@ -94,7 +95,55 @@ public class FileManager {
 	 * @return text encriptado
 	 */
 	public String EncriptInput(String textToEncript) {
-		return textToEncript;	
+		
+		char[] alphabet = {	'a', 'b', 'c', 'd', 'e', 
+				'f', 'g', 'h', 'i', 'j',
+				'k', 'l', 'm', 'n', 'ñ',
+				'o', 'p', 'q', 'r', 's',
+				't', 'u', 'v', 'w', 'x',
+				'y', 'z', 'A', 'B', 'C',
+				'D', 'E', 'F', 'G', 'H',
+				'I', 'J', 'K', 'L', 'M',
+				'N', 'Ñ', 'O', 'P', 'Q',
+				'R', 'S', 'T', 'U', 'V',
+				'W', 'W', 'Z', '0', '1',
+				'2', '3', '4', '5', '6',
+				'7', '8', '9', '-', '_'};
+		
+		int[] indexesOfText = new int[textToEncript.length()];
+		
+		// turning the string into a chain of numberes that represent their position int the alphabet
+		for (int i = 0; i < textToEncript.length(); i++) {
+			char aCharIntoText = textToEncript.charAt(i);
+			
+			for (int j = 0; j < alphabet.length; j++) { //Search the char in the alphabet to get it index
+				
+				if (aCharIntoText == alphabet[j]) { // Compare the char with all the elements in the alphabet
+					indexesOfText[i] = j; //If found then save the index into the numeric array
+					break; //short circuit the for loop 
+				}
+			}
+			
+		}	
+		
+		//Modify de list of numeric values adding 3 to the position
+		
+		for (int k = 0; k < indexesOfText.length; k++) {
+			indexesOfText[k] = ((indexesOfText[k] + 2) % alphabet.length);
+			
+			while (indexesOfText[k] < 0) { //prevent negative values
+				indexesOfText[k] += alphabet.length;
+			}
+			
+		}
+		
+		//Using the list of new numeric values, turn the list into letters based on the new alphabet position
+		String NewTxt = "";
+		for (int m = 0; m < indexesOfText.length; m++) {
+			NewTxt = NewTxt + alphabet[indexesOfText[m] ]; //get the char according with its index
+		}
+
+		return NewTxt;	
 	}
 	
 	/**
@@ -103,7 +152,55 @@ public class FileManager {
 	 * @return texto desencriptado
 	 */
 	public String DecriptInput(String textToDecript) {
-		return textToDecript;	
+		
+		char[] alphabet = {	'a', 'b', 'c', 'd', 'e', 
+				'f', 'g', 'h', 'i', 'j',
+				'k', 'l', 'm', 'n', 'ñ',
+				'o', 'p', 'q', 'r', 's',
+				't', 'u', 'v', 'w', 'x',
+				'y', 'z', 'A', 'B', 'C',
+				'D', 'E', 'F', 'G', 'H',
+				'I', 'J', 'K', 'L', 'M',
+				'N', 'Ñ', 'O', 'P', 'Q',
+				'R', 'S', 'T', 'U', 'V',
+				'W', 'W', 'Z', '0', '1',
+				'2', '3', '4', '5', '6',
+				'7', '8', '9', '-', '_'};
+		
+		int[] indexesOfText = new int[textToDecript.length()];
+		
+		// turning the string into a chain of numberes that represent their position int the alphabet
+		for (int i = 0; i < textToDecript.length(); i++) {
+			char aCharIntoText = textToDecript.charAt(i);
+			
+			for (int j = 0; j < alphabet.length; j++) { //Search the char in the alphabet to get it index
+				
+				if (aCharIntoText == alphabet[j]) { // Compare the char with all the elements in the alphabet
+					indexesOfText[i] = j; //If found then save the index into the numeric array
+					break; //short circuit the for loop 
+				}
+			}
+			
+		}	
+		
+		//Modify de list of numeric values adding 3 to the position
+		
+		for (int k = 0; k < indexesOfText.length; k++) {
+			indexesOfText[k] = ((indexesOfText[k] + -2) % alphabet.length);
+			
+			while (indexesOfText[k] < 0) { //prevent negative values
+				indexesOfText[k] += alphabet.length;
+			}
+			
+		}
+		
+		//Using the list of new numeric values, turn the list into letters based on the new alphabet position
+		String NewTxt = "";
+		for (int m = 0; m < indexesOfText.length; m++) {
+			NewTxt = NewTxt + alphabet[indexesOfText[m] ]; //get the char according with its index
+		}
+		
+		return NewTxt;	
 	}
 
 }
