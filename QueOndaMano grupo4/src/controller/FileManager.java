@@ -56,8 +56,8 @@ public class FileManager {
 					
 					System.out.println("Si");
 					// If there is a matching password with its user name then the user exists
-					//Login is correct
-					if(pasword.equals(UserPasswrd)) {
+					// All paswords in the file ar ciphered, so the decripter is necesarry to check the password
+					if(pasword.equals(DecriptInput(UserPasswrd))) {
 						System.out.println("Usuario encontrado");
 						return true;
 					}
@@ -98,7 +98,7 @@ public class FileManager {
 		
 		char[] alphabet = {	'a', 'b', 'c', 'd', 'e', 
 				'f', 'g', 'h', 'i', 'j',
-				'k', 'l', 'm', 'n', 'ñ',
+				'k', 'l', 'm', 'n',
 				'o', 'p', 'q', 'r', 's',
 				't', 'u', 'v', 'w', 'x',
 				'y', 'z', 'A', 'B', 'C',
@@ -108,7 +108,7 @@ public class FileManager {
 				'R', 'S', 'T', 'U', 'V',
 				'W', 'W', 'Z', '0', '1',
 				'2', '3', '4', '5', '6',
-				'7', '8', '9', '-', '_'};
+				'7', '8', '9'};
 		
 		int[] indexesOfText = new int[textToEncript.length()];
 		
@@ -155,7 +155,7 @@ public class FileManager {
 		
 		char[] alphabet = {	'a', 'b', 'c', 'd', 'e', 
 				'f', 'g', 'h', 'i', 'j',
-				'k', 'l', 'm', 'n', 'ñ',
+				'k', 'l', 'm', 'n',
 				'o', 'p', 'q', 'r', 's',
 				't', 'u', 'v', 'w', 'x',
 				'y', 'z', 'A', 'B', 'C',
@@ -165,7 +165,7 @@ public class FileManager {
 				'R', 'S', 'T', 'U', 'V',
 				'W', 'W', 'Z', '0', '1',
 				'2', '3', '4', '5', '6',
-				'7', '8', '9', '-', '_'};
+				'7', '8', '9'};
 		
 		int[] indexesOfText = new int[textToDecript.length()];
 		

@@ -7,9 +7,9 @@ public class test {
 		
 		FileManager Filemanager = new FileManager();
 		
-		Filemanager.ReadFileForPassword("ramon", "234");
+		Filemanager.ReadFileForPassword("ramon", "me");
 		
-		String cadena = "12mari";
+		String cadena = "mi";
 		System.out.println(cadena);
 		
 		cadena = Filemanager.EncriptInput(cadena);
