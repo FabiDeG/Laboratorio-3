@@ -1,6 +1,8 @@
 package UI;
 
 import java.awt.BorderLayout;
+import UI.LoginWindow;
+import UI.SignInWindow;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -72,7 +74,9 @@ public class InitialWindow extends JFrame {
 		 */
 		JButton btnLogin = new JButton("Log in");
 		btnLogin.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) {				
+				LoginWindow miLog = new LoginWindow();
+				miLog.show();
 			}
 		});
 		btnLogin.setFont(new Font("Tahoma", Font.PLAIN, 12));
@@ -86,6 +90,8 @@ public class InitialWindow extends JFrame {
 		JButton btnSignIn = new JButton("Sign in");
 		btnSignIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				SignInWindow miSign = new SignInWindow();
+				miSign.show();
 			}
 		});
 		btnSignIn.setFont(new Font("Tahoma", Font.PLAIN, 12));
