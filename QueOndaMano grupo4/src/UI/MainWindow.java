@@ -122,7 +122,7 @@ public class MainWindow extends JFrame {
 		btnNewButton_4.setIcon(new ImageIcon("C:\\Users\\fabio\\Downloads\\adss.jpg"));
 		btnNewButton_4.setBounds(972, 6, 49, 49);
 		contentPane.add(btnNewButton_4);
-		btnNewButton_2.setIcon(new ImageIcon("C:\\Users\\fabio\\Downloads\\jjj.jpg"));
+		btnNewButton_2.setIcon(new ImageIcon("C:\\Users\\fabio\\Downloads\\klksdf.png"));
 		btnNewButton_2.setBounds(979, 658, 58, 50);
 		contentPane.add(btnNewButton_2);
 		
