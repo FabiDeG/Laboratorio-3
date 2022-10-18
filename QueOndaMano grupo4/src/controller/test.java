@@ -12,13 +12,19 @@ public class test {
 		
 		FileManager Filemanager = new FileManager();
 		
-		Filemanager.ReadFileForPassword("ramosn", "32");
+		Filemanager.ReadFileForPassword("ramosn", "10");
 		Filemanager.UserExists("ramon");
 		
+		String name = "hola";
+		String psw = "hola";
+		
+		
 		ArrayList<User> mylist = new ArrayList<User>();
+		Filemanager.SaveUserToFile(name, psw);
 		Filemanager.setAllUsersFromFile(mylist);
 		
-		System.out.println(mylist.get(0).getUsername());
+		System.out.println(mylist.get(4).getUsername());
+		
 		
 	}
 }

@@ -125,7 +125,7 @@ public class FileManager {
 			      FileWriter myWriter = new FileWriter(Myfile, true);
 			      
 			      String linea = "1," + "" + user + "," + EncriptInput(pswrd);
-			      
+			      linea += "\r\n";
 			      
 			      myWriter.append(linea);
 			      
