@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
 import model.NUser;
@@ -115,6 +116,26 @@ public class FileManager {
 	 */
 	public void SaveUserToFile(String user, String pswrd) {
 		
+		if(!UserExists(user)) {
+			try {
+			      FileWriter myWriter = new FileWriter(Myfile, true);
+			      
+			      String linea = "" + user + "," + EncriptInput(pswrd);
+			      
+			      
+			      myWriter.append(linea);
+			      
+			      myWriter.close();
+			      System.out.println("Successfully wrote to the file.");
+			    } catch (IOException e) {
+			      System.out.println("An error occurred.");
+			      e.printStackTrace();
+			    }
+		}
+		
+		else {
+			System.out.println("El nombre de usuario ya existe");
+		}
 	}
 	
 	/**

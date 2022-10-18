@@ -7,7 +7,7 @@ public class test {
 		
 		FileManager Filemanager = new FileManager();
 		
-		Filemanager.ReadFileForPassword("mon", "mi");
+		Filemanager.ReadFileForPassword("ramosn", "32");
 		Filemanager.UserExists("ramon");
 		
 		String cadena = "mi";
@@ -20,6 +20,11 @@ public class test {
 		cadena = Filemanager.DecriptInput(cadena);
 		System.out.println(cadena);
 		
+		
+		String newUser = "ramosn";
+		String newpsw = "32";
+		
+		Filemanager.SaveUserToFile(newUser, newpsw);
 		
 	}
 }
