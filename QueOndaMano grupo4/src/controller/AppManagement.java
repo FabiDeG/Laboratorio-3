@@ -55,7 +55,7 @@ public class AppManagement {
 	}
 	
 	/**
-	 * Recibe un post cualquier e incrementa su cantidad de likes en 1
+	 * Recibe un post cualquiera e incrementa su cantidad de likes en 1
 	 * @param post
 	 */
 	public void LikePost(Post post) {
@@ -79,6 +79,7 @@ public class AppManagement {
 	 */
 	public ArrayList<Post> SearchPostByDate(String date, ArrayList<Post> posts){
 		
+		
 		return posts;
 	}
 	
@@ -89,8 +90,23 @@ public class AppManagement {
 	 * @return una lista con todos los posts que contienen el hastag solicitado
 	 */
 	public ArrayList<Post> SearchPostByhastag(String Hashtag, ArrayList<Post> posts){
-		return posts;
-	}
+		
+		//List where al posts with a matching hastag weill appear
+		ArrayList<Post> ListOfPostsWithHastag = new ArrayList<Post>();
+		
+		// Search applies to every post
+		for (Post post : posts) {
+			// and the loop check every string in the array list of hastags that the post has
+			for (String _HashtagInList : post.getHashtags()) {
+				
+				if(Hashtag.equals(_HashtagInList)) { // If the post has the hastag it is stored in the list
+					ListOfPostsWithHastag.add(post);
+				}
+			}
+				
+		}
+		return ListOfPostsWithHastag;
+	}		
 	
 	/**
 	 * Metodo que busca todos los posts hechos por un usuario en especifico
@@ -99,7 +115,16 @@ public class AppManagement {
 	 * @return una lista con todos los posts que ha realizado un usuario
 	 */
 	public ArrayList<Post> SearchPostByAuthor(String user, ArrayList<Post> posts){
-		return posts;
+		
+		ArrayList<Post> PostsWithSpecAuthor = new ArrayList<Post>();
+		
+		for (Post post : posts) {
+			if(user.equals(post.getAuthor())) {
+				PostsWithSpecAuthor.add(post);
+			}
+		}
+		
+		return PostsWithSpecAuthor;
 	}
 	
 	/**
@@ -119,6 +144,8 @@ public class AppManagement {
 	 * @param Password nueva contrasenia
 	 */
 	public void SignIn(String user, String Password) {
+		
+		
 	}
 	
 	/**
@@ -128,6 +155,9 @@ public class AppManagement {
 	 * @return verdadero si se encontro el hastag deseado
 	 */
 	public boolean HashtagExists(String hashtag, ArrayList<Post> listOfPosts) {
+		
+		
+		
 		return false;	
 	}
 }
