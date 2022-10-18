@@ -3,6 +3,7 @@ package controller;
 import java.util.ArrayList;
 
 import model.Post;
+import model.User;
 
 /**
  * Controlador logico de distintos procesos de la aplicacion
@@ -31,11 +32,26 @@ public class AppManagement {
 	 * @param ListOfPosts, una lista de posts que puede ser los posts de un usuario,
 	 * o bien puede ser la lista de todos los posts guardados (solo el administrador tiene 
 	 * acceso a este para borrar datos)
-	 * @param userType, el tipo de usuario que desea borrar un post (si es admin puede
-	 * borrar cualquier post)
+	 * @param user, el tipo de usuario que desea borrar se obtiene de esta un 
+	 * variable post (si es admin puede borrar cualquier post)
 	 */
-	public void DeletePost(ArrayList<Post> ListOfPosts, int userType) {
+	public void DeletePost(ArrayList<Post> ListOfPosts, User user, int NumberOfPostToDelete) {
 		
+		int userType = user.getTipo();
+		String PostAuthor = ListOfPosts.get(NumberOfPostToDelete).getAuthor();
+		String UserName = user.getUsername(); 
+		
+		try {
+			
+			// Si el tipo de usuario es 0, es un amin y puede borrar cualquier post
+			// O bien si el nombre de usuario es el mismo del autor del post
+			if(userType == 0 || PostAuthor.equals(UserName)) {
+				ListOfPosts.remove(NumberOfPostToDelete);
+			}
+				
+		} catch (Exception e) {
+			System.out.println("El numero de post no corresponde a ninguno de los posts disponibles");
+		}
 	}
 	
 	/**
