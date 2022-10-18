@@ -8,6 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import model.NAdmin;
 import model.NUser;
 import model.User;
 
@@ -18,8 +19,9 @@ public class FileManager {
 	/**
 	 * Variables para poder buscar informacion en el codigo de forma mas sencilla
 	 */
-	private static final int USER_NAME = 0;
-	private static final int USER_PASSWORD = 1;
+	private static final int USER_TYPE = 0;
+	private static final int USER_NAME = 1;
+	private static final int USER_PASSWORD = 2;
 	String Myfile = "QueOndaMano grupo4/src/documents/data.txt";
 	
 	/**
@@ -122,7 +124,7 @@ public class FileManager {
 			try {
 			      FileWriter myWriter = new FileWriter(Myfile, true);
 			      
-			      String linea = "" + user + "," + EncriptInput(pswrd);
+			      String linea = "1," + "" + user + "," + EncriptInput(pswrd);
 			      
 			      
 			      myWriter.append(linea);
@@ -254,6 +256,10 @@ public class FileManager {
 		return NewTxt;	
 	}
 
+	/**
+	 * A method that saves every user saved en the data file, to an array List
+	 * @param listOfUsers
+	 */
 	public void setAllUsersFromFile(ArrayList <User> listOfUsers) {
 		String line;
 		
@@ -264,10 +270,19 @@ public class FileManager {
 				
 				String[] fields = line.split(",");
 				
+				String userType = fields[USER_TYPE];
 				String UserName = fields[USER_NAME];
 				String PassWord = fields[USER_PASSWORD];
 				
-				listOfUsers.add(new User(UserName, PassWord));
+				if(userType.equals("0")) {
+					listOfUsers.add(new NAdmin(UserName, PassWord));
+					System.out.println("ADmin new");
+				}
+				else {
+					listOfUsers.add(new NUser(UserName, PassWord));
+					System.out.println("User new");
+				}	
+				
 				
 			}
 	          br.close();

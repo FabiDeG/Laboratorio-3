@@ -8,7 +8,7 @@ import java.util.ArrayList;
 /**
  *
  */
-public class User {
+public abstract class User {
 
 	/**
 	 * Se declaran las varibles
