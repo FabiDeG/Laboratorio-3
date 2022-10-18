@@ -10,9 +10,6 @@ import model.Post;
  *
  */
 public class AppManagement {
-	AppManagement(){
-		
-	}
 	
 	/**
 	 * Verificacion de largo texto correcto para posts
@@ -20,8 +17,12 @@ public class AppManagement {
 	 * @return regresa verdadero si la cadena de texto es menor o igual a 20 caracteres
 	 */
 	public boolean CorrectTxtLength(String TextInput){
-		return true;
 		
+		if(TextInput.length() <= 20) {
+			return true;
+		}
+		
+		return false;
 	}
 	
 	/**
