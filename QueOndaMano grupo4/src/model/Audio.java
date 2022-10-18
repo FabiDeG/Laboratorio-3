@@ -20,7 +20,7 @@ public class Audio extends MediaPost implements Imedia{
 	 */
 	public Audio(String Author, String Date, String Link, double samplRatio, int bitdepth) {
 		super(Author, Date, Link);
-		setMediaType(2);
+		setMediaType(3);
 		setSampleRatio(samplRatio);
 		setBitDepth(bitdepth);
 	}
@@ -46,7 +46,8 @@ public class Audio extends MediaPost implements Imedia{
 
 
 	@Override
-	public void PlayMedia() {
+	public String PlayMedia() {
+		return "Se está repoduciendo el audio";
 		// TODO Auto-generated method stub
 		
 	}

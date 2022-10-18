@@ -12,5 +12,5 @@ public interface Imedia {
 	 * Metodo que muestra un mensaje dependiendo del tipo de post. Todos los post sobreescriben
 	 * este metodo
 	 */
-	public void PlayMedia();
+	public String PlayMedia();
 }

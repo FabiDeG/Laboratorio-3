@@ -20,7 +20,7 @@ public class Image extends MediaPost implements Imedia{
 		super(Author, Date, Link);
 		setResolution(resolution);
 		setFormat(format);
-		setMediaType(3);
+		setMediaType(4);
 	}
 
 	
@@ -45,7 +45,9 @@ public class Image extends MediaPost implements Imedia{
 
 
 	@Override
-	public void PlayMedia() {
+	public String PlayMedia() {
+		return "A continuacion se muestra la imagen del post";
+		
 		// TODO Auto-generated method stub
 		
 	}

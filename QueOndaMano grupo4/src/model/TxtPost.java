@@ -26,7 +26,8 @@ public class TxtPost extends Post{
 	}
 
 	@Override
-	public void PlayMedia() {
+	public String PlayMedia() {
+		return "Se esta reproduciendo el texto";
 		// TODO Auto-generated method stub
 		
 	}

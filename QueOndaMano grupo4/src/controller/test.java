@@ -18,7 +18,6 @@ public class test {
 		String name = "hola";
 		String psw = "hola";
 		
-		
 		ArrayList<User> mylist = new ArrayList<User>();
 		Filemanager.SaveUserToFile(name, psw);
 		Filemanager.setAllUsersFromFile(mylist);

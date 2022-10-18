@@ -31,7 +31,9 @@ public class EmojiPost extends Post{
 	}
 
 	@Override
-	public void PlayMedia() {
+	public String PlayMedia() {
+		
+		return "Este es el emoji del post";
 		// TODO Auto-generated method stub
 		
 	}

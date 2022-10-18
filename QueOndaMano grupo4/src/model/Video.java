@@ -17,7 +17,7 @@ public class Video extends MediaPost{
 	 */
 	public Video(String Author, String Date, String Link, int FrameRate) {
 		super(Author, Date, Link);
-		setMediaType(1);
+		setMediaType(5);
 		setFrameRate(FrameRate);
 	}
 
@@ -30,7 +30,8 @@ public class Video extends MediaPost{
 	}
 
 	@Override
-	public void PlayMedia() {
+	public String PlayMedia() {
+		return "Se esta reproduciendo el video";
 		// TODO Auto-generated method stub
 		
 	}
