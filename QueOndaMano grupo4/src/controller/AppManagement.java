@@ -148,16 +148,4 @@ public class AppManagement {
 		
 	}
 	
-	/**
-	 * Metodo que busca un hastag especifico en todos los posts disponibles
-	 * @param hashtag el hastag que se esta buscando
-	 * @param listOfPosts lista de todos los posts
-	 * @return verdadero si se encontro el hastag deseado
-	 */
-	public boolean HashtagExists(String hashtag, ArrayList<Post> listOfPosts) {
-		
-		
-		
-		return false;	
-	}
 }
