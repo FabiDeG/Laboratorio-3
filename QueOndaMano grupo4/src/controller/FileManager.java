@@ -6,8 +6,10 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import model.NUser;
+import model.User;
 
 
 
@@ -18,7 +20,7 @@ public class FileManager {
 	 */
 	private static final int USER_NAME = 0;
 	private static final int USER_PASSWORD = 1;
-	String Myfile = "QueOndaMano grupo4/src/documents/data.csv";
+	String Myfile = "QueOndaMano grupo4/src/documents/data.txt";
 	
 	/**
 	 * Controlador de archivos para poder leer, escribir y encriptar los mismos
@@ -109,7 +111,7 @@ public class FileManager {
 
 	}
 	/**
-	 * Guardar nuevo usario en el archivo de usuarios
+	 * Save a new unique user to the file
 	 * @param user
 	 * @param pswrd
 	 * @param usersfile
@@ -252,4 +254,7 @@ public class FileManager {
 		return NewTxt;	
 	}
 
+	public void setAllUsersFromFile(ArrayList <User> listOfUsers) {
+		
+	}
 }

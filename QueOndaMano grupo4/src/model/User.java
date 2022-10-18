@@ -3,18 +3,12 @@
  */
 package model;
 
+import java.util.ArrayList;
+
 /**
  *
  */
 public class User {
-
-	/**
-	 * 
-	 */
-	public User() {
-		// TODO Auto-generated constructor stub
-		
-	}
 
 	/**
 	 * Se declaran las varibles
@@ -25,7 +19,17 @@ public class User {
 	public static final int NAdmin = 1;
 	protected String Username;
 	protected String Password;
-	protected String UserPosts;
+	protected ArrayList<Post> UserPosts;
+	
+	/**
+	 * 
+	 */
+	public User(String Username, String Password) {
+		UserPosts = new ArrayList<Post>();
+		setUsername(Username);
+		setPassword(Password);
+		
+	}
 	
 	/**
 	 * get tipo
@@ -71,19 +75,22 @@ public class User {
 	public void setPassword(String Password) {
 		this.Password = Password;
 	}
-	
+
 	/**
 	 * get UserPosts
 	 */
-	
-	public String getUserPosts() {
+	public ArrayList<Post> getUserPosts() {
 		return UserPosts;
 	}
 
 	/**
-	 * set Password
+	 * set UserPosts
 	 */
-	public void setUserPosts(String UserPosts) {
-		this.UserPosts = UserPosts;
+	public void setUserPosts(ArrayList<Post> userPosts) {
+		UserPosts = userPosts;
 	}
+	
+	
+	
+
 }
