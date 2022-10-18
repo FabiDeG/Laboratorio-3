@@ -255,6 +255,29 @@ public class FileManager {
 	}
 
 	public void setAllUsersFromFile(ArrayList <User> listOfUsers) {
+		String line;
+		
+		try {
+			// Reading the file and searching if there is a user 
+			BufferedReader br = new BufferedReader(new FileReader(Myfile));
+			while((line = br.readLine()) != null) {
+				
+				String[] fields = line.split(",");
+				
+				String UserName = fields[USER_NAME];
+				String PassWord = fields[USER_PASSWORD];
+				
+				listOfUsers.add(new User(UserName, PassWord));
+				
+			}
+	          br.close();
+	       
+		// Catching the exception if the file is not found or if there is an IOException.
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
 	}
 }
