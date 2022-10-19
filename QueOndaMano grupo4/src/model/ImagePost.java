@@ -1,13 +1,13 @@
 package model;
 
-public class Image extends MediaPost implements Imedia{
+public class ImagePost extends MediaPost implements Imedia{
 
 	/**
 	 * Clase hija de la clase MediaPost, tene la utilidad de crear posts de tipo imagen
 	 * El tipo de multimedia de estos posts es 3
 	 */
 	private String Format;
-	private int Resolution;
+	private String Resolution;
 	
 	/**
 	 * @param Author
@@ -15,7 +15,7 @@ public class Image extends MediaPost implements Imedia{
 	 * @param format Esta variable guarda el formato/tipo de archivo que es (png, jpeg etc)
 	 * @param resolution Guarda la resolucion de la imagen que se va a postear.
 	 */
-	Image(String Author, String Link, String format, int resolution, double PrgSize) {
+	public ImagePost(String Author, String Link, String format, String resolution, double PrgSize) {
 		super(Author, Link, PrgSize);
 		setResolution(resolution);
 		setFormat(format);
@@ -33,12 +33,12 @@ public class Image extends MediaPost implements Imedia{
 	}
 
 
-	public int getResolution() {
+	public String getResolution() {
 		return Resolution;
 	}
 
 
-	public void setResolution(int resolution) {
+	public void setResolution(String resolution) {
 		Resolution = resolution;
 	}
 

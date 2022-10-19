@@ -1,14 +1,21 @@
 package controller;
 
 import java.awt.Image;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
+import javax.imageio.ImageIO;
+
 import model.Audio;
+import model.ImagePost;
 import model.NAdmin;
 import model.NUser;
 import model.Post;
 import model.User;
 import model.Video;
+import java.io.File;
+import java.io.IOException;
+
 
 /**
  * Controlador logico de distintos procesos de la aplicacion
@@ -192,30 +199,66 @@ public class AppManagement {
 	 * @param PostFylePath the fylepath necesary to analize ande get the data
 	 * @return Returns a mediapost of type image 
 	 */
-	public Image CreateImagePostFromMetaData(User PostinUser, String postLink, String PostFylePath) {
+	public ImagePost CreateImagePostFromMetaData(User PostinUser, String postLink, String PostFilePath) {
+		
+		ImagePost newImg = null;
 		
 		try {
 			
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
+			String Author = PostinUser.getUsername();
+			
+			
+			File file = new File(PostFilePath);
+
+		    // convert the file name into string
+		    String fileName = file.toString();
+		    String extension = "";
+		    
+		    int index = fileName.lastIndexOf('.');
+		    if(index > 0) {
+		      extension = fileName.substring(index + 1);
+		      System.out.println("File extension is " + extension);
+		    }
+			
+			Double ImgSize = (double) (file.length() / 1000);
+			
+			BufferedImage imo;
+	       
+	        imo = ImageIO.read(new File("location_of_file"));
+	        System.out.println(imo.getHeight());
+	        System.out.println(imo.getWidth());
+	    
 		
-		return null;
+			String resolution = (imo.getHeight()) + "X" + imo.getHeight();
+			
+			newImg = new ImagePost(Author, postLink, extension, resolution, ImgSize);
+			return newImg;
+			
+		} catch (Exception e) {
+			System.out.println("No se pudo completar la tarea, puede que el archivo "
+					+ "seleccionado no corresponda al tipo de archivo que se desea postear");
+		}
+		return newImg;
+		
+		
 	}
 	
 	/**
 	 * Method that receives enough information to create a post of type video
 	 * @param PostinUser the usar that is making the post
 	 * @param postLink the link were the user got the video from
-	 * @param PostFylePath the fylepath necesary to analize ande get the data 
+	 * @param PostFilePath the fylepath necesary to analize ande get the data 
 	 * @return Returns a mediapost of type video
 	 */
-	public Video CreateVideoPostFromMetaData(User PostinUser, String postLink, String PostFylePath) {
+	public Video CreateVideoPostFromMetaData(User PostinUser, String postLink, String PostFilePath) {
 		
 		try {
+		
 			
 		} catch (Exception e) {
-			// TODO: handle exception
+			System.out.println("No se pudo completar la tarea, puede que el archivo "
+					+ "seleccionado no corresponda al tipo de archivo que se desea postear");
+
 		}
 		
 		return null;
@@ -234,7 +277,9 @@ public class AppManagement {
 		try {
 			
 		} catch (Exception e) {
-			// TODO: handle exception
+			System.out.println("No se pudo completar la tarea, puede que el archivo "
+					+ "seleccionado no corresponda al tipo de archivo que se desea postear");
+
 		}
 		
 		return null;
