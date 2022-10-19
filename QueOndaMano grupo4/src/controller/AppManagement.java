@@ -59,17 +59,18 @@ public class AppManagement {
 	 * Recibe un post cualquiera e incrementa su cantidad de likes en 1
 	 * @param post
 	 */
-	public void LikePost(Post post) {
-		
+	public void LikePost(Post post) {	
+		post.setLikes( post.getLikes() + 1);
 	}
 	
 	/**
 	 * Recibe un post cualquiera y agrega un comentario (cadena de texto)
 	 * al ArrayList de comentarios de dicho post
-	 * @param post, el post al cual se le desea agregar el comentario
+	 * @param post el post al cual se le desea agregar el comentario
+	 * @param Comment es el comentario que se  le quiere agregar al post
 	 */
-	public void CommentPost(Post post) {
-		
+	public void CommentPost(Post post, String Comment) {
+		post.getComments().add(Comment);
 	}
 
 	/**
