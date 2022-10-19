@@ -2,6 +2,7 @@ package controller;
 
 import java.util.ArrayList;
 
+import model.NUser;
 import model.Post;
 import model.User;
 
@@ -79,8 +80,16 @@ public class AppManagement {
 	 */
 	public ArrayList<Post> SearchPostByDate(String date, ArrayList<Post> posts){
 		
+		ArrayList<Post> ListOfPostsByDate = new ArrayList<Post>();
 		
-		return posts;
+		for (Post post : posts) {
+			
+			if(date.equals(post.getDate())) {
+				ListOfPostsByDate.add(post);
+			}
+		}
+		
+		return ListOfPostsByDate;
 	}
 	
 	/**
@@ -135,16 +144,29 @@ public class AppManagement {
 	 * @return se regresa true si se logro ingresar correctamente
 	 */
 	public boolean LoginSuccesful(String user, String Password) {
+		
+		
+		
+		
 		return true;
 	}
 	
 	/**
-	 * Metodo que servira para poder crear un nuevo usuario
+	 * Metodo que servira para poder crear un nuevo usuario y guardarlo en la lista de usuarios
 	 * @param user nuevo nombre de usuario
 	 * @param Password nueva contrasenia
+	 * @param ListOdAllusers todos los usuarios guardados en una lista
 	 */
-	public void SignIn(String user, String Password) {
+	public void SignIn(String user, String Password, ArrayList<User> ListOfAllusers) {
 		
+		FileManager signInManager = new FileManager();
+		
+		//If user does not exist, create new user
+		if(!signInManager.UserExists(user)) {
+			
+			NUser NewUser = new NUser(user, Password);
+			ListOfAllusers.add(NewUser);
+		}
 		
 	}
 	
