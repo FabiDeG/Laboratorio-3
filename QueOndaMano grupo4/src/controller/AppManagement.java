@@ -4,6 +4,7 @@ import java.awt.Image;
 import java.util.ArrayList;
 
 import model.Audio;
+import model.NAdmin;
 import model.NUser;
 import model.Post;
 import model.User;
@@ -147,9 +148,22 @@ public class AppManagement {
 	 * @param Password contrasnia del usuario
 	 * @return se regresa true si se logro ingresar correctamente
 	 */
-	public boolean LoginSuccesful(String user, String Password) {
+	public User LoginSuccesful(String user, String Password) {
 		
-		return true;
+		FileManager LoginManager = new FileManager();
+		
+		//THe name of the admin is already set, so Only if the name is the same
+		//An admin account is logged in
+		if(LoginManager.ReadFileForPassword(user, Password) && user.equals("ramon")) {
+			
+			User nUser = new NAdmin(user, Password);
+		}
+		
+		//If the user exists then login is made as a normal user
+		else if(LoginManager.ReadFileForPassword(user, Password)) {
+			User nUser = new NAdmin(user, Password);
+		}
+		return null;
 	}
 	
 	/**
