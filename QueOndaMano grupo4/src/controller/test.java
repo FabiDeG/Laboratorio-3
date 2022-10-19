@@ -51,6 +51,7 @@ public class test {
 		System.out.println(mo.getProgramSize());
 		System.out.println(mo.getFormat());
 		System.out.println(mo.getResolution());
+		System.out.println(mo.getResolution());
 	
 	}
 }
