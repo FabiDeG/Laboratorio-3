@@ -13,7 +13,6 @@ import com.jgoodies.forms.layout.RowSpec;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Rectangle;
-
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import java.awt.FlowLayout;
@@ -30,6 +29,7 @@ import javax.swing.JTextField;
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
@@ -43,6 +43,7 @@ import javax.swing.JLabel;
  */
 public class MainWindow extends JFrame {
 
+	ArrayList array = new ArrayList();
 	private JPanel contentPane;
 	private JTextField txtComentar;
 	private JButton btnNewButton;
@@ -80,9 +81,6 @@ public class MainWindow extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		Post miPost = new Post();
-		// content.add(Post);
-		miPost.setVisible(true);
 		
 		btnNewButton = new JButton("");
 		btnNewButton.setIcon(new ImageIcon("C:\\Users\\fabio\\Downloads\\ddd.jpg"));
@@ -97,6 +95,9 @@ public class MainWindow extends JFrame {
 		btnNewButton_2 = new JButton("");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String post = txtComentar.getText();
+				array.add(post);
+				
 			}
 		});
 		
