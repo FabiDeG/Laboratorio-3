@@ -1,7 +1,9 @@
 package controller;
 
+import java.awt.Image;
 import java.util.ArrayList;
 
+import model.Audio;
 import model.NUser;
 import model.Post;
 import model.User;
@@ -169,8 +171,59 @@ public class AppManagement {
 		
 	}
 	
-	public void CreatPostFromMetaData(User PostinUser, String postLink, String PostFylePath) {
+	/**
+	 * Method that receives enough information to create a post of type Image
+	 * @param PostinUser the usar that is making the post
+	 * @param postLink the link were the user got the video from
+	 * @param PostFylePath the fylepath necesary to analize ande get the data
+	 * @return Returns a mediapost of type image 
+	 */
+	public Image CreateImagePostFromMetaData(User PostinUser, String postLink, String PostFylePath) {
 		
+		try {
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		
+		return null;
+	}
+	
+	/**
+	 * Method that receives enough information to create a post of type video
+	 * @param PostinUser the usar that is making the post
+	 * @param postLink the link were the user got the video from
+	 * @param PostFylePath the fylepath necesary to analize ande get the data 
+	 * @return Returns a mediapost of type video
+	 */
+	public Video CreateVideoPostFromMetaData(User PostinUser, String postLink, String PostFylePath) {
+		
+		try {
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		return null;
+		
+	}
+	
+	/**
+	 * Method that receives enough information to create a post of type video
+	 * @param PostinUser the usar that is making the post
+	 * @param postLink the link were the user got the video from
+	 * @param PostFylePath the fylepath necesary to analize ande get the data
+	 * @return Returns a mediapost of type audio
+	 */
+	public Audio CreateAudioPostFromMetaData(User PostinUser, String postLink, String PostFylePath) {
+		
+		try {
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		return null;
+
 	}
 }
