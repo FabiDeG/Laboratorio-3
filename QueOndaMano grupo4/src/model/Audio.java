@@ -17,8 +17,8 @@ public class Audio extends MediaPost implements Imedia{
 	 * @param samplRatio variable que guarda el sample ratio de un audio
 	 * @param bitdepth variable que guarda el bit depth de un audio
 	 */
-	public Audio(String Author, String Link, double samplRatio, int bitdepth) {
-		super(Author, Link);
+	public Audio(String Author, String Link, double samplRatio, int bitdepth, double PrgSize) {
+		super(Author, Link, PrgSize);
 		setMediaType(3);
 		setSampleRatio(samplRatio);
 		setBitDepth(bitdepth);

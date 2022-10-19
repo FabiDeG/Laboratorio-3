@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import model.NUser;
 import model.Post;
 import model.User;
+import model.Video;
 
 /**
  * Controlador logico de distintos procesos de la aplicacion
@@ -168,4 +169,8 @@ public class AppManagement {
 		
 	}
 	
+	public void CreatPostFromMetaData(User PostinUser, String postLink, String PostFylePath) {
+		
+		
+	}
 }

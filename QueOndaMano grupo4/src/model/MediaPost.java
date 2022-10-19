@@ -8,6 +8,7 @@ public abstract class MediaPost extends Post{
 	 * Hay 3 tipos distintos de multimedia 
 	 */
 	protected int MediaType;
+	protected double ProgramSize;
 	protected String Link;
 	
 	/**
@@ -19,10 +20,11 @@ public abstract class MediaPost extends Post{
 	 * @param Link, este es un link/nombre/direccion del archivo que se le solicitara al usuario. 
 	 * El link tiene que ser la direccion web del archivo 
 	 */
-	MediaPost(String Author, String Link){
+	MediaPost(String Author, String Link, double PrgSize){
 		super(Author);
 		setLink(Link);
 		setPostType(3);	
+		setProgramSize(PrgSize);
 	}
 
 	public String getLink() {
@@ -39,6 +41,14 @@ public abstract class MediaPost extends Post{
 
 	public void setMediaType(int mediaType) {
 		MediaType = mediaType;
+	}
+
+	public double getProgramSize() {
+		return ProgramSize;
+	}
+
+	public void setProgramSize(double programSize) {
+		ProgramSize = programSize;
 	}
 	
 	

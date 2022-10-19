@@ -14,8 +14,8 @@ public class Video extends MediaPost{
 	 * @param Link
 	 * @param FrameRate, el frame rate del video que se desea subir
 	 */
-	public Video(String Author, String Link, int FrameRate) {
-		super(Author, Link);
+	public Video(String Author, String Link, int FrameRate, double PrgSize) {
+		super(Author, Link, PrgSize);
 		setMediaType(5);
 		setFrameRate(FrameRate);
 	}
