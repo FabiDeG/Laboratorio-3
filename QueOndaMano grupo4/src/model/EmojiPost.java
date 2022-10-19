@@ -13,11 +13,10 @@ public class EmojiPost extends Post{
 	 * Cuando se crea un post de tipo emoji, este se marca automaticamente
 	 * como post de tipo 1.
 	 * @param Auth 
-	 * @param Date
 	 * @param emoji, son los caracteres que se publicaran como un emoticon
 	 */
-	public EmojiPost(String Author, String Date, String emoji){
-		super(Author, Date);
+	public EmojiPost(String Author, String emoji){
+		super(Author);
 		setPostEmoji(emoji);
 		setPostType(1);
 	}

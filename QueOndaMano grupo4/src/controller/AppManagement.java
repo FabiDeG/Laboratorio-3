@@ -146,9 +146,6 @@ public class AppManagement {
 	 */
 	public boolean LoginSuccesful(String user, String Password) {
 		
-		
-		
-		
 		return true;
 	}
 	

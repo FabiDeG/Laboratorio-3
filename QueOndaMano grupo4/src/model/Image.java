@@ -11,13 +11,12 @@ public class Image extends MediaPost implements Imedia{
 	
 	/**
 	 * @param Author
-	 * @param Date
 	 * @param Link
 	 * @param format Esta variable guarda el formato/tipo de archivo que es (png, jpeg etc)
 	 * @param resolution Guarda la resolucion de la imagen que se va a postear.
 	 */
-	Image(String Author, String Date, String Link, String format, int resolution) {
-		super(Author, Date, Link);
+	Image(String Author, String Link, String format, int resolution) {
+		super(Author, Link);
 		setResolution(resolution);
 		setFormat(format);
 		setMediaType(4);

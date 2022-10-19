@@ -8,11 +8,10 @@ public class TxtPost extends Post{
 	 * Este es el segundo tipo de post posible, un post que es un mensaje de texto
 	 * El tipo de post es 2
 	 * @param Author
-	 * @param Date
 	 * @param txtForPost es el texto que el usuarios desea poner en su post de texto
 	 */
-	public TxtPost(String Author, String Date, String txtForPost){
-		super(Author, Date);
+	public TxtPost(String Author, String txtForPost){
+		super(Author);
 		setPostType(2);
 		setPostMSG(txtForPost);		
 	}

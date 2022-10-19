@@ -19,8 +19,8 @@ public abstract class MediaPost extends Post{
 	 * @param Link, este es un link/nombre/direccion del archivo que se le solicitara al usuario. 
 	 * El link tiene que ser la direccion web del archivo 
 	 */
-	MediaPost(String Author, String Date, String Link){
-		super(Author, Date);
+	MediaPost(String Author, String Link){
+		super(Author);
 		setLink(Link);
 		setPostType(3);	
 	}

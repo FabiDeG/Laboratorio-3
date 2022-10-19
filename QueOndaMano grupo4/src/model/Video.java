@@ -11,12 +11,11 @@ public class Video extends MediaPost{
 	 * de multimedia y multimedia es una clase hija de Posts.
 	 * Dentro del constructor se define a este tipo de post como Multimedia de tipo 1
 	 * @param Author
-	 * @param Date
 	 * @param Link
 	 * @param FrameRate, el frame rate del video que se desea subir
 	 */
-	public Video(String Author, String Date, String Link, int FrameRate) {
-		super(Author, Date, Link);
+	public Video(String Author, String Link, int FrameRate) {
+		super(Author, Link);
 		setMediaType(5);
 		setFrameRate(FrameRate);
 	}

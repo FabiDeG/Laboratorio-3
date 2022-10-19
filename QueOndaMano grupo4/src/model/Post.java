@@ -1,6 +1,8 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 
 /**
  * Clase padre de todos los tipos de post posibles.
@@ -20,14 +22,18 @@ public abstract class Post implements Imedia{
 	/**
 	 * 
 	 * @param author Es el nombre de usuario de la persona que creo el post
-	 * @param date Es la fecha de cuando se creo el post
 	 */
-	Post(String author, String date){
+	Post(String author){
 		setAuthor(author);
-		setDate(date);
 		Comments = new ArrayList<String>();
 		Hashtags = new ArrayList<String>();
 		setLikes(0);
+		
+		Date PostDate = new Date();
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		
+		setDate(dateFormat.format(PostDate));
+		
 	}
 
 

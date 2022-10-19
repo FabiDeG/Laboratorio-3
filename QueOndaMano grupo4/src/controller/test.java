@@ -1,6 +1,7 @@
 package controller;
 import controller.FileManager;
 import model.Post;
+import model.TxtPost;
 import model.User;
 
 import java.util.ArrayList;
@@ -25,5 +26,18 @@ public class test {
 		System.out.println(mylist.get(4).getUsername());
 		
 		
+		System.out.println("-----------------------");
+		
+		System.out.println("Prueba fecha");
+		
+		TxtPost newPost = new TxtPost("mario", "Muchos Gusto");
+		
+		System.out.println(newPost.getAuthor());
+		System.out.println(newPost.getDate());
+		System.out.println(newPost.getLikes());
+		System.out.println(newPost.getPostMSG());
+		System.out.println(newPost.getPostType());
+		System.out.println(newPost.getComments());
+		System.out.println(newPost.getHashtags());
 	}
 }
