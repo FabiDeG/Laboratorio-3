@@ -1,5 +1,7 @@
 package controller;
 import controller.FileManager;
+import model.ImagePost;
+import model.NUser;
 import model.Post;
 import model.TxtPost;
 import model.User;
@@ -39,5 +41,16 @@ public class test {
 		System.out.println(newPost.getPostType());
 		System.out.println(newPost.getComments());
 		System.out.println(newPost.getHashtags());
+		
+		AppManagement manage = new AppManagement();
+		NUser newuser = new NUser("ramon", "212");
+		ImagePost mo = manage.CreateImagePostFromMetaData(newuser, "wwww.paraos", "C:/Users/andre/Desktop/BRUJULA POLÍTICA.PNG");
+		System.out.println(mo.getAuthor());
+		System.out.println(mo.getLink());
+		System.out.println(mo.getDate());
+		System.out.println(mo.getProgramSize());
+		System.out.println(mo.getFormat());
+		System.out.println(mo.getResolution());
+	
 	}
 }

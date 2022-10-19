@@ -204,34 +204,28 @@ public class AppManagement {
 		ImagePost newImg = null;
 		
 		try {
-			
+			//Saving the post author
 			String Author = PostinUser.getUsername();
 			
-			
+		    // convert the file name into string to get file extension
 			File file = new File(PostFilePath);
-
-		    // convert the file name into string
 		    String fileName = file.toString();
 		    String extension = "";
 		    
 		    int index = fileName.lastIndexOf('.');
 		    if(index > 0) {
 		      extension = fileName.substring(index + 1);
-		      System.out.println("File extension is " + extension);
 		    }
 			
+		    //Saving the size of the file in KB
 			Double ImgSize = (double) (file.length() / 1000);
 			
+			//Getting resolution (Height times width) of the image
 			BufferedImage imo;
-	       
-	        imo = ImageIO.read(new File("location_of_file"));
-	        System.out.println(imo.getHeight());
-	        System.out.println(imo.getWidth());
-	    
-		
-			String resolution = (imo.getHeight()) + "X" + imo.getHeight();
-			
+	        imo = ImageIO.read(new File(PostFilePath));
+			String resolution = (imo.getHeight()) + "X" + imo.getWidth();
 			newImg = new ImagePost(Author, postLink, extension, resolution, ImgSize);
+			
 			return newImg;
 			
 		} catch (Exception e) {
