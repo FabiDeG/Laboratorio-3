@@ -23,7 +23,7 @@ public abstract class Post implements Imedia{
 	 * 
 	 * @param author Es el nombre de usuario de la persona que creo el post
 	 */
-	Post(String author){
+	public Post(String author){
 		setAuthor(author);
 		Comments = new ArrayList<String>();
 		Hashtags = new ArrayList<String>();
