@@ -22,6 +22,7 @@ import javax.swing.JPanel;
 import java.awt.List;
 import javax.swing.JButton;
 import java.awt.Font;
+import javax.swing.ImageIcon;
 
 /**
  * Pantalla extra dentro de Jframe que se encargara de mostrar los post de las personas
@@ -34,6 +35,7 @@ public class content extends JInternalFrame implements Runnable {
 	private int CounterC = 0;
 	private JPanel panel;
 	private JScrollPane scrollPane;
+	private JTextField textField;
 	
 	/**
 	 * Launch the application.
@@ -58,14 +60,27 @@ public class content extends JInternalFrame implements Runnable {
 		setBounds(100, 100, 1037, 575);
 		getContentPane().setLayout(null);
 		
-		List list = new List();
-		list.setBounds(0, 0, 855, 546);
-		getContentPane().add(list);
-		
-		JButton btnNewButton = new JButton("Comentar");
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnNewButton.setBounds(885, 182, 107, 51);
+		JButton btnNewButton = new JButton("");
+		btnNewButton.setIcon(new ImageIcon("C:\\Users\\fabio\\Downloads\\Sinlike.png"));
+		btnNewButton.setBounds(915, 284, 51, 44);
 		getContentPane().add(btnNewButton);
+		
+		JButton btnComentar = new JButton("Comentar");
+		btnComentar.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnComentar.setBounds(885, 182, 107, 51);
+		getContentPane().add(btnComentar);
+		
+		List listPost = new List();
+		listPost.setBounds(0, 0, 854, 546);
+		getContentPane().add(listPost);
+		
+		textField = new JTextField();
+		textField.setBackground(Color.WHITE);
+		textField.setEnabled(false);
+		textField.setEditable(false);
+		textField.setBounds(860, 0, 165, 546);
+		getContentPane().add(textField);
+		textField.setColumns(10);
 
 	}
 
