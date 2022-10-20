@@ -164,11 +164,13 @@ public class AppManagement {
 		if(LoginManager.ReadFileForPassword(user, Password) && user.equals("ramon")) {
 			
 			User nUser = new NAdmin(user, Password);
+			return nUser;
 		}
 		
 		//If the user exists then login is made as a normal user
 		else if(LoginManager.ReadFileForPassword(user, Password)) {
 			User nUser = new NAdmin(user, Password);
+			return nUser;
 		}
 		return null;
 	}
@@ -246,8 +248,23 @@ public class AppManagement {
 	 */
 	public Video CreateVideoPostFromMetaData(User PostinUser, String postLink, String PostFilePath) {
 		
-		try {
+		Video newVideo = null;
 		
+		try {
+			
+			//Saving the post author
+			String Author = PostinUser.getUsername();
+			
+			//Setting an arbitrary value for frame rate
+			int frameRate = 60;
+			
+			//Getting file size 
+			File file = new File(PostFilePath);
+			Double ImgSize = (double) (file.length() / 1000);
+			
+			
+			newVideo = new Video(Author, postLink, frameRate, ImgSize);
+			return newVideo;
 			
 		} catch (Exception e) {
 			System.out.println("No se pudo completar la tarea, puede que el archivo "
@@ -266,10 +283,24 @@ public class AppManagement {
 	 * @param PostFylePath the fylepath necesary to analize ande get the data
 	 * @return Returns a mediapost of type audio
 	 */
-	public Audio CreateAudioPostFromMetaData(User PostinUser, String postLink, String PostFylePath) {
-		
+	public Audio CreateAudioPostFromMetaData(User PostinUser, String postLink, String PostFilePath) {
+		Audio newAudio = null;
 		try {
 			
+			//Saving the post author
+			String Author = PostinUser.getUsername();
+			
+			//Setting an arbitrary value for Sample Ratio
+			int SampleRatio = 44;
+			
+			//Setting an arbitrary value for bitDepth
+			int bitDepth = 24;
+			
+			//Getting file size 
+			File file = new File(PostFilePath);
+			Double AudioSize = (double) (file.length() / 1000);
+			
+			newAudio = new Audio(Author, postLink, SampleRatio, bitDepth, AudioSize);
 		} catch (Exception e) {
 			System.out.println("No se pudo completar la tarea, puede que el archivo "
 					+ "seleccionado no corresponda al tipo de archivo que se desea postear");
