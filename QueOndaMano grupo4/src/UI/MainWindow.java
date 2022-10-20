@@ -43,8 +43,9 @@ import javax.swing.JLabel;
  */
 public class MainWindow extends JFrame {
 
+	
 	private JPanel contentPane;
-	private JTextField txtComentar;
+	public static JTextField txtComentar;
 	private JButton btnNewButton;
 	private JButton btnNewButton_1;
 	private JButton btnNewButton_2;
@@ -53,7 +54,9 @@ public class MainWindow extends JFrame {
 	private JButton btnNewButton_4;
 	private JLabel lblNewLabel_1;
 	private JButton btnNewButton_3;
+	public static int PublicO = 0;
 
+	content ventanita;
 	/**
 	 * Launch the application.
 	 */
@@ -97,6 +100,8 @@ public class MainWindow extends JFrame {
 		btnNewButton_2 = new JButton("");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				PublicO = (PublicO + 1);
+				ventanita.run();
 			}
 		});
 		
@@ -107,7 +112,7 @@ public class MainWindow extends JFrame {
 		
 		JDesktopPane Content = new JDesktopPane();
 		Content.setBounds(0, 62, 1037, 575);
-		content ventanita = new content();
+		ventanita = new content();
 		Content.add(ventanita);
 		ventanita.setBounds(new Rectangle(0, 0, 1037, 575));
 		contentPane.add(Content);
@@ -172,5 +177,13 @@ public class MainWindow extends JFrame {
 		textField_1.setForeground(Color.WHITE);
 		textField_1.setFont(new Font("Times New Roman", Font.PLAIN, 18));
 		textField_1.setColumns(10);
+	}
+
+	public int getPublicO() {
+		return PublicO;
+	}
+
+	public void setPublicO(int publicO) {
+		PublicO = publicO;
 	}
 }
