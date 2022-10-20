@@ -61,13 +61,18 @@ public class content extends JInternalFrame implements Runnable {
 		getContentPane().setLayout(null);
 		
 		JButton btnNewButton = new JButton("");
-		btnNewButton.setIcon(new ImageIcon("C:\\Users\\fabio\\Downloads\\Sinlike.png"));
-		btnNewButton.setBounds(915, 284, 51, 44);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				btnNewButton.setIcon(new ImageIcon("C:\\Users\\fabio\\Downloads\\Sinlike.png"));
+			}
+		});
+		btnNewButton.setIcon(new ImageIcon("C:\\Users\\fabio\\Downloads\\Sinliike.png"));
+		btnNewButton.setBounds(915, 299, 51, 44);
 		getContentPane().add(btnNewButton);
 		
 		JButton btnComentar = new JButton("Comentar");
 		btnComentar.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnComentar.setBounds(885, 182, 107, 51);
+		btnComentar.setBounds(891, 205, 107, 51);
 		getContentPane().add(btnComentar);
 		
 		List listPost = new List();
@@ -81,6 +86,11 @@ public class content extends JInternalFrame implements Runnable {
 		textField.setBounds(860, 0, 165, 546);
 		getContentPane().add(textField);
 		textField.setColumns(10);
+		
+		JButton btnNewButton_1 = new JButton("New button");
+		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\fabio\\Downloads\\Conlike.png"));
+		btnNewButton_1.setBounds(881, 80, 85, 44);
+		getContentPane().add(btnNewButton_1);
 
 	}
 
