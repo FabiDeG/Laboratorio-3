@@ -31,23 +31,6 @@ public class UploadMediaWindow extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textFieldLink;
-	
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					UploadMediaWindow frame = new UploadMediaWindow(null);
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.

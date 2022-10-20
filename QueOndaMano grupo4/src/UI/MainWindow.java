@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import UI.Post;
 import UI.content;
+import model.User;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -30,6 +32,7 @@ import javax.swing.JTextField;
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
@@ -55,7 +58,11 @@ public class MainWindow extends JFrame {
 	private JLabel lblNewLabel_1;
 	private JButton btnNewButton_3;
 	public static int PublicO = 0;
-
+	
+	private MainWindow selfMainWindow;
+	private User currentUser;
+	private ArrayList<User> AllsavedUsers;
+	
 	content ventanita;
 	/**
 	 * Launch the application.
@@ -77,6 +84,8 @@ public class MainWindow extends JFrame {
 	 * Create the frame.
 	 */
 	public MainWindow() {
+		this.selfMainWindow = this;
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1051, 757);
 		contentPane = new JPanel();
@@ -92,7 +101,7 @@ public class MainWindow extends JFrame {
 		btnNewButton.setSelectedIcon(null);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				UploadMediaWindow miUpload = new UploadMediaWindow(null);
+				UploadMediaWindow miUpload = new UploadMediaWindow(selfMainWindow);
 				miUpload.show();
 			}
 		});
@@ -186,4 +195,22 @@ public class MainWindow extends JFrame {
 	public void setPublicO(int publicO) {
 		PublicO = publicO;
 	}
+
+	public User getCurrentUser() {
+		return currentUser;
+	}
+
+	public void setCurrentUser(User currentUser) {
+		this.currentUser = currentUser;
+	}
+
+	public ArrayList<User> getAllsavedUsers() {
+		return AllsavedUsers;
+	}
+
+	public void setAllsavedUsers(ArrayList<User> allsavedUsers) {
+		AllsavedUsers = allsavedUsers;
+	}
+	
+	
 }
