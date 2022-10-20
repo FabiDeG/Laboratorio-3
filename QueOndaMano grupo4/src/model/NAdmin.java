@@ -1,6 +1,8 @@
 package model;
 
-public class NAdmin extends User {
+import java.io.Serializable;
+
+public class NAdmin extends User implements Serializable{
 
 	public NAdmin(String UserName, String PassWord) {
 		super(UserName, PassWord);

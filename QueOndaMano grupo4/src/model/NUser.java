@@ -1,6 +1,8 @@
 package model;
 
-public class NUser extends User {
+import java.io.Serializable;
+
+public class NUser extends User implements Serializable{
 
 	public NUser(String UserName, String PassWord) {
 		super(UserName, PassWord);

@@ -2,11 +2,16 @@ package controller;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.List;
 
 import model.NAdmin;
 import model.NUser;
@@ -23,6 +28,7 @@ public class FileManager {
 	private static final int USER_NAME = 1;
 	private static final int USER_PASSWORD = 2;
 	String Myfile = "QueOndaMano grupo4/src/documents/data.txt";
+	String UsersFiles = "QueOndaMano grupo4/src/documents/UsersPosts";
 	
 	/**
 	 * Controlador de archivos para poder leer, escribir y encriptar los mismos
@@ -276,11 +282,11 @@ public class FileManager {
 				
 				if(userType.equals("0")) {
 					listOfUsers.add(new NAdmin(UserName, PassWord));
-					System.out.println("ADmin new");
+					
 				}
 				else {
 					listOfUsers.add(new NUser(UserName, PassWord));
-					System.out.println("User new");
+		
 				}	
 				
 				
@@ -294,5 +300,38 @@ public class FileManager {
 			e.printStackTrace();
 		}
 		
+	}
+	
+	public void SaveAllUsersToFile(ArrayList <User> ListOfUsers) {
+		
+		try {
+			FileOutputStream fos = new FileOutputStream(UsersFiles);
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
+			oos.writeObject(ListOfUsers);
+			oos.flush();
+			oos.close();
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();	
+		}
+		
+	}
+	
+	public ArrayList <User> getUsersFromFile() {
+		try {
+			
+			FileInputStream fis = new FileInputStream(UsersFiles);
+			ObjectInputStream ois = new ObjectInputStream(fis);
+			
+			ArrayList<User> AllUsers = (ArrayList<User>) ois.readObject();
+			ois.close();
+			System.out.println(AllUsers.toString());
+			return AllUsers;
+			
+		} catch (Exception e) {
+			e.printStackTrace();	
+		}
+		return null;
 	}
 }
