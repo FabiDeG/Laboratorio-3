@@ -1,6 +1,8 @@
 package model;
 
-public abstract class MediaPost extends Post{
+import java.io.Serializable;
+
+public abstract class MediaPost extends Post implements Serializable{
 	
 	/**
 	 * La clase de mediaPost, tambien se divide en subclases, por lo que tambien tiene una

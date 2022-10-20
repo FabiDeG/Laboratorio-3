@@ -1,6 +1,8 @@
 package model;
 
-public class TxtPost extends Post{
+import java.io.Serializable;
+
+public class TxtPost extends Post implements Serializable{
 	
 	private String PostMSG;
 	

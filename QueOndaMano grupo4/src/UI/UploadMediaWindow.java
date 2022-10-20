@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -13,6 +14,7 @@ import controller.AppManagement;
 import controller.FileManager;
 import model.Audio;
 import model.ImagePost;
+import model.User;
 import model.Video;
 
 import javax.swing.JTextField;
@@ -31,13 +33,15 @@ public class UploadMediaWindow extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textFieldLink;
+	private UploadMediaWindow MediaWindow;
 
 	/**
-	 * Create the frame.
+	 * Create the frame. receiving all the dat from the main window as a variable
 	 */
 	public UploadMediaWindow(MainWindow mainframe) {
+		this.MediaWindow = this;
 		
-		FileManager PostManager = new FileManager();
+		FileManager FileManager = new FileManager();
 		AppManagement AppManage = new AppManagement();
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -53,7 +57,7 @@ public class UploadMediaWindow extends JFrame {
 		textFieldLink.setColumns(10);
 		
 		
-		// Creating a new ComboBoxModel and adding three elements to it.
+		// Creating a new ComboBoxModel and adding three elements to it corresponding to the type of medio posts.
 		DefaultComboBoxModel<String> TypeList = new DefaultComboBoxModel<String>();
 		TypeList.addElement("Imagen");
 		TypeList.addElement("Audio");
@@ -66,12 +70,11 @@ public class UploadMediaWindow extends JFrame {
 		contentPane.add(ComboBoxMediType);
 		
 		
-		
 		JLabel lblNewLabel = new JLabel("Elige el tipo de multimedia que deseas postear");
 		lblNewLabel.setBounds(20, 22, 261, 28);
 		contentPane.add(lblNewLabel);
 		
-		JLabel lblCopiaAquiEl = new JLabel("Copia aqui el link de donde obtuviste la imagen");
+		JLabel lblCopiaAquiEl = new JLabel("Copia aqui el link de donde obtuviste el archivo");
 		lblCopiaAquiEl.setBounds(21, 94, 274, 28);
 		contentPane.add(lblCopiaAquiEl);
 		
@@ -88,30 +91,53 @@ public class UploadMediaWindow extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("Hola");
 				final JFileChooser  fileDialog = new JFileChooser();
-				
-				
 				int returnVal = fileDialog.showOpenDialog(null);
+				
 				if (returnVal == JFileChooser.APPROVE_OPTION) {
 					
 					try {
 						String filePath = fileDialog.getSelectedFile().getAbsolutePath();
 						System.out.println(filePath);
+						
+						User theUser = mainframe.getCurrentUser();
+						
 						String LinkOfPost = textFieldLink.getText();
+						
+						ArrayList<User> AllUsers = mainframe.getAllsavedUsers();
 						
 						//Depending on the type of media that is selected, a diferente object is created
 						if(ComboBoxMediType.getSelectedIndex() == 0) {
-							ImagePost newVidPost = AppManage.CreateImagePostFromMetaData(null, LinkOfPost, filePath);
+							
+							ImagePost newImgPost = AppManage.CreateImagePostFromMetaData(mainframe.getCurrentUser(), LinkOfPost, filePath);
+							AppManage.SavePostToUser(AllUsers, theUser, newImgPost);// the post is saved to the specific user and added to the arrayList
+							FileManager.SaveAllUsersToFile(AllUsers); // Takes the recently modified arrayList and saves it to the file
+							
 							System.out.println("1");
+							
+							// Disposing the current JFrame.
+							MediaWindow.dispose();
 						}
 						
 						else if(ComboBoxMediType.getSelectedIndex() == 1) {
-							Audio newVidPost = AppManage.CreateAudioPostFromMetaData(null, LinkOfPost, filePath);
+							Audio newAudPost = AppManage.CreateAudioPostFromMetaData(mainframe.getCurrentUser(), LinkOfPost, filePath);
+							AppManage.SavePostToUser(AllUsers, theUser, newAudPost);// the post is saved to the specific user and added to the arrayList
+							FileManager.SaveAllUsersToFile(AllUsers); // Takes the recently modified arrayList and saves it to the file
+							
 							System.out.println("2");
+							
+							// Disposing the current JFrame.
+							MediaWindow.dispose();
 						}
 						
 						else if(ComboBoxMediType.getSelectedIndex() == 2) {
-							Video newVidPost = AppManage.CreateVideoPostFromMetaData(null, LinkOfPost, filePath);
+							Video newVidPost = AppManage.CreateVideoPostFromMetaData(mainframe.getCurrentUser(), LinkOfPost, filePath);
+							AppManage.SavePostToUser(AllUsers, theUser, newVidPost);// the post is saved to the specific user and added to the arrayList
+							FileManager.SaveAllUsersToFile(AllUsers); // Takes the recently modified arrayList and saves it to the file
+							
 							System.out.println("3");
+							
+							// Disposing the current JFrame.
+							MediaWindow.dispose();
 						}
 						
 					} catch (Exception e2) {

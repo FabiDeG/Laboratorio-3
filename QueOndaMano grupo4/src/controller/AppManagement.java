@@ -320,7 +320,6 @@ public class AppManagement {
 	 */
 	public void SavePostToUser(ArrayList<User> AllUsers, User ActualUser, Post SavingPost) {
 		
-		
 		for (User user : AllUsers) {
 			if(user.getUsername().equals(ActualUser.getUsername())) {
 				

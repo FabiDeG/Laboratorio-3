@@ -1,6 +1,8 @@
 package model;
 
-public class ImagePost extends MediaPost implements Imedia{
+import java.io.Serializable;
+
+public class ImagePost extends MediaPost implements Imedia, Serializable{
 
 	/**
 	 * Clase hija de la clase MediaPost, tene la utilidad de crear posts de tipo imagen

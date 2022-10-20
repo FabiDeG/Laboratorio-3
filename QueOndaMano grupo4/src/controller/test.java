@@ -18,19 +18,6 @@ public class test {
 		Filemanager.ReadFileForPassword("ramosn", "10");
 		Filemanager.UserExists("ramon");
 		
-		String name = "hola";
-		String psw = "hola";
-		
-		ArrayList<User> mylist = new ArrayList<User>();
-		Filemanager.SaveUserToFile(name, psw);
-		Filemanager.setAllUsersFromFile(mylist);
-
-
-		
-		System.out.println(mylist.toString());
-		
-		Filemanager.SaveAllUsersToFile(mylist);
-		
 		ArrayList<User> TestArrayList = Filemanager.getUsersFromFile();
 		
 		for (User user : TestArrayList) {

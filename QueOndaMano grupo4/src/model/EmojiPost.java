@@ -1,12 +1,14 @@
 package model;
 
+import java.io.Serializable;
+
 /**
  * Clase creada para todos los post que sean de tipo emoji. 
  * Unicamente seran posts que contegan un emoticon hecho con caracteres 
  * @author andre
  *
  */
-public class EmojiPost extends Post{
+public class EmojiPost extends Post implements Serializable{
 	private String PostEmoji;
 	
 	/**

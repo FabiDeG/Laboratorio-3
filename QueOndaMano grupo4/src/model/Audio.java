@@ -1,6 +1,8 @@
 package model;
 
-public class Audio extends MediaPost implements Imedia{
+import java.io.Serializable;
+
+public class Audio extends MediaPost implements Imedia, Serializable{
 	
 	/**
 	 * Este tipo de multimedia tiene el sample ratio del audio y tambien una variable

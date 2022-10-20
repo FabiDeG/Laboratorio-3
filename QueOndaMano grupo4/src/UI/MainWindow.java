@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import UI.Post;
 import UI.content;
+import controller.FileManager;
+import model.NUser;
 import model.User;
 
 import javax.swing.JFrame;
@@ -86,6 +88,14 @@ public class MainWindow extends JFrame {
 	public MainWindow() {
 		this.selfMainWindow = this;
 		
+		// Reading all the saved users in the UserPost file and saving them to the arrayList
+		// That will contain all the saved users
+		FileManager FileManager = new FileManager();
+		AllsavedUsers = FileManager.getUsersFromFile();
+		
+		// Current user that is using the program (Temporarily set to the first saved user in the file, to make tests)
+		currentUser = AllsavedUsers.get(0);
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1051, 757);
 		contentPane = new JPanel();
@@ -100,7 +110,9 @@ public class MainWindow extends JFrame {
 		btnNewButton.setIcon(new ImageIcon("C:\\Users\\fabio\\Downloads\\ddd.jpg"));
 		btnNewButton.setSelectedIcon(null);
 		btnNewButton.addActionListener(new ActionListener() {
+			///////////////////////////////////////////////////////////////////////////////////////////////////
 			public void actionPerformed(ActionEvent e) {
+				// Calling the next window and giving the main window as a parameter to to later modify information
 				UploadMediaWindow miUpload = new UploadMediaWindow(selfMainWindow);
 				miUpload.show();
 			}

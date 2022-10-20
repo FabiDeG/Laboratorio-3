@@ -1,6 +1,8 @@
 package model;
 
-public class Video extends MediaPost{
+import java.io.Serializable;
+
+public class Video extends MediaPost implements Serializable{
 	/**
 	 * Los videos incluyen una variable extra para guardar el fram rate del video
 	 */

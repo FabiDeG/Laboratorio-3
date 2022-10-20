@@ -2,6 +2,7 @@ package model;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 
 /**
@@ -11,7 +12,7 @@ import java.text.SimpleDateFormat;
  * @author Ricardo Chuy
  *
  */
-public abstract class Post implements Imedia{
+public abstract class Post implements Imedia, Serializable{
 	protected String Author; 
 	protected String Date;
 	protected int PostType;
