@@ -92,7 +92,7 @@ public class MainWindow extends JFrame {
 		btnNewButton.setSelectedIcon(null);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				UploadMediaWindow miUpload = new UploadMediaWindow();
+				UploadMediaWindow miUpload = new UploadMediaWindow(null);
 				miUpload.show();
 			}
 		});

@@ -11,6 +11,7 @@ import javax.swing.border.EmptyBorder;
 
 import controller.AppManagement;
 import controller.FileManager;
+import model.Audio;
 import model.ImagePost;
 import model.Video;
 
@@ -117,14 +118,17 @@ public class UploadMediaWindow extends JFrame {
 						//Depending on the type of media that is selected, a diferente object is created
 						if(ComboBoxMediType.getSelectedIndex() == 0) {
 							ImagePost newVidPost = AppManage.CreateImagePostFromMetaData(null, LinkOfPost, filePath);
+							System.out.println("1");
 						}
 						
 						else if(ComboBoxMediType.getSelectedIndex() == 1) {
-							ImagePost newVidPost = AppManage.CreateImagePostFromMetaData(null, LinkOfPost, filePath);
+							Audio newVidPost = AppManage.CreateAudioPostFromMetaData(null, LinkOfPost, filePath);
+							System.out.println("2");
 						}
 						
 						else if(ComboBoxMediType.getSelectedIndex() == 2) {
-							ImagePost newVidPost = AppManage.CreateImagePostFromMetaData(null, LinkOfPost, filePath);
+							Video newVidPost = AppManage.CreateVideoPostFromMetaData(null, LinkOfPost, filePath);
+							System.out.println("3");
 						}
 						
 					} catch (Exception e2) {

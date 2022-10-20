@@ -310,4 +310,23 @@ public class AppManagement {
 		return null;
 
 	}
+	
+	/**
+	 * A method that takes the current user and searchs for it in the list of al users, when a match is found
+	 * the post is saved to the respective user
+	 * @param AllUsers
+	 * @param ActualUser
+	 * @param SavingPost
+	 */
+	public void SavePostToUser(ArrayList<User> AllUsers, User ActualUser, Post SavingPost) {
+		
+		
+		for (User user : AllUsers) {
+			if(user.getUsername().equals(ActualUser.getUsername())) {
+				
+				user.getUserPosts().add(SavingPost);
+			}
+		}
+		
+	}
 }
