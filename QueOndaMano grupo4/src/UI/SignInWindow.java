@@ -6,11 +6,19 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import controller.FileManager;
+import model.NUser;
+import model.User;
+
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 /**
@@ -24,6 +32,7 @@ public class SignInWindow extends JFrame {
 	private JTextField txtUser;
 	private JTextField txtPassw;
 	private JTextField txtCPassw;
+	private SignInWindow SignIn;
 
 	/**
 	 * Launch the application.
@@ -49,6 +58,9 @@ public class SignInWindow extends JFrame {
 	 * @param btnCrearCuenta, este boton se encargara de ver que se cumpla que las contrasenas sean iguales y de guardar los datos del usuario en data.cv, de ser asi, dirigira a la MainWindow, de no ser asi, dara la oportunidad de volver a intentarlo
 	 */
 	public SignInWindow() {
+		this.SignIn = this;
+		FileManager filemanager = new FileManager();
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 442, 520);
 		contentPane = new JPanel();
@@ -56,12 +68,12 @@ public class SignInWindow extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblholaNosComplace = new JLabel("¡Hola!");
+		JLabel lblholaNosComplace = new JLabel("�Hola!");
 		lblholaNosComplace.setFont(new Font("Monospaced", Font.PLAIN, 16));
 		lblholaNosComplace.setBounds(172, 21, 71, 41);
 		contentPane.add(lblholaNosComplace);
 		
-		JLabel lblNosComplaceSaber = new JLabel("Nos complace saber que formarás parte de");
+		JLabel lblNosComplaceSaber = new JLabel("Nos complace saber que formaras parte de");
 		lblNosComplaceSaber.setFont(new Font("Monospaced", Font.PLAIN, 14));
 		lblNosComplaceSaber.setBounds(58, 53, 390, 41);
 		contentPane.add(lblNosComplaceSaber);
@@ -91,7 +103,7 @@ public class SignInWindow extends JFrame {
 		txtUser.setBounds(160, 173, 180, 25);
 		contentPane.add(txtUser);
 		
-		JLabel lblNewLabel_2_1 = new JLabel("Contraseña:");
+		JLabel lblNewLabel_2_1 = new JLabel("Contrasenia:");
 		lblNewLabel_2_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblNewLabel_2_1.setBounds(82, 224, 99, 27);
 		contentPane.add(lblNewLabel_2_1);
@@ -106,7 +118,7 @@ public class SignInWindow extends JFrame {
 		txtPassw.setBounds(172, 225, 180, 25);
 		contentPane.add(txtPassw);
 		
-		JLabel lblNewLabel_2_1_1 = new JLabel("Comprobar contraseña:");
+		JLabel lblNewLabel_2_1_1 = new JLabel("Comprobar contrasenia:");
 		lblNewLabel_2_1_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblNewLabel_2_1_1.setBounds(42, 272, 171, 27);
 		contentPane.add(lblNewLabel_2_1_1);
@@ -128,13 +140,53 @@ public class SignInWindow extends JFrame {
 		JButton btnCrearCuenta = new JButton("Crear cuenta");
 		btnCrearCuenta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+			
+			//Checking if the user name is available
+			if(!filemanager.UserExists(txtUser.getText() ) ) {
+				System.out.println("Nuevo Usuario");
+				
+				//Create new user only if user is available and
+				if(txtPassw.getText().equals(txtCPassw.getText( ) ) && !txtPassw.getText().equals("") ){
+					System.out.println("Iguales");
+					
+					//Se guarda el usuario al archivo de data, donde se guardan los usuarios y sus contrasenias encriptadas
+					filemanager.SaveUserToFile(txtUser.getText(), txtPassw.getText());
+					
+					//Se crea un objeto para el nuevo usuario, encriptando su contrasenia
+					NUser newUser = new NUser(txtUser.getText(), filemanager.EncriptInput(txtPassw.getText() ));
+					
+					//Lista que se le pasara a un metodo para actualizar el archivo con el arraylist de toda la base de datos
+					ArrayList<User> SavingUsers = filemanager.getUsersFromFile();
+					SavingUsers.add(newUser);
+					
+					//Guardar cambios al archivo con toda la informacion (UserPost)
+					filemanager.SaveAllUsersToFile(SavingUsers);
+					
+					MainWindow Main = new MainWindow();
+					Main.setVisible(true);
+					
+					SignIn.dispose();
+					
+				}
+				else {
+					JOptionPane.showMessageDialog(SignIn, "Las contrasenias no son iguales" , "InfoBox: " + "Error", JOptionPane.INFORMATION_MESSAGE);
+				}
+				
+			}
+			else {
+				JOptionPane.showMessageDialog(SignIn, "El nombre de usuario ya existe" , "InfoBox: " + "Error", JOptionPane.INFORMATION_MESSAGE);
+			}
+			
+			
+			
+			
 			}
 		});
 		btnCrearCuenta.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnCrearCuenta.setBounds(148, 391, 145, 34);
 		contentPane.add(btnCrearCuenta);
 		
-		JLabel lblNoOlvidesTu = new JLabel("No olvides tu contraseña...");
+		JLabel lblNoOlvidesTu = new JLabel("No olvides tu contrasenia...");
 		lblNoOlvidesTu.setFont(new Font("Monospaced", Font.PLAIN, 14));
 		lblNoOlvidesTu.setBounds(117, 329, 426, 41);
 		contentPane.add(lblNoOlvidesTu);

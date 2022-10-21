@@ -21,27 +21,12 @@ import java.awt.event.ActionEvent;
 public class LostPassword extends JFrame {
 
 	private JPanel contentPane;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					LostPassword frame = new LostPassword();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
+	private LostPassword MessageLost;
 	/**
 	 * Create the frame.
 	 */
 	public LostPassword() {
+		this.MessageLost = this;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -49,7 +34,7 @@ public class LostPassword extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Se te advirtió... Perdona <3");
+		JLabel lblNewLabel = new JLabel("Se te advirtio... Perdona <3");
 		lblNewLabel.setBounds(158, 203, 177, 50);
 		contentPane.add(lblNewLabel);
 		
@@ -67,6 +52,7 @@ public class LostPassword extends JFrame {
 		btnNoNosOdies.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				SignInWindow miSign = new SignInWindow();
+				MessageLost.dispose();
 				miSign.show();
 			}
 		});
@@ -74,7 +60,7 @@ public class LostPassword extends JFrame {
 		btnNoNosOdies.setBounds(158, 144, 130, 35);
 		contentPane.add(btnNoNosOdies);
 		
-		JLabel lblPresionaAqu = new JLabel("Presiona aquí");
+		JLabel lblPresionaAqu = new JLabel("Presiona aqui");
 		lblPresionaAqu.setBounds(192, 110, 177, 50);
 		contentPane.add(lblPresionaAqu);
 	}

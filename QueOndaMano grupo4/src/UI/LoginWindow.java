@@ -3,10 +3,14 @@ package UI;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import UI.LostPassword;
+import controller.FileManager;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -23,6 +27,7 @@ public class LoginWindow extends JFrame {
 	private JPanel contentPane;
 	private JTextField txtUser;
 	private JTextField txtPass;
+	LoginWindow LoginFrame;
 
 	/**
 	 * Launch the application.
@@ -48,6 +53,10 @@ public class LoginWindow extends JFrame {
 	 * @param btnRecuperar, este boton llevara a la ventana LostPassword
 	 */
 	public LoginWindow() {
+		this.LoginFrame = this;
+		
+		FileManager filemanager = new FileManager();
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 429);
 		contentPane = new JPanel();
@@ -55,7 +64,7 @@ public class LoginWindow extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("¡Volviste! Te extrañamos");
+		JLabel lblNewLabel = new JLabel("�Volviste! Te extraniamos");
 		lblNewLabel.setFont(new Font("Monospaced", Font.PLAIN, 16));
 		lblNewLabel.setBounds(88, 34, 252, 41);
 		contentPane.add(lblNewLabel);
@@ -96,19 +105,36 @@ public class LoginWindow extends JFrame {
 		contentPane.add(txtPass);
 		
 		/** 
-		 * Este botón comprobara que exista el usuario en data.cv, de ser asi, dirigira a la MainWindow, sino, dara la posibilidad de volver a intentarlo
+		 * Este boton comprobara que exista el usuario en data.cv, de ser asi, dirigira a la MainWindow, sino, dara la posibilidad de volver a intentarlo
 		 * @param btnNewButton
 		 */
 		JButton btnNewButton = new JButton("Ingresar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				try {
+					//Checking if the password and user match and exist
+					if(filemanager.ReadFileForPassword(txtUser.getText(), txtPass.getText())) {
+						MainWindow Main = new MainWindow();
+						Main.setVisible(true);
+						LoginFrame.dispose();
+					}
+					else {
+						JOptionPane.showMessageDialog(LoginFrame, "Usuario y/o contrasenia incorrecta" , "InfoBox: " + "Error", JOptionPane.INFORMATION_MESSAGE);
+					}
+					
+				} catch (Exception e2) {
+					JOptionPane.showMessageDialog(LoginFrame, "Error al acceder a la base de datos" , "InfoBox: " + "Error", JOptionPane.INFORMATION_MESSAGE);
+				}
+				
+				
 			}
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnNewButton.setBounds(160, 269, 99, 34);
 		contentPane.add(btnNewButton);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("Ohh, ¿olvidaste tu contraseña?");
+		JLabel lblNewLabel_1_1 = new JLabel("Ohh, �olvidaste tu contrasenia?");
 		lblNewLabel_1_1.setFont(new Font("Monospaced", Font.PLAIN, 14));
 		lblNewLabel_1_1.setBounds(46, 332, 300, 27);
 		contentPane.add(lblNewLabel_1_1);
@@ -117,10 +143,11 @@ public class LoginWindow extends JFrame {
 		 * Este boton llevara a la ventana LostPassword
 		 * @param btnRecuperar
 		 */
-		JButton btnRecuperar = new JButton("Sí :')");
+		JButton btnRecuperar = new JButton("Si :')");
 		btnRecuperar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				LostPassword miLost = new LostPassword();
+				LoginFrame.dispose();
 				miLost.show();
 			}
 		});

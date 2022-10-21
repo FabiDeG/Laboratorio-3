@@ -326,7 +326,6 @@ public class FileManager {
 			
 			ArrayList<User> AllUsers = (ArrayList<User>) ois.readObject();
 			ois.close();
-			System.out.println(AllUsers.toString());
 			return AllUsers;
 			
 		} catch (Exception e) {
