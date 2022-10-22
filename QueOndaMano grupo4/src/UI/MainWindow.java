@@ -2,11 +2,13 @@ package UI;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-import UI.Post;
 import UI.content;
+import controller.AppManagement;
 import controller.FileManager;
 import model.NUser;
 import model.User;
+import model.Post;
+import model.TxtPost;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -17,12 +19,18 @@ import com.jgoodies.forms.layout.RowSpec;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Rectangle;
+import java.awt.Toolkit;
 
+import javax.swing.Box;
+import javax.swing.DefaultListModel;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import java.awt.FlowLayout;
 import java.awt.CardLayout;
 import java.awt.Component;
+import java.awt.Container;
+import java.awt.Dimension;
+
 import UI.UserProfileWindow;
 import UI.UploadMediaWindow;
 import UI.Emojis;
@@ -32,21 +40,28 @@ import javax.swing.JDesktopPane;
 import javax.swing.JScrollBar;
 import javax.swing.JTextField;
 import java.awt.Font;
+import java.awt.GridBagConstraints;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+import java.io.File;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import java.awt.Color;
 import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JOptionPane;
 
 /**
  * Main window que contiene casi todas las acciones que se puede realizar en la aplicacion
  * @author Fabi
  *
  */
-public class MainWindow extends JFrame {
+public class MainWindow extends JFrame{
 
 	
 	private JPanel contentPane;
@@ -54,16 +69,24 @@ public class MainWindow extends JFrame {
 	private JButton btnNewButton;
 	private JButton btnNewButton_1;
 	private JButton btnNewButton_2;
-	private JTextField textField;
+	private JTextField txtSearch;
 	private JTextField textField_1;
 	private JButton btnNewButton_4;
 	private JLabel lblNewLabel_1;
 	private JButton btnNewButton_3;
 	public static int PublicO = 0;
+	private JButton btnLike;
+	private JButton btnComentar;
 	
 	private MainWindow selfMainWindow;
+	
+	// Variables from MODEL package
 	private User currentUser;
 	private ArrayList<User> AllsavedUsers;
+	
+	// Variables from CONTROLLER package
+	private AppManagement appMan;
+	
 	
 	content ventanita;
 	/**
@@ -74,6 +97,20 @@ public class MainWindow extends JFrame {
 			public void run() {
 				try {
 					MainWindow frame = new MainWindow();
+					frame.addWindowListener(new WindowListener() {
+						public void windowClosing(WindowEvent e) {
+							JOptionPane.showMessageDialog(null, "Saving to file...", "Información", JOptionPane.WARNING_MESSAGE, null);
+							//The method to save all to the file need to be implemented SaveMediatoFile FROM FileManager
+							frame.dispose();
+							System.exit(0);
+						}
+						public void windowOpened(WindowEvent e) {}
+						public void windowClosed(WindowEvent e) {}
+						public void windowIconified(WindowEvent e) {}
+						public void windowDeiconified(WindowEvent e) {}
+						public void windowActivated(WindowEvent e) {}
+						public void windowDeactivated(WindowEvent e) {}
+					});
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -92,23 +129,177 @@ public class MainWindow extends JFrame {
 		// That will contain all the saved users
 		FileManager FileManager = new FileManager();
 		AllsavedUsers = FileManager.getUsersFromFile();
-		
 		// Current user that is using the program (Temporarily set to the first saved user in the file, to make tests)
 		currentUser = AllsavedUsers.get(0);
 		
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1051, 757);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
-		Post miPost = new Post();
-		// content.add(Post);
-		miPost.setVisible(true);
+		// Initialize the controller variables
+		appMan = new AppManagement();
 		
+		//--------------------------------------------------------------
+		// Set layout manager for UI components
+		//--------------------------------------------------------------
+		Toolkit screenData = this.getToolkit();
+		Dimension tama = screenData.getScreenSize();
+		this.setSize(583, 406);
+		this.setLocationRelativeTo(null);
+		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		getContentPane().setLayout(new BorderLayout(3, 3));
+		txtSearch = new JTextField();
+		txtSearch.setText("Search...");
+		txtSearch.setHorizontalAlignment(SwingConstants.TRAILING);
+		txtSearch.setFont(new Font("Times New Roman", Font.PLAIN, 18));
+		txtSearch.setColumns(15);
+		lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon("QueOndaMano grupo4/bin/documents/adss"));
+		JPanel panel1 = new JPanel(new FlowLayout(FlowLayout.LEFT, 5, 5));
+		Box row1 = Box.createHorizontalBox();
+		
+		// Search by HASHTAG (#)
+		btnNewButton_4 = new JButton("");
+		row1.add(btnNewButton_4);
+		btnNewButton_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//UserProfileWindow miProfile = new UserProfileWindow();
+				//miProfile.show();
+				String strFromHashTag = txtSearch.getText().trim();
+				if (strFromHashTag != null && !strFromHashTag.isEmpty()) {
+					ArrayList<Post> postsSearchedByHashTag = appMan.SearchPostByhastag(strFromHashTag, currentUser.getUserPosts());
+					JOptionPane.showMessageDialog(null, "Search by #", "Información", JOptionPane.WARNING_MESSAGE, null);
+					//Take the postsSearchedByHashTag and put them in the display list
+				}
+			}
+		});
+		btnNewButton_4.setIcon(new ImageIcon(MainWindow.class.getResource("/documents/Captura de pantalla 2022-10-16 235935.jpg")));
+		btnNewButton_4.setMinimumSize(new Dimension(96, 50));
+		btnNewButton_4.setPreferredSize(new Dimension(250, 60));
+		row1.add(txtSearch);
+		panel1.add(row1);
+		//--------------------------------------------------------------
+		
+
+		// ******************************************************
+		// * FIRST GROUP OF ITEMS
+		// ******************************************************
+		// Search USER by ID
+		btnNewButton_3 = new JButton("");
+		panel1.add(btnNewButton_3);
+		btnNewButton_3.setIcon(new ImageIcon(MainWindow.class.getResource("/documents/asdfer.jpg")));
+		btnNewButton_3.setMinimumSize(new Dimension(70, 50));
+		btnNewButton_3.setPreferredSize(new Dimension(50, 50));
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//UserProfileWindow miProfile = new UserProfileWindow();
+				//miProfile.show();
+				ArrayList<Post> postsSearchedByUser = appMan.SearchPostByAuthor(currentUser.getUsername(), currentUser.getUserPosts());
+				JOptionPane.showMessageDialog(null, "Search by USER", "Información", JOptionPane.WARNING_MESSAGE, null);
+				//Take the postsSearchedByUser and put them in the display list
+			}
+		});
+		panel1.add(lblNewLabel_1);
+		// ******************************************************
+		// * FIRST GROUP OF ITEMS
+		// ******************************************************
+		
+		
+		
+		
+		// ******************************************************
+		// * SECOND GROUP OF ITEMS
+		// ******************************************************  
+		DefaultListModel<String> modelo = new DefaultListModel<>();
+		JList posts = new JList();
+		posts.setModel(modelo);
+		posts.setMinimumSize(new Dimension(400, 200));
+		posts.setPreferredSize(new Dimension(400, 200));
+		// Show the posts from the current user
+		/*
+		ArrayList<Post> userPosts = currentUser.getUserPosts();
+		Post postAux = null;
+		for (int k = 0; k < userPosts.size(); k++) {
+			if (userPosts.g)
+			postAux = userPosts.get(k);
+			postAux.getPostMSG();
+		}
+		*/
+		// Comment button
+		btnComentar = new JButton("Comentar");
+		btnComentar.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnComentar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//UserProfileWindow miProfile = new UserProfileWindow();
+				//miProfile.show();
+				int selectedPost = posts.getSelectedIndex();
+				if (selectedPost > -1) {
+					String coment1 = JOptionPane.showInputDialog(null, "Ingresa un comentario", "Comment", JOptionPane.NO_OPTION);
+					if (coment1 != null && !coment1.trim().isEmpty()) {
+						modelo.add(selectedPost + 1, "     " + coment1);
+					}
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "Necesitas seleccionar un Post", "Información", JOptionPane.WARNING_MESSAGE, null);
+				}
+			}
+		});
+		btnComentar.setIcon(null);
+		btnComentar.setMinimumSize(new Dimension(100, 50));
+		btnComentar.setPreferredSize(new Dimension(100, 50));
+		btnComentar.setMaximumSize(new Dimension(100, 50));
+		// Like button
+		btnLike = new JButton("");
+		btnLike.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//---------------------------------------------------
+				int selectedPost = posts.getSelectedIndex();
+				if (selectedPost > -1) {
+					JOptionPane.showMessageDialog(null, "LIKE", "Información", JOptionPane.WARNING_MESSAGE, null);
+					int selectedPostToComment = posts.getSelectedIndex();
+					btnLike.setIcon(new ImageIcon(MainWindow.class.getResource("/documents/Sinlike.png")));
+					// This method needs to be created
+					//appMan.CommentPost();
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "Necesitas seleccionar un Post para darle LIKE", "Información", JOptionPane.WARNING_MESSAGE, null);
+				}
+			}
+		});
+		btnLike.setIcon(new ImageIcon(MainWindow.class.getResource("/documents/Sinliike.png")));
+		btnLike.setMinimumSize(new Dimension(100, 50));
+		btnLike.setPreferredSize(new Dimension(50, 50));
+		btnLike.setMaximumSize(new Dimension(100, 50));
+		
+		
+		Box col = Box.createVerticalBox();
+		col.add(btnComentar);
+		col.add(btnLike);
+		JPanel panel2 = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
+		
+		panel2.add(posts);
+		panel2.add(col);
+		// ******************************************************
+		// * SECOND GROUP OF ITEMS
+		// ******************************************************
+		
+		
+		
+		
+		
+		// ******************************************************
+		// * LAST GROUP OF ITEMS
+		// ******************************************************
+		txtComentar = new JTextField();
+		txtComentar.setHorizontalAlignment(SwingConstants.RIGHT);
+		txtComentar.setForeground(Color.BLACK);
+		txtComentar.setText("dff");
+		txtComentar.setBounds(0, 647, 851, 69);
+		txtComentar.setFont(new Font("Times New Roman", Font.PLAIN, 18));
+		txtComentar.setColumns(15);
+		
+		// UPLOAD FILE BTN --------------------------------------------------
 		btnNewButton = new JButton("");
-		btnNewButton.setIcon(new ImageIcon("C:\\Users\\fabio\\Downloads\\ddd.jpg"));
-		btnNewButton.setSelectedIcon(null);
+		btnNewButton.setIcon(new ImageIcon(MainWindow.class.getResource("/documents/ddd.jpg")));
+		btnNewButton.setMinimumSize(new Dimension(50, 50));
+		btnNewButton.setPreferredSize(new Dimension(50, 50));
+		btnNewButton.setSelectedIcon(new ImageIcon(MainWindow.class.getResource("/documents/ddd.jpg")));
 		btnNewButton.addActionListener(new ActionListener() {
 			///////////////////////////////////////////////////////////////////////////////////////////////////
 			public void actionPerformed(ActionEvent e) {
@@ -118,46 +309,7 @@ public class MainWindow extends JFrame {
 			}
 		});
 		
-		btnNewButton_2 = new JButton("");
-		btnNewButton_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				PublicO = (PublicO + 1);
-				ventanita.run();
-			}
-		});
-		
-		btnNewButton_3 = new JButton("");
-		btnNewButton_3.setIcon(new ImageIcon("C:\\Users\\fabio\\Downloads\\adefds.jpg"));
-		btnNewButton_3.setBounds(10, 7, 49, 51);
-		contentPane.add(btnNewButton_3);
-		
-		JDesktopPane Content = new JDesktopPane();
-		Content.setBounds(0, 62, 1037, 575);
-		ventanita = new content();
-		Content.add(ventanita);
-		ventanita.setBounds(new Rectangle(0, 0, 1037, 575));
-		contentPane.add(Content);
-		ventanita.setVisible(true);
-		
-		lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\fabio\\Downloads\\Captura de pantalla 2022-10-16 235935.jpg"));
-		lblNewLabel_1.setBounds(357, 5, 282, 51);
-		contentPane.add(lblNewLabel_1);
-		
-		btnNewButton_4 = new JButton("");
-		btnNewButton_4.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				UserProfileWindow miProfile = new UserProfileWindow();
-				miProfile.show();
-			}
-		});
-		btnNewButton_4.setIcon(new ImageIcon("C:\\Users\\fabio\\Downloads\\adss.jpg"));
-		btnNewButton_4.setBounds(972, 6, 49, 49);
-		contentPane.add(btnNewButton_4);
-		btnNewButton_2.setIcon(new ImageIcon("C:\\Users\\fabio\\Downloads\\klksdf.png"));
-		btnNewButton_2.setBounds(979, 658, 58, 50);
-		contentPane.add(btnNewButton_2);
-		
+		// EMOJI BTN --------------------------------------------------
 		btnNewButton_1 = new JButton("");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -165,32 +317,76 @@ public class MainWindow extends JFrame {
 				miEmoji.show();
 			}
 		});
-		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\fabio\\Downloads\\kkk.jpg"));
-		btnNewButton_1.setBounds(920, 658, 49, 50);
-		contentPane.add(btnNewButton_1);
-		btnNewButton.setBounds(861, 658, 49, 50);
-		contentPane.add(btnNewButton);
+		btnNewButton_1.setIcon(new ImageIcon(MainWindow.class.getResource("/documents/kkk.jpg")));
+		btnNewButton_1.setMinimumSize(new Dimension(100, 50));
+		btnNewButton_1.setPreferredSize(new Dimension(50, 50));
+
+		// PUBLISH BTN --------------------------------------------------
+		btnNewButton_2 = new JButton("");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String aux = txtComentar.getText();
+				String hashTags[] = null;
+				if (aux != null && !aux.isEmpty()) {
+					modelo.addElement(aux);
+					txtComentar.setText("");
+					// Split input string
+					ArrayList<String> hashTagsArr = null;
+					if (aux.contains("#")) {
+						hashTagsArr = new ArrayList<String>();
+						hashTags = aux.split("#");
+						for (int i = 1; i < hashTags.length; i++) {
+							hashTagsArr.add("#" + hashTags[i].trim());
+						}
+					}
+					else {
+						
+						hashTags = new String[1];
+						hashTags[0] = aux;
+					}
+					// *********************************
+					// * create a text post
+					// *********************************
+					TxtPost postToSave = new TxtPost(currentUser.getUsername(), hashTags[0].trim());
+					postToSave.setLikes(0);
+					postToSave.setHashtags(hashTagsArr);
+					// Save the Post
+					appMan.SavePostToUser(AllsavedUsers, currentUser, postToSave);
+				}
+			}
+		});
+		btnNewButton_2.setIcon(new ImageIcon(MainWindow.class.getResource("/documents/klksdf.png")));
+		btnNewButton_2.setMinimumSize(new Dimension(52, 50));
+		btnNewButton_2.setPreferredSize(new Dimension(55, 50));
+		Box row3 = Box.createHorizontalBox();
+		row3.add(txtComentar);
+		row3.add(btnNewButton);
+		row3.add(btnNewButton_1);
+		row3.add(btnNewButton_2);
+		// ******************************************************
+		// * LAST GROUP OF ITEMS
+		// ******************************************************
 		
-		txtComentar = new JTextField();
-		txtComentar.setHorizontalAlignment(SwingConstants.RIGHT);
-		txtComentar.setForeground(Color.BLACK);
-		txtComentar.setText("dff");
-		txtComentar.setBounds(0, 647, 851, 69);
-		contentPane.add(txtComentar);
-		txtComentar.setFont(new Font("Times New Roman", Font.PLAIN, 18));
-		txtComentar.setColumns(10);
+
+		getContentPane().add(panel2, BorderLayout.CENTER);
+		getContentPane().add(row3, BorderLayout.SOUTH);
+		getContentPane().add(panel1, BorderLayout.NORTH);
+		this.pack();
+		/*
+		JDesktopPane Content = new JDesktopPane();
+		Content.setBounds(0, 62, 1037, 575);
+		ventanita = new content();
+		Content.add(ventanita);
+		ventanita.setBounds(new Rectangle(0, 0, 1037, 575));
+		//contentPane.add(Content);
+		contenedor.add(Content);
+		ventanita.setVisible(true);
 		
-		textField = new JTextField();
-		textField.setText("m");
-		textField.setHorizontalAlignment(SwingConstants.TRAILING);
-		textField.setFont(new Font("Times New Roman", Font.PLAIN, 18));
-		textField.setColumns(10);
-		textField.setBounds(845, 647, 192, 69);
-		contentPane.add(textField);
 		
 		textField_1 = new JTextField();
 		textField_1.setBounds(0, 3, 1037, 59);
-		contentPane.add(textField_1);
+		//contentPane.add(textField_1);
+		contenedor.add(textField_1);
 		textField_1.setEditable(false);
 		textField_1.setEnabled(false);
 		textField_1.setBackground(Color.WHITE);
@@ -198,6 +394,7 @@ public class MainWindow extends JFrame {
 		textField_1.setForeground(Color.WHITE);
 		textField_1.setFont(new Font("Times New Roman", Font.PLAIN, 18));
 		textField_1.setColumns(10);
+		*/
 	}
 
 	public int getPublicO() {
@@ -223,6 +420,4 @@ public class MainWindow extends JFrame {
 	public void setAllsavedUsers(ArrayList<User> allsavedUsers) {
 		AllsavedUsers = allsavedUsers;
 	}
-	
-	
 }
