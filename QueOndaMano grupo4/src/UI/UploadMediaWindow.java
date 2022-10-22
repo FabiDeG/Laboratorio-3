@@ -34,6 +34,7 @@ public class UploadMediaWindow extends JFrame {
 	private JPanel contentPane;
 	private JTextField textFieldLink;
 	private UploadMediaWindow MediaWindow;
+	private JTextField textHashtags;
 
 	/**
 	 * Create the frame. receiving all the dat from the main window as a variable
@@ -52,7 +53,7 @@ public class UploadMediaWindow extends JFrame {
 		contentPane.setLayout(null);
 		
 		textFieldLink = new JTextField();
-		textFieldLink.setBounds(20, 121, 165, 20);
+		textFieldLink.setBounds(20, 113, 165, 20);
 		contentPane.add(textFieldLink);
 		textFieldLink.setColumns(10);
 		
@@ -71,20 +72,29 @@ public class UploadMediaWindow extends JFrame {
 		
 		
 		JLabel lblNewLabel = new JLabel("Elige el tipo de multimedia que deseas postear");
-		lblNewLabel.setBounds(20, 22, 261, 28);
+		lblNewLabel.setBounds(20, 22, 295, 28);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblCopiaAquiEl = new JLabel("Copia aqui el link de donde obtuviste el archivo");
-		lblCopiaAquiEl.setBounds(21, 94, 274, 28);
+		lblCopiaAquiEl.setBounds(20, 87, 295, 28);
 		contentPane.add(lblCopiaAquiEl);
 		
 		JButton btnChooseFile = new JButton("Selecciona Archivo");
-		btnChooseFile.setBounds(20, 187, 165, 22);
+		btnChooseFile.setBounds(20, 228, 165, 22);
 		contentPane.add(btnChooseFile);
 		
 		JLabel lblEligeElArchivo = new JLabel("Elige el archivo de tu computadora, para crear tu post");
-		lblEligeElArchivo.setBounds(20, 159, 295, 28);
+		lblEligeElArchivo.setBounds(20, 189, 295, 28);
 		contentPane.add(lblEligeElArchivo);
+		
+		JLabel lblNewLabel_1 = new JLabel("Escribe aqui todos los hashtags que quieres poner");
+		lblNewLabel_1.setBounds(20, 144, 308, 14);
+		contentPane.add(lblNewLabel_1);
+		
+		textHashtags = new JTextField();
+		textHashtags.setBounds(20, 169, 165, 20);
+		contentPane.add(textHashtags);
+		textHashtags.setColumns(10);
 		
 		
 		btnChooseFile.addActionListener(new ActionListener() {
@@ -109,9 +119,11 @@ public class UploadMediaWindow extends JFrame {
 						if(ComboBoxMediType.getSelectedIndex() == 0) {
 							
 							ImagePost newImgPost = AppManage.CreateImagePostFromMetaData(mainframe.getCurrentUser(), LinkOfPost, filePath);
+							//Saving all hashtagas (if there are any) to the post
+							AppManage.SetHashtagsFromString(textHashtags.getText(), newImgPost);
+							
 							AppManage.SavePostToUser(AllUsers, theUser, newImgPost);// the post is saved to the specific user and added to the arrayList
 							FileManager.SaveAllUsersToFile(AllUsers); // Takes the recently modified arrayList and saves it to the file
-							
 							System.out.println("1");
 							
 							// Disposing the current JFrame.
@@ -120,7 +132,11 @@ public class UploadMediaWindow extends JFrame {
 						
 						else if(ComboBoxMediType.getSelectedIndex() == 1) {
 							Audio newAudPost = AppManage.CreateAudioPostFromMetaData(mainframe.getCurrentUser(), LinkOfPost, filePath);
+							//Saving all hashtagas (if there are any) to the post
+							AppManage.SetHashtagsFromString(textHashtags.getText(), newAudPost);
+							
 							AppManage.SavePostToUser(AllUsers, theUser, newAudPost);// the post is saved to the specific user and added to the arrayList
+							
 							FileManager.SaveAllUsersToFile(AllUsers); // Takes the recently modified arrayList and saves it to the file
 							
 							System.out.println("2");
@@ -131,6 +147,9 @@ public class UploadMediaWindow extends JFrame {
 						
 						else if(ComboBoxMediType.getSelectedIndex() == 2) {
 							Video newVidPost = AppManage.CreateVideoPostFromMetaData(mainframe.getCurrentUser(), LinkOfPost, filePath);
+							//Saving all hashtagas (if there are any) to the post
+							AppManage.SetHashtagsFromString(textHashtags.getText(), newVidPost);
+							
 							AppManage.SavePostToUser(AllUsers, theUser, newVidPost);// the post is saved to the specific user and added to the arrayList
 							FileManager.SaveAllUsersToFile(AllUsers); // Takes the recently modified arrayList and saves it to the file
 							
