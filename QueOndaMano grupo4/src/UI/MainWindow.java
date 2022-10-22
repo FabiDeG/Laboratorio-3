@@ -372,29 +372,7 @@ public class MainWindow extends JFrame{
 		getContentPane().add(row3, BorderLayout.SOUTH);
 		getContentPane().add(panel1, BorderLayout.NORTH);
 		this.pack();
-		/*
-		JDesktopPane Content = new JDesktopPane();
-		Content.setBounds(0, 62, 1037, 575);
-		ventanita = new content();
-		Content.add(ventanita);
-		ventanita.setBounds(new Rectangle(0, 0, 1037, 575));
-		//contentPane.add(Content);
-		contenedor.add(Content);
-		ventanita.setVisible(true);
 		
-		
-		textField_1 = new JTextField();
-		textField_1.setBounds(0, 3, 1037, 59);
-		//contentPane.add(textField_1);
-		contenedor.add(textField_1);
-		textField_1.setEditable(false);
-		textField_1.setEnabled(false);
-		textField_1.setBackground(Color.WHITE);
-		textField_1.setHorizontalAlignment(SwingConstants.RIGHT);
-		textField_1.setForeground(Color.WHITE);
-		textField_1.setFont(new Font("Times New Roman", Font.PLAIN, 18));
-		textField_1.setColumns(10);
-		*/
 	}
 
 	public int getPublicO() {
