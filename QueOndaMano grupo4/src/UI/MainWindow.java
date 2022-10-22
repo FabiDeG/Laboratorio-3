@@ -57,7 +57,7 @@ import javax.swing.JList;
 import javax.swing.JOptionPane;
 
 /**
- * Main window que contiene casi todas las acciones que se puede realizar en la aplicacion
+ * Main window that have all the bottons and txt to start posting and search
  * @author Fabi
  *
  */

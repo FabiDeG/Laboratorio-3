@@ -112,7 +112,8 @@ public class UploadMediaWindow extends JFrame {
 							AppManage.SavePostToUser(AllUsers, theUser, newImgPost);// the post is saved to the specific user and added to the arrayList
 							FileManager.SaveAllUsersToFile(AllUsers); // Takes the recently modified arrayList and saves it to the file
 							
-							System.out.println("1");
+							System.out.println("" + LinkOfPost);
+							MainWindow.txtComentar.setText(LinkOfPost);;
 							
 							// Disposing the current JFrame.
 							MediaWindow.dispose();
@@ -123,8 +124,9 @@ public class UploadMediaWindow extends JFrame {
 							AppManage.SavePostToUser(AllUsers, theUser, newAudPost);// the post is saved to the specific user and added to the arrayList
 							FileManager.SaveAllUsersToFile(AllUsers); // Takes the recently modified arrayList and saves it to the file
 							
-							System.out.println("2");
-							
+							System.out.println("" + LinkOfPost);
+							MainWindow.txtComentar.setText(LinkOfPost);;
+														
 							// Disposing the current JFrame.
 							MediaWindow.dispose();
 						}
@@ -135,6 +137,9 @@ public class UploadMediaWindow extends JFrame {
 							FileManager.SaveAllUsersToFile(AllUsers); // Takes the recently modified arrayList and saves it to the file
 							
 							System.out.println("3");
+							
+							System.out.println("" + LinkOfPost);
+							MainWindow.txtComentar.setText(LinkOfPost);;
 							
 							// Disposing the current JFrame.
 							MediaWindow.dispose();
