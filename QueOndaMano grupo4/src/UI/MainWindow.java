@@ -1,5 +1,4 @@
 package UI;
-
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import UI.content;
@@ -20,7 +19,6 @@ import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
-
 import javax.swing.Box;
 import javax.swing.DefaultListModel;
 import javax.swing.GroupLayout;
@@ -30,7 +28,6 @@ import java.awt.CardLayout;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
-
 import UI.UserProfileWindow;
 import UI.UploadMediaWindow;
 import UI.Emojis;
@@ -41,7 +38,6 @@ import javax.swing.JScrollBar;
 import javax.swing.JTextField;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
-
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
@@ -55,14 +51,12 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
-
 /**
  * Main window that have all the bottons and txt to start posting and search
  * @author Fabi
  *
  */
 public class MainWindow extends JFrame{
-
 	
 	private JPanel contentPane;
 	public static JTextField txtComentar;
@@ -120,7 +114,6 @@ public class MainWindow extends JFrame{
 			}
 		});
 	}
-
 	/**
 	 * Create the frame.
 	 */
@@ -159,7 +152,6 @@ public class MainWindow extends JFrame{
 		panel1.add(row1);
 		//--------------------------------------------------------------
 		
-
 		// ******************************************************
 		// * FIRST GROUP OF ITEMS
 		// ******************************************************
@@ -177,7 +169,7 @@ public class MainWindow extends JFrame{
 		});
 		
 		btnNewButton_7 = new JButton("");
-		btnNewButton_7.setIcon(new ImageIcon(MainWindow.class.getResource("/documents/adefds.jpg")));
+		btnNewButton_7.setIcon(new ImageIcon(MainWindow.class.getResource("/documents/izquierdo.png")));
 		btnNewButton_7.setPreferredSize(new Dimension(50, 50));
 		btnNewButton_7.setMinimumSize(new Dimension(96, 50));
 		panel1.add(btnNewButton_7);
@@ -190,7 +182,7 @@ public class MainWindow extends JFrame{
 		panel1.add(btnNewButton_5);
 		
 		btnNewButton_6 = new JButton("");
-		btnNewButton_6.setIcon(new ImageIcon(MainWindow.class.getResource("/documents/adefds.jpg")));
+		btnNewButton_6.setIcon(new ImageIcon(MainWindow.class.getResource("/documents/Descargas")));
 		btnNewButton_6.setPreferredSize(new Dimension(50, 50));
 		btnNewButton_6.setMinimumSize(new Dimension(96, 50));
 		panel1.add(btnNewButton_6);
@@ -332,7 +324,6 @@ public class MainWindow extends JFrame{
 		btnNewButton_1.setIcon(new ImageIcon(MainWindow.class.getResource("/documents/kkk.jpg")));
 		btnNewButton_1.setMinimumSize(new Dimension(100, 50));
 		btnNewButton_1.setPreferredSize(new Dimension(50, 50));
-
 		// PUBLISH BTN --------------------------------------------------
 		btnNewButton_2 = new JButton("");
 		btnNewButton_2.addActionListener(new ActionListener() {
@@ -382,34 +373,27 @@ public class MainWindow extends JFrame{
 		// * LAST GROUP OF ITEMS
 		// ******************************************************
 		
-
 		getContentPane().add(panel2, BorderLayout.CENTER);
 		getContentPane().add(row3, BorderLayout.SOUTH);
 		getContentPane().add(panel1, BorderLayout.NORTH);
 		this.pack();
 		
 	}
-
 	public int getPublicO() {
 		return PublicO;
 	}
-
 	public void setPublicO(int publicO) {
 		PublicO = publicO;
 	}
-
 	public User getCurrentUser() {
 		return currentUser;
 	}
-
 	public void setCurrentUser(User currentUser) {
 		this.currentUser = currentUser;
 	}
-
 	public ArrayList<User> getAllsavedUsers() {
 		return AllsavedUsers;
 	}
-
 	public void setAllsavedUsers(ArrayList<User> allsavedUsers) {
 		AllsavedUsers = allsavedUsers;
 	}

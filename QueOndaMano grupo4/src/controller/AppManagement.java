@@ -1,11 +1,8 @@
 package controller;
-
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
-
 import javax.imageio.ImageIO;
-
 import model.Audio;
 import model.ImagePost;
 import model.NAdmin;
@@ -15,8 +12,6 @@ import model.User;
 import model.Video;
 import java.io.File;
 import java.io.IOException;
-
-
 /**
  * Controlador logico de distintos procesos de la aplicacion
  * @author andre
@@ -83,24 +78,30 @@ public class AppManagement {
 	public void CommentPost(Post post, String Comment) {
 		post.getComments().add(Comment);
 	}
-
 	/**
 	 * Metodo que busca a todos los posts hechos en una fecha en especifico
 	 * @param date, fecha de la cual se estan buscando los posts
 	 * @param posts, Lista de todos los posts disponibles
 	 * @return lista de todos los posts con la fecha especificada
 	 */
-	public ArrayList<Post> SearchPostByDate(String date, ArrayList<Post> posts){
+	public ArrayList<Post> SearchPostByDate(String date, ArrayList<User> AllUsers){
 		
 		ArrayList<Post> ListOfPostsByDate = new ArrayList<Post>();
 		
-		for (Post post : posts) {
+		//Searching for matvhin hashtag in each user
+		for (User aUser : AllUsers) {					
 			
-			if(date.equals(post.getDate())) {
-				ListOfPostsByDate.add(post);
+			// Search applies to every post
+			for (Post post : aUser.getUserPosts()) {
+					
+				if(date.equals(post.getDate())) { // If the post has the hashtag it is stored in the list
+					ListOfPostsByDate.add(post);
+				}
+				
+						
 			}
+					
 		}
-		
 		return ListOfPostsByDate;
 	}
 	
@@ -110,22 +111,29 @@ public class AppManagement {
 	 * @param posts lista de todos los posts disponibles
 	 * @return una lista con todos los posts que contienen el hastag solicitado
 	 */
-	public ArrayList<Post> SearchPostByhastag(String Hashtag, ArrayList<Post> posts){
+	public ArrayList<Post> SearchPostByhastag(String Hashtag, ArrayList<User> AllUsers){
 		
 		//List where al posts with a matching hastag weill appear
 		ArrayList<Post> ListOfPostsWithHastag = new ArrayList<Post>();
 		
-		// Search applies to every post
-		for (Post post : posts) {
-			// and the loop check every string in the array list of hastags that the post has
-			for (String _HashtagInList : post.getHashtags()) {
+		//Searching for matvhin hashtag in each user
+		for (User aUser : AllUsers) {
+			
+			// Search applies to every post
+			for (Post post : aUser.getUserPosts()) {
 				
-				if(Hashtag.equals(_HashtagInList)) { // If the post has the hastag it is stored in the list
-					ListOfPostsWithHastag.add(post);
+				// and the loop check every string in the array list of hastags that the post has
+				for (String _HashtagInList : post.getHashtags()) {
+					
+					if(Hashtag.equals(_HashtagInList)) { // If the post has the hashtag it is stored in the list
+						ListOfPostsWithHastag.add(post);
+					}
 				}
+					
 			}
-				
+			
 		}
+		
 		return ListOfPostsWithHastag;
 	}		
 	
@@ -135,13 +143,20 @@ public class AppManagement {
 	 * @param posts todos los posts disponibles
 	 * @return una lista con todos los posts que ha realizado un usuario
 	 */
-	public ArrayList<Post> SearchPostByAuthor(String user, ArrayList<Post> posts){
+	public ArrayList<Post> SearchPostByAuthor(String user, ArrayList<User> postsAllUsers){
 		
 		ArrayList<Post> PostsWithSpecAuthor = new ArrayList<Post>();
 		
-		for (Post post : posts) {
-			if(user.equals(post.getAuthor())) {
-				PostsWithSpecAuthor.add(post);
+		//Looking int the users
+		for (User aUser : postsAllUsers) {
+			
+			for (Post post : aUser.getUserPosts()) {
+				
+				//Looking for a matching username
+				if(user.equals(post.getAuthor())) {
+					PostsWithSpecAuthor.add(post);
+				}
+				
 			}
 		}
 		
@@ -271,7 +286,6 @@ public class AppManagement {
 		} catch (Exception e) {
 			System.out.println("No se pudo completar la tarea, puede que el archivo "
 					+ "seleccionado no corresponda al tipo de archivo que se desea postear");
-
 		}
 		
 		return null;
@@ -309,11 +323,9 @@ public class AppManagement {
 		} catch (Exception e) {
 			System.out.println("No se pudo completar la tarea, puede que el archivo "
 					+ "seleccionado no corresponda al tipo de archivo que se desea postear");
-
 		}
 		
 		return null;
-
 	}
 	
 	/**
