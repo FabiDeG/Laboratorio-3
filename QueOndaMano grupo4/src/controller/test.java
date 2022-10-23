@@ -1,14 +1,10 @@
 package controller;
 import controller.FileManager;
-import model.Audio;
-import model.EmojiPost;
 import model.ImagePost;
-import model.MediaPost;
 import model.NUser;
 import model.Post;
 import model.TxtPost;
 import model.User;
-import model.Video;
 
 import java.util.ArrayList;
 
@@ -16,8 +12,6 @@ import controller.AppManagement;
 
 public class test {
 	public static void main(String[] arg) {
-		
-		
 		
 		FileManager Filemanager = new FileManager();
 		
