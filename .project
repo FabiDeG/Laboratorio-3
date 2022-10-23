@@ -14,4 +14,16 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>QueOndaMano grupo4/src/documents/Descargas</name>
+			<type>1</type>
+			<location>C:/Users/fabio/Downloads/derecho.png</location>
+		</link>
+		<link>
+			<name>QueOndaMano grupo4/src/documents/izquierdo.png</name>
+			<type>1</type>
+			<location>C:/Users/fabio/Downloads/izquierdo.png</location>
+		</link>
+	</linkedResources>
 </projectDescription>

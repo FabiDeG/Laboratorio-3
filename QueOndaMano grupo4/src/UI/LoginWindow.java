@@ -67,7 +67,7 @@ public class LoginWindow extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("¡Volviste! Te extraniamos");
+		JLabel lblNewLabel = new JLabel("Volviste! Te extraniamos");
 		lblNewLabel.setFont(new Font("Monospaced", Font.PLAIN, 16));
 		lblNewLabel.setBounds(88, 34, 252, 41);
 		contentPane.add(lblNewLabel);
@@ -140,7 +140,7 @@ public class LoginWindow extends JFrame {
 		btnNewButton.setBounds(160, 269, 99, 34);
 		contentPane.add(btnNewButton);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("Ohh, ¿olvidaste tu contrasenia?");
+		JLabel lblNewLabel_1_1 = new JLabel("Ohh, olvidaste tu contrasenia?");
 		lblNewLabel_1_1.setFont(new Font("Monospaced", Font.PLAIN, 14));
 		lblNewLabel_1_1.setBounds(46, 332, 300, 27);
 		contentPane.add(lblNewLabel_1_1);

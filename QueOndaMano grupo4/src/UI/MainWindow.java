@@ -9,7 +9,7 @@ import model.NUser;
 import model.User;
 import model.Post;
 import model.TxtPost;
-
+import UI.Search;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -69,7 +69,6 @@ public class MainWindow extends JFrame{
 	private JButton btnNewButton;
 	private JButton btnNewButton_1;
 	private JButton btnNewButton_2;
-	private JTextField txtSearch;
 	private JTextField textField_1;
 	private JButton btnNewButton_4;
 	private JLabel lblNewLabel_1;
@@ -89,6 +88,9 @@ public class MainWindow extends JFrame{
 	
 	
 	content ventanita;
+	private JButton btnNewButton_5;
+	private JButton btnNewButton_6;
+	private JButton btnNewButton_7;
 	/**
 	 * Launch the application.
 	 */
@@ -150,35 +152,10 @@ public class MainWindow extends JFrame{
 		this.setLocationRelativeTo(null);
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(new BorderLayout(3, 3));
-		txtSearch = new JTextField();
-		txtSearch.setText("Search...");
-		txtSearch.setHorizontalAlignment(SwingConstants.TRAILING);
-		txtSearch.setFont(new Font("Times New Roman", Font.PLAIN, 18));
-		txtSearch.setColumns(15);
 		lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setIcon(new ImageIcon("QueOndaMano grupo4/bin/documents/adss"));
 		JPanel panel1 = new JPanel(new FlowLayout(FlowLayout.LEFT, 5, 5));
 		Box row1 = Box.createHorizontalBox();
-		
-		// Search by HASHTAG (#)
-		btnNewButton_4 = new JButton("");
-		row1.add(btnNewButton_4);
-		btnNewButton_4.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				//UserProfileWindow miProfile = new UserProfileWindow();
-				//miProfile.show();
-				String strFromHashTag = txtSearch.getText().trim();
-				if (strFromHashTag != null && !strFromHashTag.isEmpty()) {
-					ArrayList<Post> postsSearchedByHashTag = appMan.SearchPostByhastag(strFromHashTag, currentUser.getUserPosts());
-					JOptionPane.showMessageDialog(null, "Search by #", "Informacion", JOptionPane.WARNING_MESSAGE, null);
-					//Take the postsSearchedByHashTag and put them in the display list
-				}
-			}
-		});
-		btnNewButton_4.setIcon(new ImageIcon(MainWindow.class.getResource("/documents/Captura de pantalla 2022-10-16 235935.jpg")));
-		btnNewButton_4.setMinimumSize(new Dimension(96, 50));
-		btnNewButton_4.setPreferredSize(new Dimension(250, 60));
-		row1.add(txtSearch);
 		panel1.add(row1);
 		//--------------------------------------------------------------
 		
@@ -194,13 +171,41 @@ public class MainWindow extends JFrame{
 		btnNewButton_3.setPreferredSize(new Dimension(50, 50));
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//UserProfileWindow miProfile = new UserProfileWindow();
-				//miProfile.show();
-				ArrayList<Post> postsSearchedByUser = appMan.SearchPostByAuthor(currentUser.getUsername(), currentUser.getUserPosts());
-				JOptionPane.showMessageDialog(null, "Search by USER", "Informacion", JOptionPane.WARNING_MESSAGE, null);
-				//Take the postsSearchedByUser and put them in the display list
+				Search mySearch = new Search(AllsavedUsers, null);
+				mySearch.show();
 			}
 		});
+		
+		btnNewButton_7 = new JButton("");
+		btnNewButton_7.setIcon(new ImageIcon(MainWindow.class.getResource("/documents/izquierdo.png")));
+		btnNewButton_7.setPreferredSize(new Dimension(50, 50));
+		btnNewButton_7.setMinimumSize(new Dimension(96, 50));
+		panel1.add(btnNewButton_7);
+		
+		btnNewButton_5 = new JButton("");
+		btnNewButton_5.setIcon(new ImageIcon(MainWindow.class.getResource("/documents/Captura de pantalla 2022-10-16 235935.jpg")));
+		btnNewButton_5.setSelectedIcon(new ImageIcon(MainWindow.class.getResource("/documents/Captura de pantalla 2022-10-16 235935.jpg")));
+		btnNewButton_5.setPreferredSize(new Dimension(275, 60));
+		btnNewButton_5.setMinimumSize(new Dimension(70, 50));
+		panel1.add(btnNewButton_5);
+		
+		btnNewButton_6 = new JButton("");
+		btnNewButton_6.setIcon(new ImageIcon(MainWindow.class.getResource("/documents/Descargas")));
+		btnNewButton_6.setPreferredSize(new Dimension(50, 50));
+		btnNewButton_6.setMinimumSize(new Dimension(96, 50));
+		panel1.add(btnNewButton_6);
+		
+		// Search by HASHTAG (#)
+		btnNewButton_4 = new JButton("");
+		panel1.add(btnNewButton_4);
+		btnNewButton_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		btnNewButton_4.setIcon(new ImageIcon(MainWindow.class.getResource("/documents/adss.jpg")));
+		btnNewButton_4.setMinimumSize(new Dimension(96, 50));
+		btnNewButton_4.setPreferredSize(new Dimension(45, 50));
 		panel1.add(lblNewLabel_1);
 		// ******************************************************
 		// * FIRST GROUP OF ITEMS
@@ -252,6 +257,7 @@ public class MainWindow extends JFrame{
 		btnComentar.setMaximumSize(new Dimension(100, 50));
 		// Like button
 		btnLike = new JButton("");
+		btnLike.setSelectedIcon(new ImageIcon(MainWindow.class.getResource("/documents/Sinlike.png")));
 		btnLike.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//---------------------------------------------------
