@@ -49,7 +49,7 @@ public class Search extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Search frame = new Search(null,"");
+					Search frame = new Search(null, "");
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -148,7 +148,7 @@ public class Search extends JFrame {
 					}
 					
 					
-					for (Post aPost : PostsToShow) {
+						for (Post aPost : PostsToShow) {
 							
 							
 							if (aPost.getPostType() == 1) {
