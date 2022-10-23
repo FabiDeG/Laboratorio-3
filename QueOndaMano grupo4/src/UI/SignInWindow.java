@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import controller.AppManagement;
 import controller.FileManager;
 import model.NUser;
 import model.User;
@@ -60,6 +61,7 @@ public class SignInWindow extends JFrame {
 	public SignInWindow() {
 		this.SignIn = this;
 		FileManager filemanager = new FileManager();
+		AppManagement AppManage = new AppManagement();
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 442, 520);
@@ -146,7 +148,7 @@ public class SignInWindow extends JFrame {
 				System.out.println("Nuevo Usuario");
 				
 				//Create new user only if user is available and
-				if(txtPassw.getText().equals(txtCPassw.getText( ) ) && !txtPassw.getText().equals("") ){
+				if(txtPassw.getText().equals(txtCPassw.getText() ) && !txtPassw.getText().equals("") ){
 					System.out.println("Iguales");
 					
 					//Se guarda el usuario al archivo de data, donde se guardan los usuarios y sus contrasenias encriptadas
@@ -162,7 +164,9 @@ public class SignInWindow extends JFrame {
 					//Guardar cambios al archivo con toda la informacion (UserPost)
 					filemanager.SaveAllUsersToFile(SavingUsers);
 					
-					MainWindow Main = new MainWindow();
+					User Nuser = AppManage.LoginSuccesful(txtUser.getText(), txtPassw.getText());
+					MainWindow Main = new MainWindow(Nuser);
+					
 					Main.setVisible(true);
 					
 					SignIn.dispose();

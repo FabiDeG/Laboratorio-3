@@ -28,7 +28,7 @@ public class FileManager {
 	private static final int USER_NAME = 1;
 	private static final int USER_PASSWORD = 2;
 	String Myfile = "QueOndaMano grupo4/src/documents/data.txt";
-	String UsersFiles = "QueOndaMano grupo4/src/documents/UsersPosts";
+	String UsersFiles = "QueOndaMano grupo4/src/documents/UsersPosts.txt";
 	
 	/**
 	 * Controlador de archivos para poder leer, escribir y encriptar los mismos

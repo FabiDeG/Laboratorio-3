@@ -96,7 +96,7 @@ public class MainWindow extends JFrame{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					MainWindow frame = new MainWindow();
+					MainWindow frame = new MainWindow(null);
 					frame.addWindowListener(new WindowListener() {
 						public void windowClosing(WindowEvent e) {
 							JOptionPane.showMessageDialog(null, "Saving to file...", "Información", JOptionPane.WARNING_MESSAGE, null);
@@ -122,7 +122,7 @@ public class MainWindow extends JFrame{
 	/**
 	 * Create the frame.
 	 */
-	public MainWindow() {
+	public MainWindow(User TheCurrentuser) {
 		this.selfMainWindow = this;
 		
 		// Reading all the saved users in the UserPost file and saving them to the arrayList
@@ -130,7 +130,7 @@ public class MainWindow extends JFrame{
 		FileManager FileManager = new FileManager();
 		AllsavedUsers = FileManager.getUsersFromFile();
 		// Current user that is using the program (Temporarily set to the first saved user in the file, to make tests)
-		currentUser = AllsavedUsers.get(0);
+		currentUser = TheCurrentuser;
 		
 		// Initialize the controller variables
 		appMan = new AppManagement();
@@ -191,7 +191,7 @@ public class MainWindow extends JFrame{
 				//UserProfileWindow miProfile = new UserProfileWindow();
 				//miProfile.show();
 				ArrayList<Post> postsSearchedByUser = appMan.SearchPostByAuthor(currentUser.getUsername(), currentUser.getUserPosts());
-				JOptionPane.showMessageDialog(null, "Search by USER", "Información", JOptionPane.WARNING_MESSAGE, null);
+				JOptionPane.showMessageDialog(null, "Search by USER", "Informacion", JOptionPane.WARNING_MESSAGE, null);
 				//Take the postsSearchedByUser and put them in the display list
 			}
 		});
@@ -258,7 +258,7 @@ public class MainWindow extends JFrame{
 					//appMan.CommentPost();
 				}
 				else {
-					JOptionPane.showMessageDialog(null, "Necesitas seleccionar un Post para darle LIKE", "Información", JOptionPane.WARNING_MESSAGE, null);
+					JOptionPane.showMessageDialog(null, "Necesitas seleccionar un Post para darle LIKE", "Informacion", JOptionPane.WARNING_MESSAGE, null);
 				}
 			}
 		});

@@ -18,7 +18,9 @@ public class test {
 		Filemanager.ReadFileForPassword("ramosn", "10");
 		Filemanager.UserExists("ramon");
 		
-		
+		ArrayList<User> Fix = new ArrayList<User>();
+		Filemanager.setAllUsersFromFile(Fix);
+		Filemanager.SaveAllUsersToFile(Fix);
 		
 		ArrayList<User> TestArrayList = Filemanager.getUsersFromFile();
 		for (User user : TestArrayList) {

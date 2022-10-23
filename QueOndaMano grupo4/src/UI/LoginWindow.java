@@ -3,7 +3,9 @@ package UI;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import UI.LostPassword;
+import controller.AppManagement;
 import controller.FileManager;
+import model.User;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -56,6 +58,7 @@ public class LoginWindow extends JFrame {
 		this.LoginFrame = this;
 		
 		FileManager filemanager = new FileManager();
+		AppManagement AppManage = new AppManagement();
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 429);
@@ -115,7 +118,10 @@ public class LoginWindow extends JFrame {
 				try {
 					//Checking if the password and user match and exist
 					if(filemanager.ReadFileForPassword(txtUser.getText(), txtPass.getText())) {
-						MainWindow Main = new MainWindow();
+						
+						User Nuser = AppManage.LoginSuccesful(txtUser.getText(), txtPass.getText());
+						MainWindow Main = new MainWindow(Nuser);
+						
 						Main.setVisible(true);
 						LoginFrame.dispose();
 					}
