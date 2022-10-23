@@ -34,6 +34,7 @@ public class UploadMediaWindow extends JFrame {
 	private JPanel contentPane;
 	private JTextField textFieldLink;
 	private UploadMediaWindow MediaWindow;
+	private JTextField textFieldHash;
 
 	/**
 	 * Create the frame. receiving all the dat from the main window as a variable
@@ -52,7 +53,7 @@ public class UploadMediaWindow extends JFrame {
 		contentPane.setLayout(null);
 		
 		textFieldLink = new JTextField();
-		textFieldLink.setBounds(20, 121, 165, 20);
+		textFieldLink.setBounds(20, 113, 165, 20);
 		contentPane.add(textFieldLink);
 		textFieldLink.setColumns(10);
 		
@@ -75,16 +76,25 @@ public class UploadMediaWindow extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblCopiaAquiEl = new JLabel("Copia aqui el link de donde obtuviste el archivo");
-		lblCopiaAquiEl.setBounds(21, 94, 274, 28);
+		lblCopiaAquiEl.setBounds(20, 87, 274, 28);
 		contentPane.add(lblCopiaAquiEl);
 		
 		JButton btnChooseFile = new JButton("Selecciona Archivo");
-		btnChooseFile.setBounds(20, 187, 165, 22);
+		btnChooseFile.setBounds(20, 228, 165, 22);
 		contentPane.add(btnChooseFile);
 		
 		JLabel lblEligeElArchivo = new JLabel("Elige el archivo de tu computadora, para crear tu post");
-		lblEligeElArchivo.setBounds(20, 159, 295, 28);
+		lblEligeElArchivo.setBounds(20, 201, 295, 28);
 		contentPane.add(lblEligeElArchivo);
+		
+		JLabel lblColocaLoshastagasQue = new JLabel("Coloca loshastagas que deseas incluir");
+		lblColocaLoshastagasQue.setBounds(20, 137, 274, 28);
+		contentPane.add(lblColocaLoshastagasQue);
+		
+		textFieldHash = new JTextField();
+		textFieldHash.setColumns(10);
+		textFieldHash.setBounds(20, 170, 165, 20);
+		contentPane.add(textFieldHash);
 		
 		
 		btnChooseFile.addActionListener(new ActionListener() {
@@ -109,11 +119,13 @@ public class UploadMediaWindow extends JFrame {
 						if(ComboBoxMediType.getSelectedIndex() == 0) {
 							
 							ImagePost newImgPost = AppManage.CreateImagePostFromMetaData(mainframe.getCurrentUser(), LinkOfPost, filePath);
+							AppManage.SetHashtagsFromString(textFieldHash.getText(), newImgPost);
+							
 							AppManage.SavePostToUser(AllUsers, theUser, newImgPost);// the post is saved to the specific user and added to the arrayList
 							FileManager.SaveAllUsersToFile(AllUsers); // Takes the recently modified arrayList and saves it to the file
 							
+							
 							System.out.println("" + LinkOfPost);
-							MainWindow.txtComentar.setText(LinkOfPost);;
 							
 							// Disposing the current JFrame.
 							MediaWindow.dispose();
@@ -121,11 +133,12 @@ public class UploadMediaWindow extends JFrame {
 						
 						else if(ComboBoxMediType.getSelectedIndex() == 1) {
 							Audio newAudPost = AppManage.CreateAudioPostFromMetaData(mainframe.getCurrentUser(), LinkOfPost, filePath);
+							AppManage.SetHashtagsFromString(textFieldHash.getText(), newAudPost);
+							
 							AppManage.SavePostToUser(AllUsers, theUser, newAudPost);// the post is saved to the specific user and added to the arrayList
 							FileManager.SaveAllUsersToFile(AllUsers); // Takes the recently modified arrayList and saves it to the file
 							
 							System.out.println("" + LinkOfPost);
-							MainWindow.txtComentar.setText(LinkOfPost);;
 														
 							// Disposing the current JFrame.
 							MediaWindow.dispose();
@@ -133,13 +146,15 @@ public class UploadMediaWindow extends JFrame {
 						
 						else if(ComboBoxMediType.getSelectedIndex() == 2) {
 							Video newVidPost = AppManage.CreateVideoPostFromMetaData(mainframe.getCurrentUser(), LinkOfPost, filePath);
+							AppManage.SetHashtagsFromString(textFieldHash.getText(), newVidPost);
+							
 							AppManage.SavePostToUser(AllUsers, theUser, newVidPost);// the post is saved to the specific user and added to the arrayList
 							FileManager.SaveAllUsersToFile(AllUsers); // Takes the recently modified arrayList and saves it to the file
 							
 							System.out.println("3");
 							
 							System.out.println("" + LinkOfPost);
-							MainWindow.txtComentar.setText(LinkOfPost);;
+							
 							
 							// Disposing the current JFrame.
 							MediaWindow.dispose();
