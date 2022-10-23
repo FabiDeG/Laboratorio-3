@@ -192,8 +192,13 @@ public class SignInWindow extends JFrame {
 		
 		JLabel lblNoOlvidesTu = new JLabel("No olvides tu contrasenia...");
 		lblNoOlvidesTu.setFont(new Font("Monospaced", Font.PLAIN, 14));
-		lblNoOlvidesTu.setBounds(117, 329, 426, 41);
+		lblNoOlvidesTu.setBounds(116, 339, 426, 41);
 		contentPane.add(lblNoOlvidesTu);
+		
+		JLabel lblNotaImportanteLos = new JLabel("NOTA IMPORTANTE LOS CARACTERES ESPECIALES NO SON RECOMENDADOS");
+		lblNotaImportanteLos.setFont(new Font("Monospaced", Font.PLAIN, 10));
+		lblNotaImportanteLos.setBounds(22, 301, 426, 41);
+		contentPane.add(lblNotaImportanteLos);
 	}
 
 }
