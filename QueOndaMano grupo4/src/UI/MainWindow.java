@@ -355,10 +355,12 @@ public class MainWindow extends JFrame{
 					// *********************************
 					TxtPost postToSave = new TxtPost(currentUser.getUsername(), hashTags[0].trim());
 					postToSave.setLikes(0);
-					postToSave.setHashtags(hashTagsArr);
+					if(!(hashTagsArr == null)) {
+						postToSave.setHashtags(hashTagsArr);
+					}	
 					// Save the Post
 					appMan.SavePostToUser(AllsavedUsers, currentUser, postToSave);
-					
+					FileManager.SaveAllUsersToFile(AllsavedUsers);
 				}
 			}
 		});

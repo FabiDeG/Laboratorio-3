@@ -18,6 +18,10 @@ public class test {
 		Filemanager.ReadFileForPassword("ramosn", "10");
 		Filemanager.UserExists("ramon");
 			
+		ArrayList<User> fix= new ArrayList<User>();
+		
+		Filemanager.setAllUsersFromFile(fix);
+		Filemanager.SaveAllUsersToFile(fix);
 		
 		ArrayList<User> TestArrayList = Filemanager.getUsersFromFile();
 		for (User user : TestArrayList) {
@@ -26,9 +30,11 @@ public class test {
 			System.out.println(user.getUserPosts());
 			
 			for(Post post :user.getUserPosts()) {
-				System.out.println("Si");
+				System.out.println(user.getUserPosts());
+				
 				for(String hashtag : post.getHashtags()) {
 					System.out.println(hashtag);
+					
 				}
 				
 			}
