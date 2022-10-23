@@ -122,6 +122,7 @@ public class UploadMediaWindow extends JFrame {
 							AppManage.SetHashtagsFromString(textFieldHash.getText(), newImgPost);
 							
 							AppManage.SavePostToUser(AllUsers, theUser, newImgPost);// the post is saved to the specific user and added to the arrayList
+							
 							FileManager.SaveAllUsersToFile(AllUsers); // Takes the recently modified arrayList and saves it to the file
 							
 							

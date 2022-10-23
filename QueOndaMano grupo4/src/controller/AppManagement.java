@@ -227,6 +227,7 @@ public class AppManagement {
 	        imo = ImageIO.read(new File(PostFilePath));
 			String resolution = (imo.getHeight()) + "X" + imo.getWidth();
 			newImg = new ImagePost(Author, postLink, extension, resolution, ImgSize);
+			newImg.setPostType(4);
 			
 			return newImg;
 			
@@ -264,6 +265,7 @@ public class AppManagement {
 			
 			
 			newVideo = new Video(Author, postLink, frameRate, ImgSize);
+			newVideo.setPostType(5);
 			return newVideo;
 			
 		} catch (Exception e) {
@@ -301,6 +303,9 @@ public class AppManagement {
 			Double AudioSize = (double) (file.length() / 1000);
 			
 			newAudio = new Audio(Author, postLink, SampleRatio, bitDepth, AudioSize);
+			newAudio.setPostType(3);
+			return newAudio;
+			
 		} catch (Exception e) {
 			System.out.println("No se pudo completar la tarea, puede que el archivo "
 					+ "seleccionado no corresponda al tipo de archivo que se desea postear");
