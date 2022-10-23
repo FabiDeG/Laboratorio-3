@@ -90,8 +90,6 @@ public abstract class User implements Serializable{
 	public void setUserPosts(ArrayList<Post> userPosts) {
 		UserPosts = userPosts;
 	}
-
-	public abstract String get(int i);
 	
 	
 	

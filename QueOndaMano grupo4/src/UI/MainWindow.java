@@ -2,6 +2,7 @@ package UI;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import UI.content;
 import controller.AppManagement;
 import controller.FileManager;
 import model.NUser;
@@ -56,7 +57,7 @@ import javax.swing.JList;
 import javax.swing.JOptionPane;
 
 /**
- * Main window that have all the bottons and search
+ * Main window that have all the bottons and txt to start posting and search
  * @author Fabi
  *
  */
@@ -87,6 +88,7 @@ public class MainWindow extends JFrame{
 	private AppManagement appMan;
 	
 	
+	content ventanita;
 	/**
 	 * Launch the application.
 	 */
