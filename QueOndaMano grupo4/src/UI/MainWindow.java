@@ -397,4 +397,8 @@ public class MainWindow extends JFrame{
 	public void setAllsavedUsers(ArrayList<User> allsavedUsers) {
 		AllsavedUsers = allsavedUsers;
 	}
+	
+	public void UpdateUI() {
+		
+	}
 }
