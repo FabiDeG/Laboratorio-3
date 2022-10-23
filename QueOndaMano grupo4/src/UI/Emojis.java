@@ -51,7 +51,7 @@ public class Emojis extends JFrame {
 			}
 		});
 		btnhappyface.setIcon(new ImageIcon(Emojis.class.getResource("/documents/happyface.png")));
-		btnhappyface.setBounds(10, 10, 50, 50);
+		btnhappyface.setBounds(48, 33, 50, 50);
 		contentPane.add(btnhappyface);
 		
 		JButton btnreallyhappy = new JButton("");
@@ -61,7 +61,7 @@ public class Emojis extends JFrame {
 			}
 		});
 		btnreallyhappy.setIcon(new ImageIcon(Emojis.class.getResource("/documents/reallyhappy.png")));
-		btnreallyhappy.setBounds(76, 10, 50, 52);
+		btnreallyhappy.setBounds(128, 31, 50, 52);
 		contentPane.add(btnreallyhappy);
 		
 		JButton btnguinio = new JButton("");
@@ -71,7 +71,7 @@ public class Emojis extends JFrame {
 			}
 		});
 		btnguinio.setIcon(new ImageIcon(Emojis.class.getResource("/documents/;).png")));
-		btnguinio.setBounds(144, 10, 50, 52);
+		btnguinio.setBounds(212, 33, 50, 52);
 		contentPane.add(btnguinio);
 		
 		JButton btnsorprendido = new JButton("");
@@ -80,29 +80,19 @@ public class Emojis extends JFrame {
 				textField.setText("⊙﹏⊙");
 			}
 		});
-		btnsorprendido.setIcon(new ImageIcon(Emojis.class.getResource("/documents/sorpresa.png")));
-		btnsorprendido.setBounds(212, 10, 50, 50);
+		btnsorprendido.setIcon(new ImageIcon(Emojis.class.getResource("/documents/sorprendido.png")));
+		btnsorprendido.setBounds(293, 33, 50, 50);
 		contentPane.add(btnsorprendido);
 		
 		JButton btngaru = new JButton("");
-		btngaru.setIcon(new ImageIcon(Emojis.class.getResource("/documents/garu.png")));
+		btngaru.setIcon(null);
 		btngaru.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textField.setText("ಠ_ಠ");
 			}
 		});
-		btngaru.setBounds(280, 10, 50, 52);
+		btngaru.setBounds(90, 104, 50, 50);
 		contentPane.add(btngaru);
-		
-		JButton btnlloro = new JButton("");
-		btnlloro.setIcon(new ImageIcon(Emojis.class.getResource("/documents/lloro.png")));
-		btnlloro.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				textField.setText("ಥ_ಥ");
-			}
-		});
-		btnlloro.setBounds(347, 10, 50, 52);
-		contentPane.add(btnlloro);
 		
 		JButton btntroste = new JButton("");
 		btntroste.addActionListener(new ActionListener() {
@@ -110,28 +100,28 @@ public class Emojis extends JFrame {
 				textField.setText("(҂◡_◡)");
 			}
 		});
-		btntroste.setIcon(new ImageIcon(Emojis.class.getResource("/documents/sad.png")));
-		btntroste.setBounds(419, 10, 50, 50);
+		btntroste.setIcon(null);
+		btntroste.setBounds(170, 104, 50, 50);
 		contentPane.add(btntroste);
 		
 		JButton btnwtf = new JButton("");
-		btnwtf.setIcon(new ImageIcon(Emojis.class.getResource("/documents/wtf.png")));
+		btnwtf.setIcon(null);
 		btnwtf.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textField.setText("（　ﾟДﾟ）");
 			}
 		});
-		btnwtf.setBounds(487, 10, 50, 50);
+		btnwtf.setBounds(251, 104, 50, 50);
 		contentPane.add(btnwtf);
 		
 		JButton btnuy = new JButton("");
-		btnuy.setIcon(new ImageIcon(Emojis.class.getResource("/documents/uy.png")));
+		btnuy.setIcon(null);
 		btnuy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textField.setText("( ͡° ͜ʖ ͡°)");
 			}
 		});
-		btnuy.setBounds(10, 72, 50, 50);
+		btnuy.setBounds(337, 104, 50, 50);
 		contentPane.add(btnuy);
 		
 		JButton btnloveeyes = new JButton("");
@@ -140,18 +130,18 @@ public class Emojis extends JFrame {
 				textField.setText("♥‿♥");
 			}
 		});
-		btnloveeyes.setIcon(new ImageIcon(Emojis.class.getResource("/documents/loveeyes.png")));
-		btnloveeyes.setBounds(76, 72, 50, 50);
+		btnloveeyes.setIcon(null);
+		btnloveeyes.setBounds(419, 104, 50, 50);
 		contentPane.add(btnloveeyes);
 		
 		JButton btnheart = new JButton("");
 		btnheart.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				textField.setText("♥");
+				textField.setText("<3");
 			}
 		});
 		btnheart.setIcon(new ImageIcon(Emojis.class.getResource("/documents/heart.png")));
-		btnheart.setBounds(144, 72, 50, 50);
+		btnheart.setBounds(48, 174, 50, 50);
 		contentPane.add(btnheart);
 		
 		JButton btnbeso = new JButton("");
@@ -160,8 +150,8 @@ public class Emojis extends JFrame {
 				textField.setText("( ˘ ³˘)♥");
 			}
 		});
-		btnbeso.setIcon(new ImageIcon(Emojis.class.getResource("/documents/beso.png")));
-		btnbeso.setBounds(212, 72, 50, 50);
+		btnbeso.setIcon(null);
+		btnbeso.setBounds(128, 174, 50, 50);
 		contentPane.add(btnbeso);
 		
 		JButton btnconsternado = new JButton("");
@@ -171,7 +161,7 @@ public class Emojis extends JFrame {
 			}
 		});
 		btnconsternado.setIcon(new ImageIcon(Emojis.class.getResource("/documents/consternado.png")));
-		btnconsternado.setBounds(280, 72, 50, 50);
+		btnconsternado.setBounds(212, 174, 50, 50);
 		contentPane.add(btnconsternado);
 		
 		JButton btnFabi = new JButton("");
@@ -181,7 +171,7 @@ public class Emojis extends JFrame {
 			}
 		});
 		btnFabi.setIcon(new ImageIcon(Emojis.class.getResource("/documents/faby.png")));
-		btnFabi.setBounds(347, 72, 50, 50);
+		btnFabi.setBounds(293, 174, 50, 50);
 		contentPane.add(btnFabi);
 		
 		JButton btnojitos = new JButton("");
@@ -190,92 +180,36 @@ public class Emojis extends JFrame {
 				textField.setText("(｡◕‿◕｡)");
 			}
 		});
-		btnojitos.setIcon(new ImageIcon(Emojis.class.getResource("/documents/ojitos.png")));
-		btnojitos.setBounds(419, 72, 50, 50);
+		btnojitos.setIcon(null);
+		btnojitos.setBounds(371, 174, 50, 50);
 		contentPane.add(btnojitos);
 		
 		JButton btnestilo = new JButton("");
-		btnestilo.setIcon(new ImageIcon(Emojis.class.getResource("/documents/estilo.png")));
+		btnestilo.setIcon(null);
 		btnestilo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textField.setText("(っ▀-▀)つ");
 			}
 		});
-		btnestilo.setBounds(487, 72, 50, 50);
+		btnestilo.setBounds(455, 174, 50, 50);
 		contentPane.add(btnestilo);
-		
-		JButton btnNewButton_2_1_1_1_1_1_1_1_1 = new JButton("");
-		btnNewButton_2_1_1_1_1_1_1_1_1.setBounds(10, 134, 50, 52);
-		contentPane.add(btnNewButton_2_1_1_1_1_1_1_1_1);
-		
-		JButton btnNewButton_2_1_1_1_1_1_1_1_1_1 = new JButton("");
-		btnNewButton_2_1_1_1_1_1_1_1_1_1.setBounds(76, 134, 50, 52);
-		contentPane.add(btnNewButton_2_1_1_1_1_1_1_1_1_1);
-		
-		JButton btnNewButton_2_1_1_1_1_1_1_1_1_1_1 = new JButton("");
-		btnNewButton_2_1_1_1_1_1_1_1_1_1_1.setBounds(144, 134, 50, 52);
-		contentPane.add(btnNewButton_2_1_1_1_1_1_1_1_1_1_1);
-		
-		JButton btnNewButton_2_1_1_1_1_1_1_1_1_1_1_1 = new JButton("");
-		btnNewButton_2_1_1_1_1_1_1_1_1_1_1_1.setBounds(212, 134, 50, 52);
-		contentPane.add(btnNewButton_2_1_1_1_1_1_1_1_1_1_1_1);
-		
-		JButton btnNewButton_2_1_1_1_1_1_1_1_1_1_1_1_1 = new JButton("");
-		btnNewButton_2_1_1_1_1_1_1_1_1_1_1_1_1.setBounds(280, 134, 50, 52);
-		contentPane.add(btnNewButton_2_1_1_1_1_1_1_1_1_1_1_1_1);
-		
-		JButton btnNewButton_2_1_1_1_1_1_1_1_1_1_1_1_1_1 = new JButton("");
-		btnNewButton_2_1_1_1_1_1_1_1_1_1_1_1_1_1.setBounds(347, 134, 50, 52);
-		contentPane.add(btnNewButton_2_1_1_1_1_1_1_1_1_1_1_1_1_1);
-		
-		JButton btnNewButton_2_1_1_1_1_1_1_1_1_1_1_1_1_1_1 = new JButton("");
-		btnNewButton_2_1_1_1_1_1_1_1_1_1_1_1_1_1_1.setBounds(419, 134, 50, 52);
-		contentPane.add(btnNewButton_2_1_1_1_1_1_1_1_1_1_1_1_1_1_1);
-		
-		JButton btnNewButton_2_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1 = new JButton("");
-		btnNewButton_2_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1.setBounds(487, 134, 50, 52);
-		contentPane.add(btnNewButton_2_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1);
-		
-		JButton btnNewButton_2_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1 = new JButton("");
-		btnNewButton_2_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1.setBounds(10, 196, 50, 52);
-		contentPane.add(btnNewButton_2_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1);
-		
-		JButton btnNewButton_2_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1 = new JButton("");
-		btnNewButton_2_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1.setBounds(76, 196, 50, 52);
-		contentPane.add(btnNewButton_2_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1);
-		
-		JButton btnNewButton_2_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1 = new JButton("");
-		btnNewButton_2_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1.setBounds(144, 196, 50, 52);
-		contentPane.add(btnNewButton_2_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1);
-		
-		JButton btnNewButton_2_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1 = new JButton("");
-		btnNewButton_2_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1.setBounds(212, 196, 50, 52);
-		contentPane.add(btnNewButton_2_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1);
-		
-		JButton btnNewButton_2_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1 = new JButton("");
-		btnNewButton_2_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1.setBounds(280, 196, 50, 52);
-		contentPane.add(btnNewButton_2_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1);
-		
-		JButton btnNewButton_2_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1 = new JButton("");
-		btnNewButton_2_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1.setBounds(347, 196, 50, 52);
-		contentPane.add(btnNewButton_2_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1);
-		
-		JButton btnNewButton_2_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1 = new JButton("");
-		btnNewButton_2_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1.setBounds(419, 196, 50, 52);
-		contentPane.add(btnNewButton_2_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1);
-		
-		JButton btnNewButton_2_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1 = new JButton("");
-		btnNewButton_2_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1.setBounds(487, 196, 50, 52);
-		contentPane.add(btnNewButton_2_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1);
 		
 		textField = new JTextField();
 		textField.setBounds(10, 260, 470, 50);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
-		JButton btnNewButton_2_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1 = new JButton("");
-		btnNewButton_2_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1.setIcon(new ImageIcon(Emojis.class.getResource("/documents/klksdf.png")));
-		btnNewButton_2_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1.setBounds(487, 258, 55, 52);
-		contentPane.add(btnNewButton_2_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1);
+		JButton bntsend = new JButton("");
+		bntsend.setIcon(new ImageIcon(Emojis.class.getResource("/documents/klksdf.png")));
+		bntsend.setBounds(487, 258, 55, 52);
+		contentPane.add(bntsend);
+		
+		JButton btnuy_1 = new JButton("");
+		btnuy_1.setBounds(371, 33, 50, 50);
+		contentPane.add(btnuy_1);
+		
+		JButton btnuy_1_1 = new JButton("");
+		btnuy_1_1.setBounds(455, 33, 50, 50);
+		contentPane.add(btnuy_1_1);
 	}
 }
