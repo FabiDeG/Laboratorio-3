@@ -164,7 +164,7 @@ public class MainWindow extends JFrame{
 				String strFromHashTag = txtSearch.getText().trim();
 				if (strFromHashTag != null && !strFromHashTag.isEmpty()) {
 					ArrayList<Post> postsSearchedByHashTag = appMan.SearchPostByhastag(strFromHashTag, currentUser.getUserPosts());
-					JOptionPane.showMessageDialog(null, "Search by #", "Información", JOptionPane.WARNING_MESSAGE, null);
+					JOptionPane.showMessageDialog(null, "Search by #", "Informacion", JOptionPane.WARNING_MESSAGE, null);
 					//Take the postsSearchedByHashTag and put them in the display list
 				}
 			}
@@ -191,7 +191,7 @@ public class MainWindow extends JFrame{
 				//UserProfileWindow miProfile = new UserProfileWindow();
 				//miProfile.show();
 				ArrayList<Post> postsSearchedByUser = appMan.SearchPostByAuthor(currentUser.getUsername(), currentUser.getUserPosts());
-				JOptionPane.showMessageDialog(null, "Search by USER", "Informacion", JOptionPane.WARNING_MESSAGE, null);
+				JOptionPane.showMessageDialog(null, "Search by USER", "Informacin", JOptionPane.WARNING_MESSAGE, null);
 				//Take the postsSearchedByUser and put them in the display list
 			}
 		});
