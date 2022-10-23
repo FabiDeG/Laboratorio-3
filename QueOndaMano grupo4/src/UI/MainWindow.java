@@ -358,6 +358,7 @@ public class MainWindow extends JFrame{
 					postToSave.setHashtags(hashTagsArr);
 					// Save the Post
 					appMan.SavePostToUser(AllsavedUsers, currentUser, postToSave);
+					FileManager.SaveAllUsersToFile(AllsavedUsers); // Takes the recently modified arrayList and saves it to the file
 				}
 			}
 		});
