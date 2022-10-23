@@ -90,24 +90,17 @@ public class AppManagement {
 	 * @param posts, Lista de todos los posts disponibles
 	 * @return lista de todos los posts con la fecha especificada
 	 */
-	public ArrayList<Post> SearchPostByDate(String date, ArrayList<User> AllUsers){
+	public ArrayList<Post> SearchPostByDate(String date, ArrayList<Post> posts){
 		
 		ArrayList<Post> ListOfPostsByDate = new ArrayList<Post>();
 		
-		//Searching for matvhin hashtag in each user
-		for (User aUser : AllUsers) {					
+		for (Post post : posts) {
 			
-			// Search applies to every post
-			for (Post post : aUser.getUserPosts()) {
-					
-				if(date.equals(post.getDate())) { // If the post has the hashtag it is stored in the list
-					ListOfPostsByDate.add(post);
-				}
-				
-						
+			if(date.equals(post.getDate())) {
+				ListOfPostsByDate.add(post);
 			}
-					
 		}
+		
 		return ListOfPostsByDate;
 	}
 	
@@ -117,29 +110,22 @@ public class AppManagement {
 	 * @param posts lista de todos los posts disponibles
 	 * @return una lista con todos los posts que contienen el hastag solicitado
 	 */
-	public ArrayList<Post> SearchPostByhastag(String Hashtag, ArrayList<User> AllUsers){
+	public ArrayList<Post> SearchPostByhastag(String Hashtag, ArrayList<Post> posts){
 		
 		//List where al posts with a matching hastag weill appear
 		ArrayList<Post> ListOfPostsWithHastag = new ArrayList<Post>();
 		
-		//Searching for matvhin hashtag in each user
-		for (User aUser : AllUsers) {
-			
-			// Search applies to every post
-			for (Post post : aUser.getUserPosts()) {
+		// Search applies to every post
+		for (Post post : posts) {
+			// and the loop check every string in the array list of hastags that the post has
+			for (String _HashtagInList : post.getHashtags()) {
 				
-				// and the loop check every string in the array list of hastags that the post has
-				for (String _HashtagInList : post.getHashtags()) {
-					
-					if(Hashtag.equals(_HashtagInList)) { // If the post has the hashtag it is stored in the list
-						ListOfPostsWithHastag.add(post);
-					}
+				if(Hashtag.equals(_HashtagInList)) { // If the post has the hastag it is stored in the list
+					ListOfPostsWithHastag.add(post);
 				}
-					
 			}
-			
+				
 		}
-		
 		return ListOfPostsWithHastag;
 	}		
 	
@@ -149,20 +135,13 @@ public class AppManagement {
 	 * @param posts todos los posts disponibles
 	 * @return una lista con todos los posts que ha realizado un usuario
 	 */
-	public ArrayList<Post> SearchPostByAuthor(String user, ArrayList<User> postsAllUsers){
+	public ArrayList<Post> SearchPostByAuthor(String user, ArrayList<Post> posts){
 		
 		ArrayList<Post> PostsWithSpecAuthor = new ArrayList<Post>();
 		
-		//Looking int the users
-		for (User aUser : postsAllUsers) {
-			
-			for (Post post : aUser.getUserPosts()) {
-				
-				//Looking for a matching username
-				if(user.equals(post.getAuthor())) {
-					PostsWithSpecAuthor.add(post);
-				}
-				
+		for (Post post : posts) {
+			if(user.equals(post.getAuthor())) {
+				PostsWithSpecAuthor.add(post);
 			}
 		}
 		
