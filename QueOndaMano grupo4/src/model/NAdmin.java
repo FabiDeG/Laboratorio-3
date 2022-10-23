@@ -9,4 +9,10 @@ public class NAdmin extends User implements Serializable{
 		setTipo(0);
 	}
 
+	@Override
+	public String get(int i) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
