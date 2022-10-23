@@ -130,7 +130,13 @@ public class MainWindow extends JFrame{
 		FileManager FileManager = new FileManager();
 		AllsavedUsers = FileManager.getUsersFromFile();
 		// Current user that is using the program (Temporarily set to the first saved user in the file, to make tests)
-		currentUser = TheCurrentuser;
+		for (User user : AllsavedUsers) {
+			if(user.getUsername().equals(TheCurrentuser.getUsername())) {
+				currentUser = user;
+			}
+		}
+		
+		
 		
 		// Initialize the controller variables
 		appMan = new AppManagement();
@@ -180,7 +186,7 @@ public class MainWindow extends JFrame{
 		// ******************************************************
 		// * FIRST GROUP OF ITEMS
 		// ******************************************************
-		// Search USER by ID
+		// Make a search with an specific criteria
 		btnNewButton_3 = new JButton("");
 		panel1.add(btnNewButton_3);
 		btnNewButton_3.setIcon(new ImageIcon(MainWindow.class.getResource("/documents/asdfer.jpg")));
