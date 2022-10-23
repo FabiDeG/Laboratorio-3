@@ -70,7 +70,7 @@ public class SignInWindow extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblholaNosComplace = new JLabel("¡Hola!");
+		JLabel lblholaNosComplace = new JLabel("ï¿½Hola!");
 		lblholaNosComplace.setFont(new Font("Monospaced", Font.PLAIN, 16));
 		lblholaNosComplace.setBounds(172, 21, 71, 41);
 		contentPane.add(lblholaNosComplace);
