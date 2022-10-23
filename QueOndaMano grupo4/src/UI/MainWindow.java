@@ -169,7 +169,7 @@ public class MainWindow extends JFrame{
 		});
 		
 		btnNewButton_7 = new JButton("");
-		btnNewButton_7.setIcon(new ImageIcon(MainWindow.class.getResource("/documents/adefds.jpg")));
+		btnNewButton_7.setIcon(new ImageIcon(MainWindow.class.getResource("/documents/izquierdo.png")));
 		btnNewButton_7.setPreferredSize(new Dimension(50, 50));
 		btnNewButton_7.setMinimumSize(new Dimension(96, 50));
 		panel1.add(btnNewButton_7);
@@ -182,7 +182,7 @@ public class MainWindow extends JFrame{
 		panel1.add(btnNewButton_5);
 		
 		btnNewButton_6 = new JButton("");
-		btnNewButton_6.setIcon(new ImageIcon(MainWindow.class.getResource("/documents/adefds.jpg")));
+		btnNewButton_6.setIcon(new ImageIcon(MainWindow.class.getResource("/documents/derecho.png")));
 		btnNewButton_6.setPreferredSize(new Dimension(50, 50));
 		btnNewButton_6.setMinimumSize(new Dimension(96, 50));
 		panel1.add(btnNewButton_6);
