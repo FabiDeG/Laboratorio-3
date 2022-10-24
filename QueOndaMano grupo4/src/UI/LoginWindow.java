@@ -32,22 +32,6 @@ public class LoginWindow extends JFrame {
 	LoginWindow LoginFrame;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					LoginWindow frame = new LoginWindow();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the frame.
 	 * @param txtUser, este txt recibira la informacion del nombre de usuario
 	 * @param txtPass, este txt recibira la informacion de la contrasena
