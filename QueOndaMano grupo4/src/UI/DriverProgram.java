@@ -10,7 +10,7 @@ public class DriverProgram {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					LoginWindow frame = new LoginWindow();
+					InitialWindow frame = new InitialWindow();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
