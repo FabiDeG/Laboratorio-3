@@ -182,9 +182,9 @@ public class MainWindow extends JFrame{
 		panel1.add(btnNewButton_7);
 		
 		btnNewButton_5 = new JButton("");
-		btnNewButton_5.setIcon(new ImageIcon(MainWindow.class.getResource("/documents/Captura de pantalla 2022-10-16 235935.jpg")));
-		btnNewButton_5.setSelectedIcon(new ImageIcon(MainWindow.class.getResource("/documents/Captura de pantalla 2022-10-16 235935.jpg")));
-		btnNewButton_5.setPreferredSize(new Dimension(275, 60));
+		btnNewButton_5.setIcon(new ImageIcon(MainWindow.class.getResource("/documents/logo.png")));
+		btnNewButton_5.setSelectedIcon(new ImageIcon(MainWindow.class.getResource("/documents/izquierdo.png")));
+		btnNewButton_5.setPreferredSize(new Dimension(325, 60));
 		btnNewButton_5.setMinimumSize(new Dimension(70, 50));
 		panel1.add(btnNewButton_5);
 		
@@ -220,7 +220,7 @@ public class MainWindow extends JFrame{
 		JList posts = new JList();
 		posts.setModel(modelo);
 		posts.setMinimumSize(new Dimension(400, 200));
-		posts.setPreferredSize(new Dimension(400, 200));
+		posts.setPreferredSize(new Dimension(450, 200));
 		UpdateUI(modelo);
 		// Show the posts from the current user
 		/*
@@ -234,7 +234,7 @@ public class MainWindow extends JFrame{
 		*/
 		// Comment button
 		btnComentar = new JButton("Comentar");
-		btnComentar.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnComentar.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		btnComentar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//UserProfileWindow miProfile = new UserProfileWindow();
@@ -283,11 +283,12 @@ public class MainWindow extends JFrame{
 		Box col = Box.createVerticalBox();
 		
 		btnRefresh = new JButton("Refresh");
+		btnRefresh.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		col.add(btnRefresh);
 		col.add(btnComentar);
 		col.add(btnLike);
 		btnRefresh.setMinimumSize(new Dimension(100, 50));
-		btnRefresh.setPreferredSize(new Dimension(100, 50));
+		btnRefresh.setPreferredSize(new Dimension(60, 50));
 		btnRefresh.setMaximumSize(new Dimension(100, 50));
 		JPanel panel2 = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
 		
@@ -302,6 +303,16 @@ public class MainWindow extends JFrame{
 		panel2.add(col);
 		
 		btnDelete = new JButton("Delete");
+		btnDelete.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		btnDelete.setMinimumSize(new Dimension(100, 50));
+		btnDelete.setPreferredSize(new Dimension(60, 50));
+		btnDelete.setMaximumSize(new Dimension(100, 50));
+		btnDelete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int selectedPost = posts.getSelectedIndex();
+						modelo.remove(selectedPost);
+			}
+		});
 		if(currentUser.getTipo() == 0) {
 			col.add(btnDelete);
 		}
@@ -321,7 +332,6 @@ public class MainWindow extends JFrame{
 		txtComentar = new JTextField();
 		txtComentar.setHorizontalAlignment(SwingConstants.RIGHT);
 		txtComentar.setForeground(Color.BLACK);
-		txtComentar.setText("dff");
 		txtComentar.setBounds(0, 647, 851, 69);
 		txtComentar.setFont(new Font("Times New Roman", Font.PLAIN, 18));
 		txtComentar.setColumns(15);
