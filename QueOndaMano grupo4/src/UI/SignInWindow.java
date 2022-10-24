@@ -63,14 +63,14 @@ public class SignInWindow extends JFrame {
 		FileManager filemanager = new FileManager();
 		AppManagement AppManage = new AppManagement();
 		
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 442, 520);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblholaNosComplace = new JLabel("¡Hola!");
+		JLabel lblholaNosComplace = new JLabel("ï¿½Hola!");
 		lblholaNosComplace.setFont(new Font("Monospaced", Font.PLAIN, 16));
 		lblholaNosComplace.setBounds(172, 21, 71, 41);
 		contentPane.add(lblholaNosComplace);
