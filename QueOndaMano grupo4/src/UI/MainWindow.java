@@ -4,8 +4,13 @@ import java.awt.EventQueue;
 import UI.content;
 import controller.AppManagement;
 import controller.FileManager;
+import model.Audio;
+import model.EmojiPost;
+import model.ImagePost;
+import model.MediaPost;
 import model.NUser;
 import model.User;
+import model.Video;
 import model.Post;
 import model.TxtPost;
 import UI.Search;
@@ -85,6 +90,7 @@ public class MainWindow extends JFrame{
 	private JButton btnNewButton_5;
 	private JButton btnNewButton_6;
 	private JButton btnNewButton_7;
+	private JButton btnRefresh;
 	/**
 	 * Launch the application.
 	 */
@@ -141,7 +147,7 @@ public class MainWindow extends JFrame{
 		//--------------------------------------------------------------
 		Toolkit screenData = this.getToolkit();
 		Dimension tama = screenData.getScreenSize();
-		this.setSize(583, 406);
+		this.setSize(546, 422);
 		this.setLocationRelativeTo(null);
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(new BorderLayout(3, 3));
@@ -214,6 +220,7 @@ public class MainWindow extends JFrame{
 		posts.setModel(modelo);
 		posts.setMinimumSize(new Dimension(400, 200));
 		posts.setPreferredSize(new Dimension(400, 200));
+		UpdateUI(modelo);
 		// Show the posts from the current user
 		/*
 		ArrayList<Post> userPosts = currentUser.getUserPosts();
@@ -273,9 +280,22 @@ public class MainWindow extends JFrame{
 		
 		
 		Box col = Box.createVerticalBox();
+		
+		btnRefresh = new JButton("Refresh");
+		col.add(btnRefresh);
 		col.add(btnComentar);
 		col.add(btnLike);
+		btnRefresh.setMinimumSize(new Dimension(100, 50));
+		btnRefresh.setPreferredSize(new Dimension(100, 50));
+		btnRefresh.setMaximumSize(new Dimension(100, 50));
 		JPanel panel2 = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
+		
+		btnRefresh.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				modelo.removeAllElements();
+				UpdateUI(modelo);
+			}
+		});
 		
 		panel2.add(posts);
 		panel2.add(col);
@@ -398,7 +418,72 @@ public class MainWindow extends JFrame{
 		AllsavedUsers = allsavedUsers;
 	}
 	
-	public void UpdateUI() {
-		
+	public void UpdateUI(DefaultListModel<String> modelo) {
+		//This part is for looking over every user (All users must be the arrayList Of all saved in users)
+		for (User aUser : getAllsavedUsers()) {
+					
+					//For each user post, check which type of post it is
+					for (Post aPost : aUser.getUserPosts()) {
+						
+						//Each condition uis for a diferent type of post as each have diferent qualities
+						if (aPost.getPostType() == 1) {
+							System.out.println("Emoji");
+							modelo.addElement("Por: " + aPost.getAuthor() + " " +  aPost.getDate() + "Post: "+ ((EmojiPost) aPost).getPostEmoji() + " Likes " + aPost.getLikes());
+							
+							String listString = String.join(", ", aPost.getHashtags());
+							modelo.addElement(listString);
+							String List2 = String.join(", ", aPost.getComments());
+							modelo.addElement(List2);
+						}
+						
+						else if (aPost.getPostType() == 2) {
+							System.out.println("txt");
+							modelo.addElement("Por: " + aPost.getAuthor() + " " +  aPost.getDate() + " Post: "+ ((TxtPost) aPost).getPostMSG() + " Likes " + aPost.getLikes());
+							
+							String listString = String.join(", ", aPost.getHashtags());
+							modelo.addElement(listString);
+							String List2 = String.join(", ", aPost.getComments());
+							modelo.addElement(List2);
+						}
+						
+						else if (aPost.getPostType() == 3) {
+							System.out.println("Aud");
+							
+							modelo.addElement("Autor:  " + aPost.getAuthor() + " " + aPost.getDate() + " Link: " + ((MediaPost) aPost).getLink()+ " SampleRatio " + ((Audio) aPost).getSampleRatio()
+									+ " BitDepth " + ((Audio) aPost).getBitDepth() + " Size In KB: " + ((Audio) aPost).getProgramSize() + " Likes: " + aPost.getLikes());
+
+							
+							String listString = String.join(", ", aPost.getHashtags());
+							modelo.addElement(listString);
+							String List2 = String.join(", ", aPost.getComments());
+							modelo.addElement(List2);
+						}
+						
+						else if (aPost.getPostType() == 4) {
+							System.out.println("Img");
+							modelo.addElement("Autor:  " + aPost.getAuthor() + " " + aPost.getDate() + " Link: " + ((MediaPost) aPost).getLink()+ " Resolucion: " + ((ImagePost) aPost).getResolution()
+									+ " Format: " + ((ImagePost) aPost).getFormat() + " Size In KB: " + ((ImagePost) aPost).getProgramSize() + " Likes: " + aPost.getLikes());
+
+							String listString = String.join(", ", aPost.getHashtags());
+							modelo.addElement(listString);
+							
+							String List2 = String.join(", ", aPost.getComments());
+							modelo.addElement(List2);
+						}
+						
+						else if (aPost.getPostType() == 5) {
+							System.out.println("vid");
+							modelo.addElement("Autor:  " + aPost.getAuthor() + " " + aPost.getDate() + " Link: " + ((MediaPost) aPost).getLink()+ " FrameRate " + ((Video) aPost).getFrameRate()
+									+ " Size In KB: " + ((Video) aPost).getProgramSize() + " Likes: " + aPost.getLikes());
+							
+							String listString = String.join(", ", aPost.getHashtags());
+							modelo.addElement(listString);
+							String List2 = String.join(", ", aPost.getComments());
+							modelo.addElement(List2);
+						}
+						
+					}
+			}
+
 	}
 }

@@ -77,7 +77,7 @@ public class Search extends JFrame {
 		contentPane.setLayout(null);
 		
 		JButton btnSearch = new JButton("");
-		btnSearch.setIcon(new ImageIcon("C:\\Users\\fabio\\Downloads\\asdfer.jpg"));
+		btnSearch.setIcon(new ImageIcon("/documents/asdfer.png"));
 		btnSearch.setBounds(618, 15, 48, 50);
 		contentPane.add(btnSearch);
 		
@@ -198,7 +198,7 @@ public class Search extends JFrame {
 							else if (aPost.getPostType() == 5) {
 								System.out.println("vid");
 								PostList.addElement("Autor:  " + aPost.getAuthor() + " " + aPost.getDate() + " Link: " + ((MediaPost) aPost).getLink()+ " FrameRate " + ((Video) aPost).getFrameRate()
-										+ " Size In KB: " + ((Audio) aPost).getProgramSize() + " Likes: " + aPost.getLikes());
+										+ " Size In KB: " + ((Video) aPost).getProgramSize() + " Likes: " + aPost.getLikes());
 								
 								String listString = String.join(", ", aPost.getHashtags());
 								PostList.addElement(listString);
