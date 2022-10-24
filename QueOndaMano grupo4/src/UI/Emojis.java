@@ -6,6 +6,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import controller.AppManagement;
+import controller.FileManager;
+
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.ImageIcon;
@@ -13,31 +17,21 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 
+import model.EmojiPost;
+import model.User;
+import java.util.ArrayList;
+
 public class Emojis extends JFrame {
 
+	
 	private JPanel contentPane;
 	private JTextField txtKk;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Emojis frame = new Emojis();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the frame.
 	 */
-	public Emojis() {
+	public Emojis(ArrayList<User> AllUsers, User ActualUser) {
+		AppManagement AppManage = new AppManagement();
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 561, 363);
 		contentPane = new JPanel();
@@ -205,6 +199,14 @@ public class Emojis extends JFrame {
 		bntsend.setIcon(new ImageIcon(Emojis.class.getResource("/documents/klksdf.png")));
 		bntsend.setBounds(487, 258, 55, 52);
 		contentPane.add(bntsend);
+		bntsend.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				EmojiPost newEmoji = new EmojiPost(ActualUser.getUsername(), txtKk.getText());
+				AppManage.SavePostToUser(AllUsers, ActualUser,newEmoji);// the post is saved to the specific user and added to the arrayList
+				FileManager fileManager = new FileManager();
+				fileManager.SaveAllUsersToFile(AllUsers);
+			}
+		});
 		
 		JButton btnnoveo = new JButton("");
 		btnnoveo.addActionListener(new ActionListener() {

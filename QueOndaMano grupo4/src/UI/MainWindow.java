@@ -91,6 +91,7 @@ public class MainWindow extends JFrame{
 	private JButton btnNewButton_6;
 	private JButton btnNewButton_7;
 	private JButton btnRefresh;
+	private JButton btnDelete;
 	/**
 	 * Launch the application.
 	 */
@@ -299,6 +300,13 @@ public class MainWindow extends JFrame{
 		
 		panel2.add(posts);
 		panel2.add(col);
+		
+		btnDelete = new JButton("Delete");
+		if(currentUser.getTipo() == 0) {
+			col.add(btnDelete);
+		}
+		
+
 		// ******************************************************
 		// * SECOND GROUP OF ITEMS
 		// ******************************************************
@@ -337,7 +345,7 @@ public class MainWindow extends JFrame{
 		btnNewButton_1 = new JButton("");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Emojis miEmoji = new Emojis();
+				Emojis miEmoji = new Emojis(AllsavedUsers, currentUser);
 				miEmoji.show();
 			}
 		});
